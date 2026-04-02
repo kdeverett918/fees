@@ -173,6 +173,11 @@ export default function ForPatientsPage() {
         <h2 className="text-2xl font-semibold text-foreground">
           How to Prepare
         </h2>
+        <img
+          src="/images/start/prepare.jpg"
+          alt="Patient being prepared for a FEES evaluation"
+          className="w-full h-auto rounded-[var(--radius)] shadow-sm"
+        />
         <p className="text-muted-foreground">
           There is very little you need to do before your FEES evaluation. Here
           is a simple checklist:
@@ -202,6 +207,11 @@ export default function ForPatientsPage() {
         <h2 className="text-2xl font-semibold text-foreground">
           Understanding Your Results
         </h2>
+        <img
+          src="/images/fees/results-discussion.jpg"
+          alt="Speech-language pathologist discussing FEES results with patient and family"
+          className="w-full h-auto rounded-[var(--radius)] shadow-sm"
+        />
         <p className="text-muted-foreground leading-relaxed">
           After your evaluation, your clinician will explain the findings and
           what they mean for you. Here are some terms you might hear:

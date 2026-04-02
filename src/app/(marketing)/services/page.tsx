@@ -32,6 +32,13 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 export default function ServicesPage() {
   return (
     <div className="container mx-auto max-w-4xl px-4 py-12 space-y-16">
+      {/* Hero Banner */}
+      <img
+        src="/images/services/mobile-arrival.jpg"
+        alt="Speech-language pathologist arriving at a healthcare facility with portable FEES equipment"
+        className="w-full h-auto rounded-[var(--radius)] shadow-sm"
+      />
+
       {/* Header */}
       <PageHeader
         title="Our Services"
@@ -59,6 +66,15 @@ export default function ServicesPage() {
                   </div>
                 </div>
               </CardHeader>
+              {service.id === "training" && (
+                <div className="px-6 pb-2">
+                  <img
+                    src="/images/services/staff-training.jpg"
+                    alt="Staff training presentation on dysphagia management"
+                    className="w-full h-auto rounded-[var(--radius)] shadow-sm"
+                  />
+                </div>
+              )}
               <CardContent>
                 <ul className="space-y-2">
                   {service.details.map((detail) => (

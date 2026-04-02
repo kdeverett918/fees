@@ -60,12 +60,11 @@ export default function AboutPage() {
       {/* Professional Photo + Bio */}
       <section className="grid gap-8 md:grid-cols-3">
         <div className="md:col-span-1">
-          <div className="aspect-[3/4] w-full rounded-[var(--radius)] bg-muted border border-border flex items-center justify-center">
-            <div className="text-center text-muted-foreground text-sm p-4">
-              <Stethoscope className="mx-auto mb-2 h-10 w-10 text-primary" />
-              <p>Professional headshot</p>
-            </div>
-          </div>
+          <img
+            src="/images/about/headshot.jpg"
+            alt="Kristine Everett, M.S., CCC-SLP — speech-language pathologist"
+            className="aspect-[3/4] w-full rounded-[var(--radius)] shadow-md object-cover"
+          />
         </div>
         <div className="md:col-span-2 space-y-4">
           <h2 className="text-2xl font-semibold text-foreground">

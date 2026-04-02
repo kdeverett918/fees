@@ -89,6 +89,13 @@ const credentialItems = [
 export default function ForFacilitiesPage() {
   return (
     <div className="container mx-auto max-w-4xl px-4 py-12 space-y-16">
+      {/* Hero Banner */}
+      <img
+        src="/images/start/facility.jpg"
+        alt="Healthcare facility hallway"
+        className="w-full h-auto rounded-[var(--radius)] shadow-sm"
+      />
+
       {/* Header */}
       <PageHeader
         title="For Healthcare Facilities"

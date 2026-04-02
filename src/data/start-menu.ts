@@ -8,7 +8,7 @@ export const startMenuItems: StartMenuItem[] = [
     label: "Schedule FEES Evaluations",
     description:
       "Bring mobile FEES directly to your facility. No patient transfers needed — we come to you with full portable equipment.",
-    image: "/images/start/schedule.jpg",
+    image: "/images/services/mobile-arrival.jpg",
     href: "/contact",
   },
   {
@@ -17,7 +17,7 @@ export const startMenuItems: StartMenuItem[] = [
     label: "Learn About Mobile FEES",
     description:
       "Discover how on-site FEES evaluations reduce hospital transfers, speed up diagnosis, and improve patient outcomes.",
-    image: "/images/start/mobile-fees.jpg",
+    image: "/images/fees/equipment-setup.jpg",
     href: "/services",
   },
   {
@@ -35,7 +35,7 @@ export const startMenuItems: StartMenuItem[] = [
     label: "View Credentials",
     description:
       "Board-certified Speech-Language Pathologist with specialized FEES training and years of clinical experience.",
-    image: "/images/start/credentials.jpg",
+    image: "/images/about/headshot.jpg",
     href: "/about",
   },
   // Patient items
@@ -45,7 +45,7 @@ export const startMenuItems: StartMenuItem[] = [
     label: "What is a FEES Exam?",
     description:
       "A simple, safe procedure that helps your doctor understand how you swallow. Learn what happens step by step.",
-    image: "/images/start/what-is-fees.jpg",
+    image: "/images/fees/procedure-diagram.jpg",
     href: "/what-is-fees",
     narrationSrc: "/audio/what-is-fees.mp3",
   },
@@ -65,7 +65,7 @@ export const startMenuItems: StartMenuItem[] = [
     label: "Understanding Your Results",
     description:
       "Your FEES results explained in plain language. Learn what the findings mean and what happens next.",
-    image: "/images/start/results.jpg",
+    image: "/images/fees/results-discussion.jpg",
     href: "/for-patients#results",
     narrationSrc: "/audio/understanding-results.mp3",
   },
@@ -75,7 +75,7 @@ export const startMenuItems: StartMenuItem[] = [
     label: "Questions? Contact Us",
     description:
       "Have questions about your upcoming evaluation? We're here to help you feel comfortable and informed.",
-    image: "/images/start/contact.jpg",
+    image: "/images/start/facility.jpg",
     href: "/contact",
   },
 ];

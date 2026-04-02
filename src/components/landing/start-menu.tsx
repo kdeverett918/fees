@@ -35,13 +35,12 @@ function PreviewCard({ item }: { item: StartMenuItem }) {
       transition={{ duration: 0.2 }}
     >
       <Card className="overflow-hidden">
-        <div className="aspect-video bg-muted relative">
-          <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-sm">
-            {/* Image placeholder — will be replaced with generated images */}
-            <div className="w-full h-full bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
-              <span className="text-primary/40 text-4xl font-bold">FEES</span>
-            </div>
-          </div>
+        <div className="aspect-video bg-muted relative overflow-hidden">
+          <img
+            src={item.image}
+            alt={item.label}
+            className="w-full h-full object-cover"
+          />
         </div>
         <div className="p-6 space-y-4">
           <h3 className="text-xl font-semibold text-foreground">{item.label}</h3>

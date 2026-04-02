@@ -161,6 +161,11 @@ export default function WhatIsFeesPage() {
           can be performed at the bedside, in a nursing facility, or even in a
           patient&apos;s home.
         </p>
+        <img
+          src="/images/fees/procedure-diagram.jpg"
+          alt="Diagram illustrating the FEES procedure"
+          className="w-full h-auto rounded-[var(--radius)] shadow-sm"
+        />
       </section>
 
       {/* How It Works */}
@@ -168,6 +173,11 @@ export default function WhatIsFeesPage() {
         <h2 className="text-2xl font-semibold text-foreground">
           How It Works
         </h2>
+        <img
+          src="/images/fees/equipment-setup.jpg"
+          alt="Portable FEES equipment set up on a cart"
+          className="w-full h-auto rounded-[var(--radius)] shadow-sm"
+        />
         <div className="space-y-4">
           {steps.map((step) => (
             <div key={step.number} className="flex gap-4">
