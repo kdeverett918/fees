@@ -41,9 +41,9 @@ const credentials = [
     icon: ShieldCheck,
   },
   {
-    title: "FEES Certified",
+    title: "FEES Certified — Stanford",
     description:
-      "Specialized training and competency in fiberoptic endoscopic evaluation of swallowing",
+      "FEES certification from Stanford with all competency passes completed",
     icon: Stethoscope,
   },
 ];
@@ -72,16 +72,19 @@ export default function AboutPage() {
           </h2>
           <p className="text-muted-foreground leading-relaxed">
             Kristine Everett is a licensed speech-language pathologist with
-            extensive experience in the evaluation and treatment of swallowing
-            disorders (dysphagia). She holds a Master of Science degree in
-            Speech-Language Pathology and the Certificate of Clinical Competence
-            from the American Speech-Language-Hearing Association (ASHA).
+            9 years of clinical experience in the evaluation and treatment of
+            swallowing disorders (dysphagia). She holds a Master of Science
+            degree in Speech-Language Pathology and the Certificate of Clinical
+            Competence from the American Speech-Language-Hearing Association
+            (ASHA).
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            With years of clinical experience across hospitals, skilled nursing
-            facilities, and rehabilitation centers, Kristine has performed
-            hundreds of FEES evaluations. Her expertise spans the full spectrum
-            of dysphagia care, from bedside assessments to instrumental
+            Kristine earned her FEES certification from Stanford and has
+            successfully completed all required competency passes. With
+            extensive clinical experience across hospitals, skilled nursing
+            facilities, and rehabilitation centers, she has performed hundreds
+            of FEES evaluations. Her expertise spans the full spectrum of
+            dysphagia care, from bedside assessments to instrumental
             evaluations and treatment planning.
           </p>
           <p className="text-muted-foreground leading-relaxed">

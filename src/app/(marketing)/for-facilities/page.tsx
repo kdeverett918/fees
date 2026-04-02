@@ -80,8 +80,9 @@ const processSteps = [
 
 const credentialItems = [
   "ASHA-certified speech-language pathologist (CCC-SLP)",
+  "9 years of clinical experience",
+  "FEES certification from Stanford — all competency passes completed",
   "State licensed and fully insured",
-  "Specialized FEES training and competency",
   "HIPAA compliant documentation and communication",
   "Professional liability coverage",
 ];

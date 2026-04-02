@@ -34,7 +34,7 @@ export const startMenuItems: StartMenuItem[] = [
     role: "facility",
     label: "View Credentials",
     description:
-      "Board-certified Speech-Language Pathologist with specialized FEES training and years of clinical experience.",
+      "9 years of clinical experience. FEES certified through Stanford with all competency passes completed. ASHA-certified CCC-SLP.",
     image: "/images/about/headshot.jpg",
     href: "/about",
   },
