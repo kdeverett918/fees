@@ -38,7 +38,7 @@ const expectSteps = [
   {
     title: "We come to you",
     description:
-      "A speech-language pathologist will arrive at your facility or home with all the equipment needed. There is nothing you need to set up.",
+      "Your clinician will arrive at your facility or home with the Optim ENTity XL scope and portable HD camera — everything needed for a complete evaluation. There is nothing you need to set up.",
     icon: Heart,
   },
   {
@@ -113,7 +113,7 @@ const patientFaqs = [
   {
     question: "What if I have a sensitive gag reflex?",
     answer:
-      "The scope is placed gently and most patients tolerate it well, even those with a sensitive gag reflex. The clinician is experienced in making the process as comfortable as possible.",
+      "The ENTity XL scope is only 3.6mm wide — thinner than a piece of spaghetti. It is placed gently and most patients tolerate it well, even those with a sensitive gag reflex. Your clinician is experienced in making the process as comfortable as possible.",
   },
 ];
 

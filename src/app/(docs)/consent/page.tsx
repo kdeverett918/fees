@@ -221,10 +221,11 @@ function StepProcedureInfo() {
           <h4 className="font-semibold mb-1">Procedure Description</h4>
           <p>
             Fiberoptic Endoscopic Evaluation of Swallowing (FEES) is a
-            procedure in which a small, flexible endoscope (camera) is passed
-            through the nose to the back of the throat. The endoscope allows
-            the clinician to view the structures involved in swallowing and to
-            observe the swallowing process with various food and liquid
+            procedure in which the Optim ENTity XL, a small 3.6mm flexible
+            nasopharyngoscope, is passed through the nose to the back of the
+            throat. The scope, connected to an ESC Medicams portable HD camera,
+            allows the clinician to view the structures involved in swallowing
+            and to observe the swallowing process with various food and liquid
             consistencies.
           </p>
         </div>

@@ -43,7 +43,7 @@ const benefits = [
   {
     title: "Convenience for Your Team",
     description:
-      "We bring all equipment and handle everything. Your staff can observe and participate in the evaluation without disrupting their daily schedule.",
+      "We arrive with our Optim ENTity XL scope and portable HD camera system — fully self-contained. Your staff can observe and participate without disrupting their daily schedule.",
     icon: Building2,
   },
   {
@@ -73,7 +73,7 @@ const processSteps = [
     number: 3,
     title: "Evaluation",
     description:
-      "We arrive with full portable FEES equipment, perform the evaluation, review findings with your team, and provide same-day recommendations.",
+      "We arrive with the Optim ENTity XL and portable HD camera, perform the evaluation, review findings with your team, and provide same-day recommendations.",
     icon: ClipboardCheck,
   },
 ];

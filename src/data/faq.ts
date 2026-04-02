@@ -43,7 +43,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "What equipment do you bring?",
     answer:
-      "We bring a complete portable FEES setup including a flexible endoscope, light source, video recording system, and monitor. All equipment is properly sterilized and maintained. We only need a standard electrical outlet and a table or bedside space.",
+      "We use the Optim ENTity XL flexible nasopharyngoscope (3.6mm) with an ESC Medicams portable HD camera system and monitor. All equipment is high-level disinfected between every patient using FDA-cleared OPA solution. We only need a standard electrical outlet and a table or bedside space.",
     audience: "facility",
   },
   {

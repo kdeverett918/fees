@@ -39,7 +39,7 @@ const steps = [
     number: 2,
     title: "Scope Placement",
     description:
-      "A thin, flexible endoscope (about the width of a piece of spaghetti) is gently passed through one nostril. This takes just a few seconds and most patients tolerate it well.",
+      "The Optim ENTity XL — a thin 3.6mm flexible nasopharyngoscope — is gently passed through one nostril. This takes just a few seconds and most patients tolerate it well.",
     icon: Eye,
   },
   {
@@ -82,7 +82,7 @@ const benefits = [
   {
     title: "Portable & On-Site",
     description:
-      "FEES equipment is fully portable. Evaluations happen wherever the patient is — no hospital or radiology suite required.",
+      "Our Optim ENTity XL and ESC Medicams portable camera system goes wherever the patient is — no hospital or radiology suite required.",
     icon: Stethoscope,
   },
   {
@@ -148,9 +148,9 @@ export default function WhatIsFeesPage() {
           FEES stands for <strong>Fiberoptic Endoscopic Evaluation of
           Swallowing</strong>. It is an instrumental assessment of swallowing
           function performed by a speech-language pathologist. During the
-          procedure, a thin, flexible camera (endoscope) is passed through the
-          nose to provide a clear view of the throat as the patient eats and
-          drinks.
+          procedure, a thin, flexible nasopharyngoscope (we use the Optim
+          ENTity XL, just 3.6mm wide) is passed through the nose to provide a
+          clear view of the throat as the patient eats and drinks.
         </p>
         <p className="text-muted-foreground leading-relaxed">
           FEES is considered the gold standard for evaluating swallowing
@@ -175,7 +175,7 @@ export default function WhatIsFeesPage() {
         </h2>
         <img
           src="/images/fees/equipment-setup.jpg"
-          alt="Portable FEES equipment set up on a cart"
+          alt="Optim ENTity XL with ESC Medicams portable camera system"
           className="w-full h-auto rounded-[var(--radius)] shadow-sm"
         />
         <div className="space-y-4">

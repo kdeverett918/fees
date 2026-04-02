@@ -7,7 +7,7 @@ export const startMenuItems: StartMenuItem[] = [
     role: "facility",
     label: "Schedule FEES Evaluations",
     description:
-      "Bring mobile FEES directly to your facility. No patient transfers needed — we come to you with full portable equipment.",
+      "Bring mobile FEES directly to your facility. No patient transfers needed — we arrive with our Optim ENTity XL scope and portable camera system, ready to evaluate.",
     image: "/images/services/mobile-arrival.jpg",
     href: "/contact",
   },

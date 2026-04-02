@@ -7,7 +7,7 @@ export const services: ServiceItem[] = [
     description:
       "Comprehensive Fiberoptic Endoscopic Evaluation of Swallowing performed on-site at your facility or home.",
     details: [
-      "Full portable FEES equipment brought to you",
+      "Optim ENTity XL nasopharyngoscope with ESC Medicams portable HD camera",
       "Real-time visualization of swallowing function",
       "Multiple food and liquid consistency trials",
       "Detailed written report with recommendations",
