@@ -29,15 +29,15 @@ export const metadata: Metadata = {
 
 const benefits = [
   {
-    title: "Eliminate Patient Transfers",
+    title: "No Hospital Transfers Required",
     description:
-      "No need to transport patients to a hospital radiology department. FEES is performed right at your facility, reducing risk, cost, and patient stress.",
+      "Stop sending patients to the hospital and waiting weeks for a modified barium swallow to be scheduled and completed. FEES is performed right at your facility — same week, not weeks later.",
     icon: Ambulance,
   },
   {
-    title: "Faster Diagnosis & Treatment",
+    title: "Same-Day Results, Not Weeks of Waiting",
     description:
-      "Results are available immediately. Diet recommendations and swallowing strategies are implemented the same day, reducing aspiration risk and improving outcomes.",
+      "With MBS, you wait for scheduling, transport, the study, and the report. With mobile FEES, results and diet recommendations are delivered the same day. Your patients start eating safely sooner.",
     icon: Clock,
   },
   {
@@ -109,11 +109,12 @@ export default function ForFacilitiesPage() {
           Bring Instrumental Swallowing Assessments to Your Patients
         </h2>
         <p className="text-muted-foreground leading-relaxed">
-          Many of your patients with swallowing difficulties need an
-          instrumental evaluation but cannot easily travel to a hospital. Our
-          mobile FEES service eliminates that barrier by bringing the evaluation
-          directly to your facility. This means faster diagnosis, reduced
-          transfer costs, and better outcomes for your patients.
+          Tired of sending patients to the hospital and waiting weeks to get
+          an MBS completed? Our mobile FEES service eliminates that entire
+          process. No hospital transfers, no scheduling delays, no waiting for
+          radiology reports. We bring the evaluation to your facility and
+          deliver results the same day — so your patients start eating safely
+          sooner, not weeks later.
         </p>
       </section>
 

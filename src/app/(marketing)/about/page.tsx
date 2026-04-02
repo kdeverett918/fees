@@ -126,12 +126,12 @@ export default function AboutPage() {
         </h2>
         <div className="space-y-4">
           <p className="text-muted-foreground leading-relaxed">
-            Traditional instrumental swallowing evaluations often require
-            patients to travel to a hospital or outpatient clinic equipped with
-            fluoroscopy suites. For many patients — especially those in skilled
-            nursing facilities, assisted living communities, or receiving home
-            health services — this travel is difficult, stressful, or simply not
-            possible.
+            Getting an instrumental swallowing evaluation traditionally means
+            sending patients to the hospital for a modified barium swallow —
+            then waiting weeks for scheduling, transport, the study, and the
+            report. For patients in skilled nursing facilities, assisted living,
+            or home health, this process is slow, stressful, and often simply
+            not feasible.
           </p>
           <div className="grid gap-4 sm:grid-cols-3">
             <Card>
@@ -141,8 +141,8 @@ export default function AboutPage() {
                   On-Site Evaluations
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  We come to you. No patient transport, no hospital visits, no
-                  waiting lists.
+                  No hospital transfers, no waiting weeks for MBS. We come
+                  to you and deliver results the same day.
                 </p>
               </CardContent>
             </Card>
