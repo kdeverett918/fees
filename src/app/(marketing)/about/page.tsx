@@ -82,7 +82,7 @@ export default function AboutPage() {
             Kristine earned her FEES certification from Stanford and has
             successfully completed all required competency passes. With
             extensive clinical experience across hospitals, skilled nursing
-            facilities, and rehabilitation centers, she has performed hundreds
+            facilities, rehabilitation centers, and physician offices, she has performed hundreds
             of FEES evaluations. Her expertise spans the full spectrum of
             dysphagia care, from bedside assessments to instrumental
             evaluations and treatment planning.
@@ -183,7 +183,7 @@ export default function AboutPage() {
         <p className="text-muted-foreground leading-relaxed max-w-2xl">
           Our mission is to make gold-standard swallowing evaluations accessible
           to every patient who needs them. By bringing FEES directly to skilled
-          nursing facilities, hospitals, rehabilitation centers, and homes, we
+          nursing facilities, hospitals, rehabilitation centers, physician offices, and homes, we
           eliminate the barriers that delay diagnosis and treatment. Every
           patient deserves a clear understanding of their swallowing function and
           a personalized plan for safe, enjoyable nutrition.

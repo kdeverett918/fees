@@ -62,8 +62,9 @@ export default function ContactPage() {
               </div>
               <p className="text-sm text-muted-foreground">
                 We provide mobile FEES evaluations to skilled nursing
-                facilities, hospitals, rehabilitation centers, assisted living
-                communities, and patient homes throughout the region. Contact us
+                facilities, hospitals, rehabilitation centers, physician
+                offices, assisted living communities, and patient homes
+                throughout the Las Vegas area. Contact us
                 to confirm coverage in your area.
               </p>
             </CardContent>

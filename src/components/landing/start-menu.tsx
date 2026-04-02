@@ -15,7 +15,7 @@ const roles = [
   {
     id: "facility" as VisitorRole,
     label: "I'm a Healthcare Facility",
-    description: "Nursing homes, hospitals, rehab centers, home health agencies",
+    description: "SNFs, hospitals, rehab centers, physician offices, home health",
     icon: Building2,
   },
   {

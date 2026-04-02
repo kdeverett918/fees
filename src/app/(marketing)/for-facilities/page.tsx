@@ -24,7 +24,7 @@ import {
 export const metadata: Metadata = {
   title: "For Healthcare Facilities",
   description:
-    "Partner with us for on-site mobile FEES evaluations at your skilled nursing facility, hospital, or rehabilitation center. Reduce transfers and get faster diagnoses.",
+    "Partner with us for on-site mobile FEES evaluations at your skilled nursing facility, hospital, rehabilitation center, or physician office. Reduce transfers and get faster diagnoses.",
 };
 
 const benefits = [
@@ -100,7 +100,7 @@ export default function ForFacilitiesPage() {
       {/* Header */}
       <PageHeader
         title="For Healthcare Facilities"
-        description="On-site mobile FEES evaluations for skilled nursing facilities, hospitals, rehabilitation centers, and assisted living communities."
+        description="On-site mobile FEES evaluations for skilled nursing facilities, hospitals, rehabilitation centers, physician offices, and assisted living communities."
       />
 
       {/* Value Proposition */}

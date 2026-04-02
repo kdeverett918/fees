@@ -1,7 +1,7 @@
 # Mobile FEES 702 — Image Generation Prompts
 
 Use these prompts with AI image generators (Gemini, Midjourney, DALL-E, etc.).
-Equipment: **Optim ENTity XL mobile endoscopy system** — reference this specific scope in prompts.
+Equipment: **Optim ENTity XL** flexible nasopharyngoscope (3.6mm) with **ESC Medicams** portable endoscopy camera — reference this specific setup in prompts.
 
 ---
 

@@ -55,7 +55,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "What facilities do you serve?",
     answer:
-      "We serve skilled nursing facilities, hospitals, rehabilitation centers, assisted living communities, and provide home health evaluations. Contact us to confirm coverage in your area.",
+      "We serve skilled nursing facilities, hospitals, rehabilitation centers, physician offices, assisted living communities, and provide home health evaluations. Contact us to confirm coverage in your area.",
     audience: "facility",
   },
   {
