@@ -14,7 +14,7 @@ export const startMenuItems: StartMenuItem[] = [
   {
     id: "learn-mobile",
     role: "facility",
-    label: "Learn About Mobile FEES",
+    label: "Learn About Mobile FEES 702",
     description:
       "Discover how on-site FEES evaluations reduce hospital transfers, speed up diagnosis, and improve patient outcomes.",
     image: "/images/fees/equipment-setup.jpg",

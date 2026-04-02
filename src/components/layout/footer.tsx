@@ -10,7 +10,7 @@ export function Footer() {
               <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
                 <span className="text-sm font-bold text-primary-foreground">F</span>
               </div>
-              <span className="font-semibold text-foreground">Mobile FEES</span>
+              <span className="font-semibold text-foreground">Mobile FEES 702</span>
             </div>
             <p className="text-sm text-muted-foreground max-w-xs">
               Professional mobile Fiberoptic Endoscopic Evaluation of Swallowing
@@ -52,7 +52,7 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-foreground mb-3">Contact</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>Kristine Everett, M.S., CCC-SLP</li>
+              <li>Kristine Everett, MA, CCC-SLP</li>
               <li>
                 <Link href="/contact" className="hover:text-primary transition-colors">
                   Send a Message
@@ -64,7 +64,7 @@ export function Footer() {
 
         <div className="mt-8 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} Mobile FEES. All rights reserved.
+            &copy; {new Date().getFullYear()} Mobile FEES 702. All rights reserved.
           </p>
           <div className="flex gap-4 text-xs text-muted-foreground">
             <Link href="/privacy" className="hover:text-primary transition-colors">

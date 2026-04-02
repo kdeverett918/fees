@@ -54,7 +54,7 @@ function defaultEvaluation(): FEESEvaluation {
     facility: "",
     referringPhysician: "",
     evaluationDate: "",
-    evaluatorName: "Kristine Everett, M.S., CCC-SLP",
+    evaluatorName: "Kristine Everett, MA, CCC-SLP",
     diagnosis: "",
     medicalHistory: "",
     currentDietSolids: "",

@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Mobile FEES Evaluations | Kristine Everett, M.S., CCC-SLP",
-    template: "%s | Mobile FEES",
+    default: "Mobile FEES 702 Evaluations | Kristine Everett, MA, CCC-SLP",
+    template: "%s | Mobile FEES 702",
   },
   description:
     "Professional mobile Fiberoptic Endoscopic Evaluation of Swallowing (FEES) services for healthcare facilities, patients, and families.",

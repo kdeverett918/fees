@@ -15,6 +15,7 @@ const navLinks = [
   { href: "/for-facilities", label: "For Facilities" },
   { href: "/for-patients", label: "For Patients" },
   { href: "/faq", label: "FAQ" },
+  { href: "/pricing", label: "Pricing" },
 ];
 
 export function MarketingHeader() {
@@ -30,7 +31,7 @@ export function MarketingHeader() {
               <span className="text-sm font-bold text-primary-foreground">F</span>
             </div>
             <span className="font-semibold text-foreground hidden sm:block">
-              Mobile FEES
+              Mobile FEES 702
             </span>
           </Link>
 

@@ -9,6 +9,7 @@ import {
   ClipboardList,
   FileCheck,
   FileInput,
+  FileSignature,
   ArrowLeft,
   Menu,
   X,
@@ -18,6 +19,7 @@ const navItems = [
   { href: "/evaluation", label: "Evaluation", icon: ClipboardList },
   { href: "/consent", label: "Consent", icon: FileCheck },
   { href: "/intake", label: "Intake", icon: FileInput },
+  { href: "/agreement", label: "Facility Agreement", icon: FileSignature },
 ];
 
 export default function DocsLayout({

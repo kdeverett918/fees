@@ -1,4 +1,4 @@
-# FEES - Mobile FEES Business Platform
+# FEES - Mobile FEES 702 Business Platform
 
 ## Stack
 - Next.js 16.2.x, React 19, TypeScript

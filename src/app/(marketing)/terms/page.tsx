@@ -3,7 +3,7 @@ import { PageHeader } from "@/components/ui/page-header";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "Terms of service for Mobile FEES evaluation services.",
+  description: "Terms of service for Mobile FEES 702 evaluation services.",
 };
 
 export default function TermsPage() {
@@ -20,10 +20,10 @@ export default function TermsPage() {
             Services
           </h2>
           <p>
-            Mobile FEES provides mobile Fiberoptic Endoscopic Evaluation of
+            Mobile FEES 702 provides mobile Fiberoptic Endoscopic Evaluation of
             Swallowing (FEES) services, swallowing consultations, and staff
             training. All clinical services are performed by Kristine Everett,
-            M.S., CCC-SLP, a licensed and FEES-certified speech-language
+            MA, CCC-SLP, a licensed and FEES-certified speech-language
             pathologist.
           </p>
         </section>

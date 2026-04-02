@@ -3,7 +3,7 @@ import type { ServiceItem } from "@/types";
 export const services: ServiceItem[] = [
   {
     id: "mobile-fees",
-    title: "Mobile FEES Evaluations",
+    title: "Mobile FEES 702 Evaluations",
     description:
       "Comprehensive Fiberoptic Endoscopic Evaluation of Swallowing performed on-site at your facility or home.",
     details: [

@@ -216,53 +216,76 @@ function StepProcedureInfo() {
       <CardHeader>
         <CardTitle>About the FEES Procedure</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4 text-sm leading-relaxed text-foreground">
+      <CardContent className="space-y-5 text-sm leading-relaxed text-foreground">
         <div>
-          <h4 className="font-semibold mb-1">What is FEES?</h4>
+          <h4 className="font-semibold mb-1">Procedure Description</h4>
           <p>
             Fiberoptic Endoscopic Evaluation of Swallowing (FEES) is a
-            procedure used to assess swallowing function. A thin, flexible
-            endoscope (a small camera on a tube) is passed through the nose to
-            the back of the throat. This allows the clinician to directly
-            observe the structures involved in swallowing while you eat and
-            drink various foods and liquids.
+            procedure in which a small, flexible endoscope (camera) is passed
+            through the nose to the back of the throat. The endoscope allows
+            the clinician to view the structures involved in swallowing and to
+            observe the swallowing process with various food and liquid
+            consistencies.
           </p>
         </div>
 
         <div>
-          <h4 className="font-semibold mb-1">Risks</h4>
-          <p>
-            FEES is generally a safe procedure. Possible risks include mild
-            discomfort during passage of the endoscope through the nose, a
-            brief gagging sensation, minor nosebleed (epistaxis), and, very
-            rarely, a vasovagal response (fainting). In extremely rare cases,
-            allergic reaction to topical anesthetic or laryngospasm may occur.
-            The clinician is trained to manage these occurrences.
+          <h4 className="font-semibold mb-2">Risks</h4>
+          <ul className="list-disc ml-5 space-y-1">
+            <li>Mild discomfort during scope passage</li>
+            <li>Temporary gagging or sneezing</li>
+            <li>Rare: minor nosebleed (epistaxis)</li>
+            <li>
+              Very rare: vasovagal response (fainting), laryngospasm
+            </li>
+          </ul>
+          <p className="mt-2">
+            The procedure is generally well-tolerated and considered safe. The
+            clinician performing the evaluation is trained to recognize and
+            manage any adverse reactions should they occur.
           </p>
         </div>
 
         <div>
-          <h4 className="font-semibold mb-1">Benefits</h4>
-          <p>
-            FEES provides direct visualization of the swallowing mechanism,
-            which helps the clinician identify swallowing difficulties
-            (dysphagia), determine the risk of aspiration (food or liquid
-            entering the airway), evaluate the effectiveness of compensatory
-            strategies, and make evidence-based diet and treatment
-            recommendations. It is portable, does not involve radiation, and
-            can be repeated as needed.
-          </p>
+          <h4 className="font-semibold mb-2">Benefits</h4>
+          <ul className="list-disc ml-5 space-y-1">
+            <li>
+              Direct visualization of swallowing anatomy and function
+            </li>
+            <li>
+              Assessment performed in the patient&apos;s natural environment
+            </li>
+            <li>
+              No radiation exposure (unlike modified barium swallow)
+            </li>
+            <li>Immediate results and recommendations</li>
+            <li>Can be repeated as needed to monitor progress</li>
+          </ul>
         </div>
 
         <div>
-          <h4 className="font-semibold mb-1">Alternatives</h4>
-          <p>
-            Alternatives to FEES include a Modified Barium Swallow Study
-            (MBSS/videofluoroscopy), which uses X-ray imaging and barium
-            contrast, or a clinical bedside swallowing evaluation without
-            instrumentation. Each approach has advantages and limitations that
-            your clinician can discuss with you.
-          </p>
+          <h4 className="font-semibold mb-2">Alternatives</h4>
+          <ul className="list-disc ml-5 space-y-1">
+            <li>
+              <span className="font-medium">
+                Modified Barium Swallow Study (MBSS/videofluoroscopy)
+              </span>{" "}
+              &mdash; requires a radiology suite and involves radiation
+              exposure
+            </li>
+            <li>
+              <span className="font-medium">
+                Clinical/bedside swallowing evaluation
+              </span>{" "}
+              &mdash; less detailed, does not provide direct visualization of
+              the swallowing mechanism
+            </li>
+            <li>
+              <span className="font-medium">No evaluation</span> &mdash;
+              carries the risk of undiagnosed aspiration and related
+              complications
+            </li>
+          </ul>
         </div>
       </CardContent>
     </Card>

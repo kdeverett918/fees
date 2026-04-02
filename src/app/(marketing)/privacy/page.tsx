@@ -3,7 +3,7 @@ import { PageHeader } from "@/components/ui/page-header";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy policy for Mobile FEES evaluation services.",
+  description: "Privacy policy for Mobile FEES 702 evaluation services.",
 };
 
 export default function PrivacyPage() {

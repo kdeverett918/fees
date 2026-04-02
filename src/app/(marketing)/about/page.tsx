@@ -20,12 +20,12 @@ import {
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about Kristine Everett, M.S., CCC-SLP — a licensed speech-language pathologist specializing in mobile FEES evaluations and dysphagia management.",
+    "Learn about Kristine Everett, MA, CCC-SLP — a licensed speech-language pathologist specializing in mobile FEES evaluations and dysphagia management.",
 };
 
 const credentials = [
   {
-    title: "Master of Science in Speech-Language Pathology",
+    title: "Master of Arts in Speech-Language Pathology",
     description: "Graduate degree in communication sciences and disorders",
     icon: GraduationCap,
   },
@@ -53,7 +53,7 @@ export default function AboutPage() {
     <div className="container mx-auto max-w-4xl px-4 py-12 space-y-16">
       {/* Header */}
       <PageHeader
-        title="About Kristine Everett, M.S., CCC-SLP"
+        title="About Kristine Everett, MA, CCC-SLP"
         description="Dedicated to improving swallowing safety and quality of life through expert mobile FEES evaluations."
       />
 
@@ -62,7 +62,7 @@ export default function AboutPage() {
         <div className="md:col-span-1">
           <img
             src="/images/about/headshot.jpg"
-            alt="Kristine Everett, M.S., CCC-SLP — speech-language pathologist"
+            alt="Kristine Everett, MA, CCC-SLP — speech-language pathologist"
             className="aspect-[3/4] w-full rounded-[var(--radius)] shadow-md object-cover"
           />
         </div>
@@ -73,7 +73,7 @@ export default function AboutPage() {
           <p className="text-muted-foreground leading-relaxed">
             Kristine Everett is a licensed speech-language pathologist with
             9 years of clinical experience in the evaluation and treatment of
-            swallowing disorders (dysphagia). She holds a Master of Science
+            swallowing disorders (dysphagia). She holds a Master of Arts
             degree in Speech-Language Pathology and the Certificate of Clinical
             Competence from the American Speech-Language-Hearing Association
             (ASHA).
@@ -119,10 +119,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Why Mobile FEES */}
+      {/* Why Mobile FEES 702 */}
       <section className="space-y-6">
         <h2 className="text-2xl font-semibold text-foreground">
-          Why Mobile FEES?
+          Why Mobile FEES 702?
         </h2>
         <div className="space-y-4">
           <p className="text-muted-foreground leading-relaxed">

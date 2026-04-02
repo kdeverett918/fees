@@ -20,7 +20,7 @@ import {
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Mobile FEES evaluations, swallowing consultations, and staff training — expert dysphagia services brought directly to your facility or home.",
+    "Mobile FEES 702 evaluations, swallowing consultations, and staff training — expert dysphagia services brought directly to your facility or home.",
 };
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {

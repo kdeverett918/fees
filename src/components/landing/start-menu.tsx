@@ -74,7 +74,7 @@ export function StartMenu() {
         {/* Hero */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            Mobile FEES Evaluations
+            Mobile FEES 702 Evaluations
           </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
             Professional swallowing evaluations brought directly to you.
