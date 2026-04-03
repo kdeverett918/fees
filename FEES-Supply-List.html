@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobile FEES 702 — Equipment &amp; Supply Guide</title>
+<title>Mobile FEES 702 — Cleaning &amp; Supply Guide</title>
 <style>
   :root {
     --teal: #1a7a8a;
@@ -25,820 +25,287 @@
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-
-  /* ── HERO ── */
   .hero { background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 60%, #2aa0b0 100%); color: white; padding: 48px 24px 40px; text-align: center; }
-  .hero h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
+  .hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
   .hero .subtitle { font-size: 1rem; opacity: 0.85; max-width: 620px; margin: 0 auto; }
   .hero .equipment-tag { display: inline-block; margin-top: 16px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 6px 18px; font-size: 0.85rem; font-weight: 500; }
-
-  /* ── LAYOUT ── */
-  .container { max-width: 920px; margin: 0 auto; padding: 0 20px 60px; }
-
-  /* ── TOC ── */
-  .toc { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-top: 28px; }
-  .toc h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-secondary); margin-bottom: 10px; }
-  .toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }
-  .toc a { font-size: 0.88rem; color: var(--teal); text-decoration: none; font-weight: 500; }
-  .toc a:hover { text-decoration: underline; }
-  @media (max-width: 600px) { .toc-grid { grid-template-columns: 1fr; } }
-
-  /* ── SECTIONS ── */
-  section { margin-top: 44px; }
-  .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 20px 60px; }
+  section { margin-top: 40px; }
+  .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
   .section-header .icon { width: 36px; height: 36px; border-radius: var(--radius); background: var(--teal-light); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
-  .section-header h2 { font-size: 1.35rem; font-weight: 700; }
-  section > p, section > .intro { color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 16px; max-width: 800px; line-height: 1.65; }
-
-  /* ── CARDS ── */
-  .card-grid { display: grid; gap: 12px; }
-  .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
-  .card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
-  .card-grid.cols-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
-  @media (max-width: 700px) { .card-grid.cols-2, .card-grid.cols-3, .card-grid.cols-4 { grid-template-columns: 1fr; } }
-
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; transition: box-shadow 0.15s; }
-  .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
-  .card h3 { font-size: 0.95rem; font-weight: 650; margin-bottom: 2px; }
-  .card .desc { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 10px; }
-  .card .brand { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-secondary); margin-bottom: 4px; }
-
-  /* ── BADGES ── */
+  .section-header h2 { font-size: 1.3rem; font-weight: 700; }
+  section > p { color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 14px; line-height: 1.65; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 10px; }
+  .card h3 { font-size: 0.95rem; font-weight: 650; margin-bottom: 4px; }
+  .card .desc { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 8px; }
   .badge { display: inline-block; font-size: 0.68rem; font-weight: 600; padding: 2px 10px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.4px; vertical-align: middle; margin-left: 6px; }
   .badge.rec { background: var(--teal); color: white; }
-  .badge.alt { background: var(--border); color: var(--text-secondary); }
-  .badge.oem { background: var(--amber-light); color: var(--amber-dark); border: 1px solid #f0d49a; }
-  .badge.yes { background: var(--green-light); color: var(--green); }
-  .badge.no { background: var(--red-light); color: var(--red); }
-  .badge.warn { background: #fff8e1; color: #b8860b; border: 1px solid #f0d49a; }
-
-  /* ── RETAIL LINKS ── */
-  .retail-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-  .retail-links a { display: inline-flex; align-items: center; gap: 4px; font-size: 0.76rem; font-weight: 600; text-decoration: none; padding: 3px 10px; border-radius: 14px; transition: filter 0.15s; }
+  .retail-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .retail-links a { display: inline-flex; align-items: center; gap: 4px; font-size: 0.76rem; font-weight: 600; text-decoration: none; padding: 3px 10px; border-radius: 14px; }
   .retail-links a:hover { filter: brightness(0.9); }
   .retail-links a.amazon { background: #fff3cd; color: #8a6d00; border: 1px solid #f0d49a; }
-  .retail-links a.ebay { background: #e8f0fe; color: #1a56db; border: 1px solid #bbd0fb; }
-  .retail-links a.walmart { background: #e3f2fd; color: #0060a9; border: 1px solid #90caf9; }
   .retail-links a.medical { background: var(--teal-light); color: var(--teal-dark); border: 1px solid #b5dfe6; }
   .retail-links a::after { content: '\2197'; font-size: 0.65rem; }
-
-  /* ── SPEC TABLE ── */
-  .spec-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
-  .spec-table th { text-align: left; padding: 10px 14px; background: var(--teal-light); color: var(--teal-dark); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.3px; }
-  .spec-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
-  .spec-table tr:last-child td { border-bottom: none; }
-  .spec-table .label { font-weight: 600; color: var(--text); min-width: 180px; }
-  .spec-table .value { color: var(--text-secondary); }
-  .spec-table-wrap { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-
-  /* ── COMPARISON TABLE ── */
-  .compare-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
-  .compare-table th { padding: 8px 10px; background: var(--teal-light); color: var(--teal-dark); font-weight: 600; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.3px; text-align: left; }
-  .compare-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
-  .compare-table tr:last-child td { border-bottom: none; }
-  .compare-table .highlight { background: #f0faf7; font-weight: 600; }
-  .compare-wrap { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow-x: auto; }
-
-  /* ── REC BOX ── */
-  .rec-box { background: var(--teal-light); border-left: 3px solid var(--teal); border-radius: 0 var(--radius) var(--radius) 0; padding: 14px 18px; margin-top: 12px; font-size: 0.88rem; color: var(--teal-dark); }
-  .rec-box strong { color: var(--teal-dark); }
-
-  /* ── WARNING BOX ── */
-  .warn-box { background: var(--red-light); border-left: 3px solid var(--red); border-radius: 0 var(--radius) var(--radius) 0; padding: 14px 18px; margin-top: 12px; font-size: 0.88rem; color: #7a1f1f; }
-
-  /* ── CALLOUT ── */
-  .callout { background: var(--green-light); border: 1px solid #a3d9b1; border-radius: var(--radius); padding: 18px 22px; margin-top: 16px; }
+  .step-box { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 10px; }
+  .step-box .step-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: var(--teal); color: white; font-weight: 700; font-size: 0.85rem; margin-right: 10px; }
+  .step-box h3 { display: inline; font-size: 1rem; font-weight: 700; }
+  .step-box p { margin-top: 6px; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; }
+  .warn-box { background: var(--red-light); border-left: 3px solid var(--red); border-radius: 0 var(--radius) var(--radius) 0; padding: 14px 18px; margin-top: 14px; font-size: 0.88rem; color: #7a1f1f; }
+  .callout { background: var(--green-light); border: 1px solid #a3d9b1; border-radius: var(--radius); padding: 18px 22px; margin-top: 14px; }
   .callout h4 { font-size: 0.95rem; color: var(--green); margin-bottom: 6px; }
   .callout p, .callout li { font-size: 0.86rem; color: #1a5c2a; line-height: 1.6; }
   .callout ul { margin-left: 18px; margin-top: 6px; }
-
-  /* ── WORKFLOW ── */
-  .workflow { display: flex; justify-content: center; gap: 0; margin: -24px auto 32px; max-width: 700px; position: relative; z-index: 2; }
-  .workflow-step { flex: 1; text-align: center; position: relative; padding: 0 4px; }
-  .workflow-step .num { width: 36px; height: 36px; border-radius: 50%; background: var(--teal); color: white; font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 6px; box-shadow: 0 2px 8px rgba(26,122,138,0.3); }
-  .workflow-step .label { font-size: 0.72rem; font-weight: 600; color: var(--text); text-transform: uppercase; letter-spacing: 0.3px; }
-  .workflow-step:not(:last-child)::after { content: ''; position: absolute; top: 18px; right: -2px; width: calc(100% - 40px); height: 2px; background: var(--teal-light); left: calc(50% + 20px); }
-
-  /* ── CONSUMABLE ROWS ── */
-  .consumable-row { display: flex; align-items: baseline; gap: 12px; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 6px; }
-  .consumable-row .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; margin-top: 6px; }
-  .consumable-row .name { font-weight: 650; font-size: 0.88rem; min-width: 180px; flex-shrink: 0; }
-  .consumable-row .detail { font-size: 0.84rem; color: var(--text-secondary); flex: 1; }
-  .consumable-row .note { font-size: 0.76rem; color: var(--text-secondary); opacity: 0.7; flex-shrink: 0; text-align: right; max-width: 220px; }
-  @media (max-width: 700px) { .consumable-row { flex-direction: column; gap: 2px; } .consumable-row .note { text-align: left; max-width: none; } }
-
-  /* ── CHECKLIST ── */
-  .checklist { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
-  .checklist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
-  @media (max-width: 600px) { .checklist-grid { grid-template-columns: 1fr; } }
-  .checklist-item { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-secondary); cursor: pointer; }
+  .checklist { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-top: 14px; }
+  .checklist-item { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-secondary); cursor: pointer; margin-bottom: 6px; }
   .checklist-item input[type="checkbox"] { accent-color: var(--teal); width: 16px; height: 16px; flex-shrink: 0; cursor: pointer; }
-
-  /* ── VENDOR GRID ── */
-  .vendor-card { padding: 16px 18px; }
-  .vendor-card .phone { font-size: 0.92rem; font-weight: 600; color: var(--text); margin: 4px 0; }
-
-  /* ── NOTICE ── */
-  .notice { background: var(--amber-light); border: 1px solid #f0d49a; border-radius: var(--radius); padding: 20px 24px; margin-top: 40px; }
-  .notice h3 { font-size: 1rem; font-weight: 700; color: var(--amber-dark); margin-bottom: 6px; }
-  .notice p { font-size: 0.86rem; color: var(--amber-dark); line-height: 1.6; opacity: 0.85; }
-  .notice .ref-links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 12px; }
-  .notice .ref-links a { color: var(--amber-dark); font-size: 0.82rem; font-weight: 600; text-decoration: none; border-bottom: 1px dashed var(--amber); }
-  .notice .ref-links a:hover { border-bottom-style: solid; }
-
-  /* ── FOOTER ── */
   .doc-footer { text-align: center; padding: 32px 20px 24px; font-size: 0.78rem; color: var(--text-secondary); opacity: 0.6; }
-
-  /* ── PRINT ── */
   @media print {
     body { background: white; }
     .hero { background: var(--teal) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .card:hover { box-shadow: none; }
     .checklist-item input[type="checkbox"] { appearance: none; width: 14px; height: 14px; border: 1.5px solid #999; border-radius: 2px; }
-    section { break-inside: avoid; }
   }
 </style>
 </head>
 <body>
 
-<!-- ══════════ HERO ══════════ -->
 <div class="hero">
   <h1>Mobile FEES 702</h1>
-  <p class="subtitle">Complete Equipment, Reprocessing &amp; Supply Guide</p>
+  <p class="subtitle">Scope Cleaning &amp; Supply Guide</p>
   <span class="equipment-tag">Optim ENTity XL (3.6 mm) &bull; ESC Medicams Portable Camera</span>
 </div>
 
 <div class="container">
 
-<!-- ══════════ TOC ══════════ -->
-<div class="toc">
-  <h3>Contents</h3>
-  <div class="toc-grid">
-    <a href="#specs">1. Scope Specifications</a>
-    <a href="#camera">2. Camera &amp; Video Setup</a>
-    <a href="#leak">3. Leak Testing</a>
-    <a href="#reprocessing">4. Reprocessing Overview</a>
-    <a href="#chemicals">5. Approved Disinfectants</a>
-    <a href="#cheapest">6. Cheapest Cleaning Method</a>
-    <a href="#simplest">7. Simplest Method (Sheaths)</a>
-    <a href="#tools">8. Cleaning Tools &amp; Supplies</a>
-    <a href="#transport">9. Transport &amp; Storage</a>
-    <a href="#consumables">10. FEES Exam Consumables</a>
-    <a href="#checklist">11. Mobile Kit Checklist</a>
-    <a href="#vendors">12. Vendors &amp; Contacts</a>
-  </div>
-</div>
-
-<!-- ══════════ 1. SCOPE SPECS ══════════ -->
-<section id="specs">
+<!-- ══════════ YOUR CLEANING WORKFLOW ══════════ -->
+<section>
   <div class="section-header">
-    <div class="icon">&#128300;</div>
-    <h2>1. Optim ENTity XL &mdash; Full Specifications</h2>
+    <div class="icon">&#9851;</div>
+    <h2>Your Cleaning Workflow (Between Every Patient)</h2>
   </div>
-  <p>The ENTity XL is a <strong>non-channeled fiberoptic flexible nasopharyngoscope</strong> with an integrated LED light source. It requires NO external light box, NO video processor, and NO channel brushing. This makes it one of the most portable scopes on the market for FEES.</p>
+  <p>Your ENTity XL is non-channeled &mdash; no internal tubes to brush or flush. The entire process is external wipe + soak. Total time: ~20 minutes.</p>
 
-  <div class="spec-table-wrap">
-    <table class="spec-table">
-      <tr><th colspan="2">Physical</th></tr>
-      <tr><td class="label">Outer Diameter</td><td class="value">3.6 mm (ENTity SDXL variant: 2.7 mm)</td></tr>
-      <tr><td class="label">Flexible Length</td><td class="value">30 cm (11.8&Prime;)</td></tr>
-      <tr><td class="label">Overall Length</td><td class="value">53 cm (20.9&Prime;)</td></tr>
-      <tr><td class="label">Weight</td><td class="value">11.6 oz (329 g)</td></tr>
-      <tr><td class="label">Working / Suction Channel</td><td class="value"><strong>None</strong> &mdash; non-channeled scope. No brushing or flushing required.</td></tr>
-
-      <tr><th colspan="2">Optics</th></tr>
-      <tr><td class="label">Imaging Type</td><td class="value"><strong>Fiberoptic</strong> (coherent fiber image bundle) &mdash; NOT a distal chip/video scope. Image viewed through proximal eyepiece or via external camera attached to eyepiece.</td></tr>
-      <tr><td class="label">Field of View</td><td class="value">70&deg; (XL) / 85&deg; (SDXL)</td></tr>
-      <tr><td class="label">Direction of View</td><td class="value">0&deg; (forward-viewing)</td></tr>
-      <tr><td class="label">Depth of Field</td><td class="value">5 mm &ndash; 50 mm</td></tr>
-      <tr><td class="label">Tip Deflection</td><td class="value">135&deg; up / 135&deg; down (single-plane)</td></tr>
-
-      <tr><th colspan="2">Light Source</th></tr>
-      <tr><td class="label">Illumination</td><td class="value"><strong>Patented OptiLux integrated LED</strong> &mdash; built into the handle. 5500K daylight-balanced. Variable intensity control.</td></tr>
-      <tr><td class="label">Power</td><td class="value">Rechargeable lithium-ion battery in handle</td></tr>
-      <tr><td class="label">External Light Source</td><td class="value"><strong>Not required.</strong> No light guide cable, no light box.</td></tr>
-
-      <tr><th colspan="2">Reprocessing</th></tr>
-      <tr><td class="label">Immersibility</td><td class="value"><strong>Fully sealed, completely immersible</strong> (hybrid aluminum handle is sealed)</td></tr>
-      <tr><td class="label">Autoclavable?</td><td class="value"><strong>NO.</strong> Heat will destroy fiber optics and adhesives.</td></tr>
-      <tr><td class="label">Approved Method</td><td class="value">High-Level Disinfection (HLD) only &mdash; manual soak or AER</td></tr>
-      <tr><td class="label">Tested Durability</td><td class="value">1,000 processing cycles with approved chemicals (simulates ~2 years of daily use)</td></tr>
-      <tr><td class="label">Channel Brushing</td><td class="value"><strong>Not required</strong> &mdash; no internal channels to brush or flush</td></tr>
-
-      <tr><th colspan="2">Other</th></tr>
-      <tr><td class="label">Warranty</td><td class="value">2 years (industry-leading for flexible scopes)</td></tr>
-      <tr><td class="label">New Price (est.)</td><td class="value">$3,000&ndash;$6,000 scope only; $8,000&ndash;$15,000+ complete mobile FEES system</td></tr>
-      <tr><td class="label">Manufacturer</td><td class="value">Optim LLC &mdash; 508-754-0880 &mdash; <a href="https://www.optim-llc.com/" target="_blank" style="color:var(--teal);">optim-llc.com</a></td></tr>
-    </table>
+  <div class="step-box">
+    <span class="step-num">1</span>
+    <h3>Pre-Clean (Immediately After Use)</h3>
+    <p>Wipe the insertion tube with a <strong>Metrex MetriSponge</strong> (pre-saturated enzymatic sponge). Don't let bioburden dry on the scope.</p>
   </div>
 
-  <div class="callout" style="margin-top:16px;">
-    <h4>Why This Matters for You</h4>
-    <ul>
-      <li><strong>No channel = no brushing/flushing.</strong> Your reprocessing is dramatically simpler than GI endoscope protocols. Just external cleaning + soak.</li>
-      <li><strong>Integrated LED = nothing else to carry or clean.</strong> No light cable, no light box, no external power supply for the scope itself.</li>
-      <li><strong>Fully immersible = simple leak test + soak.</strong> The entire scope goes into the basin.</li>
-      <li><strong>Fiberoptic = external camera required</strong> for video output. Your ESC Medicams attaches to the eyepiece.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ══════════ 2. CAMERA ══════════ -->
-<section id="camera">
-  <div class="section-header">
-    <div class="icon">&#127909;</div>
-    <h2>2. Camera &amp; Video Setup</h2>
-  </div>
-  <p>The ENTity XL has NO built-in video output. It has an optical eyepiece &mdash; you look through it directly, or attach an external camera to display on a monitor.</p>
-
-  <div class="card-grid cols-2">
-    <div class="card">
-      <h3>Your Camera: ESC Medicams ENT-2000US-P</h3>
-      <p class="desc">
-        <strong>Sensor:</strong> 1.2 MP CMOS<br>
-        <strong>Output:</strong> USB (to laptop, plug-and-play) or RCA composite (to TV/monitor with DC 12V adapter)<br>
-        <strong>Recording:</strong> Direct to USB drive (up to 512 GB) while displaying live<br>
-        <strong>Coupler:</strong> Ships with a rigid endoscope coupler. <strong>Important:</strong> You may need a universal flexible endoscope coupler adapter to properly fit the ENTity XL&rsquo;s eyepiece, since the included coupler is designed for rigid scopes.<br>
-        <strong>Phone:</strong> Can connect via OTG cable to mobile phones
-      </p>
-      <div class="retail-links">
-        <a class="amazon" href="https://www.amazon.com/Endoscopy-Portable-Endocam-Coupler-Megapixel/dp/B07RVJWNWD" target="_blank">Amazon</a>
-        <a class="medical" href="https://www.escmedicams.com/product-page/portable-usb-endoscopy-camera" target="_blank">ESC Medicams</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>OEM Alternative: Optim HD VidCap USB Camera</h3>
-      <p class="desc">
-        <strong>Connection:</strong> USB to laptop/PC<br>
-        <strong>Software:</strong> CaptureITPro (recording, image capture, patient database, EMR integration)<br>
-        <strong>Coupler:</strong> Designed specifically for ENTity eyepiece &mdash; guaranteed fit<br>
-        <strong>Waterproof:</strong> Camera + coupler are immersible in Cidex OPA (can be reprocessed alongside scope)<br>
-        <strong>Price:</strong> Higher than ESC Medicams; contact Optim for quote
-      </p>
-      <div class="retail-links">
-        <a class="medical" href="https://optim-llc.com/medical-endoscope-products/vidcap-usb-video-camera-system/" target="_blank">Optim LLC</a>
-      </div>
-    </div>
+  <div class="step-box">
+    <span class="step-num">2</span>
+    <h3>Leak Test</h3>
+    <p>Connect your <strong>ATT-OP Optim leak tester</strong> to the scope's leak test port. Pressurize, submerge in clean water, flex the bending section. Watch for continuous bubbles = leak (stop, send for repair). No bubbles = proceed.</p>
   </div>
 
-  <div class="card-grid cols-3" style="margin-top:12px;">
-    <div class="card">
-      <h3>USB Drive</h3>
-      <p class="desc">Up to 512 GB. Records directly via ESC Medicams while displaying live.</p>
-    </div>
-    <div class="card">
-      <h3>Monitor or Laptop</h3>
-      <p class="desc">USB to laptop (plug-and-play) or RCA to any TV/monitor.</p>
-    </div>
-    <div class="card">
-      <h3>Cables &amp; Power</h3>
-      <p class="desc">RCA cable + DC 12V adapter (for TV). USB cable (for laptop). Both included with ESC Medicams.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ 3. LEAK TESTING ══════════ -->
-<section id="leak">
-  <div class="section-header">
-    <div class="icon">&#128269;</div>
-    <h2>3. Leak Testing</h2>
-  </div>
-  <p>Leak testing checks for scope damage that could allow fluid ingress during the HLD soak. It is mandatory before every cleaning cycle per the IFU.</p>
-
-  <div class="card" style="margin-bottom:16px; border-left: 3px solid var(--amber);">
-    <h3>Are Leak Testers Universal?</h3>
-    <p class="desc" style="margin-bottom:0;">
-      <strong>No.</strong> The pump/bulb mechanism is generic (same concept across all brands), but the <strong>adapter tip that plugs into the scope&rsquo;s vent port is brand-specific</strong>. Each manufacturer (Olympus, Pentax, Fujifilm, Optim) uses a different connector size and keying on their vent port.<br><br>
-      <strong>Will an Olympus leak tester (MB-155, ALT-Pro) work on the ENTity XL?</strong><br>
-      <span style="color:var(--red); font-weight:600;">No.</span> The Olympus adapter tip will not physically fit the Optim vent port &mdash; different diameter, different keying. Even if you forced a connection, using a non-validated tester <strong>violates the Optim IFU</strong> and could void your warranty.<br><br>
-      <strong>Where is the leak test port?</strong><br>
-      On the handle/proximal body of the scope (since the ENTity XL has no light guide connector, unlike most other scopes). It&rsquo;s a small capped valve. The exact connector type is in the IFU document that shipped with your scope.
-    </p>
+  <div class="step-box">
+    <span class="step-num">3</span>
+    <h3>Enzymatic Wash</h3>
+    <p>In a basin, dilute <strong>McKesson Multi-Enzymatic Cleanser</strong> per label instructions. Submerge scope and gently wipe all exterior surfaces with a soft cloth. Soak 1&ndash;2 minutes.</p>
   </div>
 
-  <div class="card-grid">
-    <div class="card">
-      <h3>Optim ATT-OP Adapter <span class="badge oem">OEM</span> <span class="badge rec">Required</span></h3>
-      <p class="desc">The <strong>only validated adapter tip</strong> for the ENTity XL vent port. Connects to any standard leak test pump/bulb body. This is the part that makes the tester Optim-compatible &mdash; the pump itself is generic.</p>
-      <div class="retail-links">
-        <a class="medical" href="https://www.eriemedicalsupplies.com/products/optim-air-leak-tester" target="_blank">Erie Medical</a>
-        <a class="medical" href="https://www.endoscopy.com/store/pc/OPTIM-Airtight-Leak-Tester-p340.htm" target="_blank">Endoscopy.com</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Third-Party Universal Testers</h3>
-      <p class="desc">Some universal leak testers (Healthmark EndoCheck, STERIS ENDO-LEAK) offer multi-brand adapter kits. <strong>Ask the vendor if they have an Optim-compatible tip.</strong> The pump body is universal &mdash; you only need the correct adapter tip. Call Healthmark (800-521-6224) or STERIS (800-548-4873) to check.</p>
-      <div class="retail-links">
-        <a class="medical" href="https://www.steris.com/healthcare/products/endoscope-reprocessing/manual-cleaning/endo-leak-tester" target="_blank">STERIS</a>
-        <a class="medical" href="https://www.hmark.com/product/leak-tester-tester/" target="_blank">Healthmark</a>
-      </div>
-    </div>
+  <div class="step-box">
+    <span class="step-num">4</span>
+    <h3>Rinse</h3>
+    <p>Rinse scope thoroughly with clean water to remove all enzymatic detergent residue.</p>
+  </div>
+
+  <div class="step-box">
+    <span class="step-num">5</span>
+    <h3>HLD Soak &mdash; MetriCide OPA Plus (12 minutes)</h3>
+    <p>Check solution concentration with <strong>OPA test strip</strong> before each use session. Fully immerse scope in <strong>MetriCide OPA Plus</strong> for <strong>12 minutes</strong> at room temperature. Use a lidded basin to contain low fumes.</p>
+  </div>
+
+  <div class="step-box">
+    <span class="step-num">6</span>
+    <h3>Rinse</h3>
+    <p>Rinse scope thoroughly with clean water (3 rinses recommended for OPA products).</p>
+  </div>
+
+  <div class="step-box">
+    <span class="step-num">7</span>
+    <h3>Dry &amp; Store</h3>
+    <p>Dry with a lint-free cloth. Store scope in clean carrying case. Do not coil tightly.</p>
   </div>
 
   <div class="warn-box">
-    <strong>Do NOT use an Olympus, Pentax, or Fujifilm leak tester on your ENTity XL.</strong> Wrong adapter = no seal = invalid test. It can also damage the vent port. Only use the ATT-OP or a vendor-confirmed Optim-compatible adapter.
+    <strong>Do NOT use:</strong> Bleach, alcohol as sole disinfectant, autoclave/steam, or ultrasonic cleaners. These will destroy the scope. Do NOT soak in OPA for more than 1 hour.
   </div>
 </section>
 
-<!-- ══════════ 4. REPROCESSING OVERVIEW ══════════ -->
-<section id="reprocessing">
+<!-- ══════════ WHAT TO BUY ══════════ -->
+<section>
   <div class="section-header">
-    <div class="icon">&#9851;</div>
-    <h2>4. Reprocessing Overview</h2>
+    <div class="icon">&#128722;</div>
+    <h2>What to Buy (Total Startup: ~$120&ndash;$180)</h2>
   </div>
-  <p>The ENTity XL is a <strong>non-channeled</strong> scope. This means reprocessing is <strong>dramatically simpler</strong> than GI endoscopes. No channel brushing, no channel flushing, no forced-air drying of internal lumens. The entire process is external surface cleaning + soak.</p>
+  <p>Everything below is available <strong>without a medical account</strong>. No STERIS account needed.</p>
 
-  <div class="compare-wrap" style="margin-bottom:16px;">
-    <table class="compare-table">
-      <tr>
-        <th>Reprocessing Step</th>
-        <th>ENTity XL (Non-Channeled)</th>
-        <th>GI Endoscope (Channeled)</th>
-      </tr>
-      <tr class="highlight"><td>Channel brushing</td><td><strong>NOT required</strong></td><td>Required (multiple channels)</td></tr>
-      <tr class="highlight"><td>Channel flushing</td><td><strong>NOT required</strong></td><td>Required</td></tr>
-      <tr><td>Suction/biopsy port cleaning</td><td>N/A</td><td>Required</td></tr>
-      <tr><td>Automated reprocessor (AER)</td><td>NOT required</td><td>Strongly recommended</td></tr>
-      <tr><td>Leak test complexity</td><td>Simple external submersion</td><td>Must test channels + external</td></tr>
-      <tr class="highlight"><td>Total reprocessing time</td><td><strong>~15 min</strong></td><td>~30&ndash;45 min</td></tr>
-      <tr><td>Biofilm risk</td><td>Very low (no channels)</td><td>High (channels trap biofilm)</td></tr>
-    </table>
-  </div>
-
-  <h3 style="margin-bottom:10px;">Manual HLD Workflow (Your Scope)</h3>
-  <div class="workflow">
-    <div class="workflow-step"><div class="num">1</div><div class="label">Pre-Clean</div></div>
-    <div class="workflow-step"><div class="num">2</div><div class="label">Leak Test</div></div>
-    <div class="workflow-step"><div class="num">3</div><div class="label">Enzymatic Wash</div></div>
-    <div class="workflow-step"><div class="num">4</div><div class="label">HLD Soak</div></div>
-    <div class="workflow-step"><div class="num">5</div><div class="label">Rinse &amp; Dry</div></div>
+  <div class="card">
+    <h3>MetriCide OPA Plus (1 Gallon) <span class="badge rec">YOUR HLD</span></h3>
+    <p class="desc">Ready-to-use high-level disinfectant. 12-min soak at room temp. 28-day reuse life once opened. Glutaraldehyde-free. Optim-approved for 1,000 cycles. ~$50&ndash;65</p>
+    <div class="retail-links">
+      <a class="medical" href="https://www.mountainside-medical.com/products/metricide-opa-plus-disinfectant-solution-gallon" target="_blank">Mountainside Medical</a>
+      <a class="medical" href="https://mfimedical.com/products/metrex-metricide-opa-plus" target="_blank">MFI Medical</a>
+      <a class="medical" href="https://ddpmedical.com/metricide-opa-plus-liquid-1-gallon/" target="_blank">DDP Medical</a>
+    </div>
   </div>
 
   <div class="card">
-    <h3>Step-by-Step for the ENTity XL</h3>
-    <p class="desc" style="margin-bottom:0; line-height:1.8;">
-      <strong>1. Pre-clean (immediately after patient use):</strong> Wipe exterior with enzymatic detergent sponge/cloth. Do not let bioburden dry.<br>
-      <strong>2. Leak test:</strong> Attach ATT-OP adapter, pressurize, submerge in water, watch for bubbles.<br>
-      <strong>3. Enzymatic wash:</strong> Soak scope in enzymatic detergent solution, gently wipe all exterior surfaces.<br>
-      <strong>4. Rinse:</strong> Rinse off all detergent residue with clean water.<br>
-      <strong>5. HLD soak:</strong> Fully immerse in approved HLD solution for required contact time (see chemical table below).<br>
-      <strong>6. Rinse:</strong> 1&ndash;3 rinses with clean/sterile water (per HLD chemical IFU).<br>
-      <strong>7. Dry &amp; store:</strong> Air dry or gently dry with lint-free cloth. Store in clean case or ventilated cabinet.
-    </p>
-  </div>
-</section>
-
-<!-- ══════════ 5. APPROVED CHEMICALS ══════════ -->
-<section id="chemicals">
-  <div class="section-header">
-    <div class="icon">&#129514;</div>
-    <h2>5. Optim-Approved Disinfectants</h2>
-  </div>
-  <p>Optim has explicitly tested these chemicals for <strong>1,000 processing cycles</strong> on the ENTity XL/SDXL. Using unapproved chemicals can damage the scope and void your warranty.</p>
-
-  <div class="compare-wrap">
-    <table class="compare-table">
-      <tr>
-        <th>Chemical</th>
-        <th>Type</th>
-        <th>Soak Time (Manual)</th>
-        <th>Reuse Life</th>
-        <th>Fumes/Staining</th>
-        <th>Cost/Procedure</th>
-        <th>Optim Tested?</th>
-      </tr>
-      <tr class="highlight">
-        <td><strong>Revital-Ox RESERT</strong></td>
-        <td>2% hydrogen peroxide</td>
-        <td><strong>8 min</strong> at 20&deg;C</td>
-        <td>21 days</td>
-        <td><strong>None / None</strong></td>
-        <td>~$2&ndash;3</td>
-        <td><span class="badge yes">YES</span></td>
-      </tr>
-      <tr>
-        <td><strong>Rapicide OPA/28</strong></td>
-        <td>0.55% OPA</td>
-        <td>5 min at 25&deg;C / 12 min at 20&deg;C</td>
-        <td>28 days</td>
-        <td>Low fumes / <span style="color:var(--red)">Stains gray</span></td>
-        <td>~$2&ndash;3</td>
-        <td><span class="badge yes">YES</span></td>
-      </tr>
-      <tr>
-        <td><strong>MetriCide OPA Plus</strong></td>
-        <td>0.55% OPA</td>
-        <td>12 min at 20&deg;C</td>
-        <td>28 days</td>
-        <td>Low fumes / Stains gray</td>
-        <td>~$2&ndash;4</td>
-        <td><span class="badge yes">YES</span></td>
-      </tr>
-      <tr>
-        <td><strong>Rapicide PA</strong></td>
-        <td>Peracetic acid</td>
-        <td>5 min at 30&deg;C</td>
-        <td>Single-use</td>
-        <td>Slight odor / None</td>
-        <td>~$4&ndash;6</td>
-        <td><span class="badge yes">YES</span></td>
-      </tr>
-      <tr>
-        <td><strong>Cidex OPA</strong></td>
-        <td>0.55% OPA</td>
-        <td>12 min at 20&deg;C</td>
-        <td>14 days</td>
-        <td>Low fumes / Stains gray</td>
-        <td>~$3&ndash;5</td>
-        <td><span class="badge warn">Likely OK</span></td>
-      </tr>
-      <tr>
-        <td style="color:var(--text-secondary);">Glutaraldehyde (Cidex Plus)</td>
-        <td>2.5% glutaraldehyde</td>
-        <td>90 min (!)</td>
-        <td>28 days</td>
-        <td><span style="color:var(--red)"><strong>Toxic fumes / OSHA regulated</strong></span></td>
-        <td>~$0.50&ndash;1</td>
-        <td><span class="badge no">NOT LISTED</span></td>
-      </tr>
-      <tr>
-        <td style="color:var(--text-secondary);">Tristel Trio Wipes</td>
-        <td>Chlorine dioxide</td>
-        <td>~5 min (wipe, no soak)</td>
-        <td>Single-use</td>
-        <td>None / None</td>
-        <td>~$11&ndash;13</td>
-        <td><span class="badge no">NOT FDA-CLEARED (US)</span></td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="warn-box">
-    <strong>Do NOT use:</strong> Bleach (sodium hypochlorite), concentrated hydrogen peroxide (&gt;3%), alcohol as sole HLD, or autoclave/steam. These will damage or destroy the scope. Do NOT soak in OPA for more than 1 hour (causes staining and potential adhesive degradation).
-  </div>
-</section>
-
-<!-- ══════════ 6. CHEAPEST METHOD ══════════ -->
-<section id="cheapest">
-  <div class="section-header">
-    <div class="icon">&#128176;</div>
-    <h2>6. Cheapest Cleaning Method</h2>
-  </div>
-
-  <div class="callout">
-    <h4>Best Value You Can Actually Buy: MetriCide OPA Plus</h4>
-    <p><strong>MetriCide OPA Plus</strong> is the easiest-to-purchase, Optim-approved HLD for the ENTity XL. Available from multiple retailers with <strong>no account required</strong>. ~$50&ndash;65/gallon, lasts 28 days once opened.</p>
-    <ul>
-      <li><strong>Ready-to-use</strong> &mdash; no mixing, no activation</li>
-      <li><strong>12-minute soak</strong> at room temperature</li>
-      <li><strong>Glutaraldehyde-free</strong> &mdash; low fumes, no OSHA ventilation requirements</li>
-      <li><strong>28-day reuse life</strong> (verify concentration with OPA test strips before each use)</li>
-      <li><strong>Optim-tested</strong> for 1,000 cycles on the ENTity XL</li>
-      <li><strong>Buy from:</strong> <a href="https://www.mountainside-medical.com/products/metricide-opa-plus-disinfectant-solution-gallon" style="color:var(--teal-dark)">Mountainside Medical</a>, <a href="https://mfimedical.com/products/metrex-metricide-opa-plus" style="color:var(--teal-dark)">MFI Medical</a>, <a href="https://ddpmedical.com/metricide-opa-plus-liquid-1-gallon/" style="color:var(--teal-dark)">DDP Medical</a></li>
-      <li><span style="color:var(--text-secondary)"><strong>Note:</strong> Revital-Ox RESERT is cheaper per procedure (~$2&ndash;3) and has only 8-min soak + no staining, but requires a STERIS account. If you can get one, it&rsquo;s the better option.</span></li>
-    </ul>
-  </div>
-
-  <h3 style="margin-top:20px; margin-bottom:10px;">What You Need (Total Startup: ~$100&ndash;$160, No Account Needed)</h3>
-  <div class="card-grid cols-2">
-    <div class="card">
-      <h3>MetriCide OPA Plus <span class="badge rec">EASIEST TO BUY</span></h3>
-      <p class="desc">1 gallon. Ready-to-use OPA HLD solution. 28-day reuse once opened. 12-min soak. Glutaraldehyde-free. ~$50&ndash;65/gal. <strong>No account needed.</strong></p>
-      <div class="retail-links">
-        <a class="medical" href="https://www.mountainside-medical.com/products/metricide-opa-plus-disinfectant-solution-gallon" target="_blank">Mountainside Medical</a>
-        <a class="medical" href="https://mfimedical.com/products/metrex-metricide-opa-plus" target="_blank">MFI Medical</a>
-        <a class="medical" href="https://ddpmedical.com/metricide-opa-plus-liquid-1-gallon/" target="_blank">DDP Medical</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>OPA Test Strips (MetriCide compatible)</h3>
-      <p class="desc">Verify minimum effective concentration (MEC) before each use. Required for compliance. ~$20&ndash;35/bottle. <strong>No account needed.</strong></p>
-      <div class="retail-links">
-        <a class="medical" href="https://www.mountainside-medical.com" target="_blank">Mountainside Medical</a>
-        <a class="amazon" href="https://www.amazon.com/s?k=OPA+test+strips+metricide" target="_blank">Amazon</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Enzymatic Detergent</h3>
-      <p class="desc">Enzol Enzymatic Detergent. Diluted concentrate in a small travel bottle. Gallon lasts months. ~$15&ndash;25. <strong>No account needed.</strong></p>
-      <div class="retail-links">
-        <a class="amazon" href="https://www.amazon.com/s?k=enzol+enzymatic+detergent" target="_blank">Amazon</a>
-        <a class="medical" href="https://www.mountainside-medical.com" target="_blank">Mountainside Medical</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Two Small Lidded Basins</h3>
-      <p class="desc">One for HLD soak, one for rinse. Lid is important to contain solution. Restaurant supply or dollar store works. ~$10&ndash;20.</p>
-      <div class="retail-links">
-        <a class="amazon" href="https://www.amazon.com/Stainless-Steel-Soaking-Tray-Lid/dp/B00KMZ86CW" target="_blank">Amazon</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="rec-box" style="margin-top:16px;">
-    <strong>Daily workflow:</strong> Pre-clean with enzymatic wipe &rarr; leak test (immerse, flex, check for bubbles) &rarr; wash with enzymatic detergent &rarr; immerse in MetriCide OPA Plus for 12 min &rarr; rinse thoroughly with clean water &rarr; dry with lint-free cloth &rarr; store in clean case. Total turnaround: ~20 minutes. Cost: ~$3&ndash;5/procedure.
-  </div>
-</section>
-
-<!-- ══════════ 7. SIMPLEST METHOD ══════════ -->
-<section id="simplest">
-  <div class="section-header">
-    <div class="icon">&#10024;</div>
-    <h2>7. Simplest Method: Disposable Scope Sheaths</h2>
-  </div>
-
-  <div class="callout">
-    <h4>No HLD Required &mdash; Sheaths Eliminate Chemical Soaking</h4>
-    <p>The FDA recognizes <strong>three compliant reprocessing pathways</strong> for nasopharyngoscopes. One of them is: <strong>disposable sheath + low-level disinfection only</strong>. No HLD soak. No chemicals. No basins.</p>
-    <ul>
-      <li>A sterile polyurethane sheath covers the scope &mdash; it never touches the patient directly</li>
-      <li>After the exam, remove and discard the sheath</li>
-      <li>Wipe scope with enzymatic detergent + 70% isopropyl alcohol wipe</li>
-      <li><strong>That&rsquo;s it.</strong> Ready for the next patient.</li>
-    </ul>
-  </div>
-
-  <div class="card" style="margin-top:16px;">
-    <h3>BR Surgical Flexible Rhinolaryngoscope Sheath <span class="badge rec">FDA-Cleared Class II</span></h3>
-    <p class="desc">
-      <strong>Size:</strong> Fits 3.4&ndash;3.6 mm scopes (matches ENTity XL exactly)<br>
-      <strong>Material:</strong> Sterile disposable polyurethane<br>
-      <strong>FDA status:</strong> Class II medical device, specifically cleared for nasopharyngoscopes<br>
-      <strong>Clinical evidence:</strong> Two peer-reviewed clinical trials validate sheath + LLD as microbiologically equivalent to HLD<br>
-      <strong>Cost:</strong> ~$8&ndash;15 per sheath (box of 20)<br>
-      <strong>Per-procedure total:</strong> ~$9&ndash;16 (sheath + enzymatic wipe + alcohol wipe)
-    </p>
+    <h3>OPA Test Strips <span class="badge rec">REQUIRED</span></h3>
+    <p class="desc">Verify your MetriCide OPA Plus is still effective before each use session. Dip strip, compare color. Required for compliance. ~$20&ndash;35</p>
     <div class="retail-links">
-      <a class="medical" href="https://brsurgical.com/product/flexible-rhinolaryngoscope-sheath-disposable/" target="_blank">BR Surgical</a>
+      <a class="amazon" href="https://www.amazon.com/s?k=OPA+test+strips+metricide" target="_blank">Amazon</a>
+      <a class="medical" href="https://www.mountainside-medical.com" target="_blank">Mountainside Medical</a>
     </div>
   </div>
 
-  <div class="compare-wrap" style="margin-top:16px;">
-    <table class="compare-table">
-      <tr>
-        <th></th>
-        <th>Sheath + LLD</th>
-        <th>Manual HLD (Revital-Ox)</th>
-      </tr>
-      <tr><td class="label">Cost per procedure</td><td>~$9&ndash;16</td><td>~$3&ndash;5</td></tr>
-      <tr><td class="label">Time between patients</td><td><strong>~2 minutes</strong></td><td>~15 minutes</td></tr>
-      <tr><td class="label">Equipment to carry</td><td>Box of sheaths, wipes</td><td>Basins, HLD solution, test strips, rinse water, PPE</td></tr>
-      <tr><td class="label">Chemical handling</td><td><strong>None</strong></td><td>Yes (gloves, eye protection)</td></tr>
-      <tr><td class="label">Ventilation concerns</td><td><strong>None</strong></td><td>None (Revital-Ox) / Some (OPA)</td></tr>
-      <tr><td class="label">Scope chemical exposure</td><td><strong>None</strong> (extends scope life)</td><td>Repeated chemical contact</td></tr>
-    </table>
-  </div>
-
-  <div class="rec-box">
-    <strong>Best strategy for mobile FEES:</strong> Use sheaths as your primary method (fast turnaround, minimal equipment). Keep a small Revital-Ox backup kit for situations where you run out of sheaths or a sheath fails. This dual approach gives maximum flexibility.<br><br>
-    <strong>Caveat:</strong> Some facilities may still require HLD even with sheaths (concern about micro-perforations). Verify with each facility&rsquo;s infection control policies and with the Nevada state board.
-  </div>
-</section>
-
-<!-- ══════════ 8. CLEANING TOOLS ══════════ -->
-<section id="tools">
-  <div class="section-header">
-    <div class="icon">&#129529;</div>
-    <h2>8. Cleaning Tools &amp; Supplies</h2>
-  </div>
-  <p>Since your scope has no channels, you do NOT need channel brushes. The supplies below are for external cleaning and HLD only.</p>
-
-  <div class="card-grid cols-2">
-    <div class="card">
-      <h3>Enzymatic Detergent Sponge/Wipes</h3>
-      <p class="desc">For immediate pre-cleaning after each patient. Single-use. Prevents bioburden from drying on scope.</p>
-      <div class="retail-links">
-        <a class="amazon" href="https://www.amazon.com/s?k=enzymatic+pre-cleaning+endoscope+wipes" target="_blank">Amazon</a>
-        <a class="medical" href="https://www.cygnusmedical.com/products/first_step/fs.html" target="_blank">Cygnus Pre-Clean</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Enzymatic Detergent (Concentrate)</h3>
-      <p class="desc">Enzol Enzymatic Detergent. Dilute into a travel bottle. Used for the manual wash step before HLD. Gallon lasts months. ~$15&ndash;25.</p>
-      <div class="retail-links">
-        <a class="amazon" href="https://www.amazon.com/s?k=enzol+enzymatic+detergent" target="_blank">Amazon</a>
-        <a class="medical" href="https://www.mountainside-medical.com" target="_blank">Mountainside Medical</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Soaking Basin with Lid</h3>
-      <p class="desc">For HLD soak. Lid contains fumes (especially if using OPA). Stainless steel or polypropylene. Must fit the 53 cm scope length.</p>
-      <div class="retail-links">
-        <a class="amazon" href="https://www.amazon.com/Stainless-Steel-Soaking-Tray-Lid/dp/B00KMZ86CW" target="_blank">Amazon</a>
-        <a class="amazon" href="https://www.amazon.com/Endoscope-Sterilization-Surgical-Instrument-Medical/dp/B09CNWS134" target="_blank">Amazon (sterilization tray)</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>OPA Test Strips <span class="badge rec">REQUIRED</span></h3>
-      <p class="desc">Must match your HLD. For MetriCide OPA Plus, use Metrex OPA-28 test strips. Verify MEC before each use session. Required for compliance. ~$20&ndash;35/bottle.</p>
-      <div class="retail-links">
-        <a class="amazon" href="https://www.amazon.com/s?k=OPA+test+strips+metricide" target="_blank">Amazon</a>
-        <a class="medical" href="https://www.mountainside-medical.com" target="_blank">Mountainside Medical</a>
-        <a class="medical" href="https://mfimedical.com" target="_blank">MFI Medical</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>70% Isopropyl Alcohol Wipes</h3>
-      <p class="desc">For low-level disinfection when using the sheath method. Large wipes preferred.</p>
-      <div class="retail-links">
-        <a class="amazon" href="https://www.amazon.com/s?k=70+isopropyl+alcohol+wipes+large" target="_blank">Amazon</a>
-        <a class="walmart" href="https://www.walmart.com/search?q=isopropyl+alcohol+wipes" target="_blank">Walmart</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Lint-Free Drying Cloths</h3>
-      <p class="desc">For drying scope after rinse. Microfiber or medical-grade lint-free cloths.</p>
-      <div class="retail-links">
-        <a class="amazon" href="https://www.amazon.com/s?k=lint+free+medical+cloths" target="_blank">Amazon</a>
-      </div>
+  <div class="card">
+    <h3>McKesson Multi-Enzymatic Cleanser (1 Gallon)</h3>
+    <p class="desc">Concentrate &mdash; dilute per label. For the enzymatic wash step before HLD soak. Safe for flexible scopes. Gallon lasts months. ~$15&ndash;25</p>
+    <div class="retail-links">
+      <a class="amazon" href="https://www.amazon.com/McKesson-Brand-Enzymatic-Instrument-Cleanser/dp/B01MRE5L11" target="_blank">Amazon</a>
     </div>
   </div>
 
-  <div class="rec-box">
-    <strong>You do NOT need channel cleaning brushes.</strong> Those are for channeled GI endoscopes. Your ENTity XL has no internal channels. Save your money.
-  </div>
-</section>
-
-<!-- ══════════ 9. TRANSPORT & STORAGE ══════════ -->
-<section id="transport">
-  <div class="section-header">
-    <div class="icon">&#128666;</div>
-    <h2>9. Transport &amp; Storage</h2>
+  <div class="card">
+    <h3>Metrex MetriSponge (Pack of 25)</h3>
+    <p class="desc">Pre-saturated enzymatic sponges for immediate pre-cleaning after each patient. Single-use, tear open and wipe. ~$25 (~$1 each)</p>
+    <div class="retail-links">
+      <a class="amazon" href="https://us.amazon.com/Metrex-MetriSponge-Pre-Saturated-MetriZyme-Solution/dp/B0G2HFXJPG" target="_blank">Amazon</a>
+    </div>
   </div>
 
-  <div class="card-grid cols-2">
-    <div class="card">
-      <h3>Ruhof ScopeValet Transport Bag</h3>
-      <p class="desc">Biohazard-tagged, cinch-cord closure. For moving dirty scopes safely. Leak-proof liner + absorbent pad.</p>
-      <div class="retail-links">
-        <a class="medical" href="https://www.ruhof.com/products/scopevalet-transport-bag" target="_blank">Ruhof</a>
-        <a class="medical" href="https://mms.mckesson.com/product/1133523/Ruhof-Healthcare-345TBC" target="_blank">McKesson</a>
-      </div>
+  <div class="card">
+    <h3>ATT-OP Optim Leak Tester</h3>
+    <p class="desc">Hand-held air pump with Optim-specific connector tip. Pressurizes your scope for wet leak testing. The ONLY leak tester that fits the ENTity XL. ~$250</p>
+    <div class="retail-links">
+      <a class="medical" href="https://www.endoscopy.com/store/pc/OPTIM-Airtight-Leak-Tester-p340.htm" target="_blank">Endoscopy.com ($250)</a>
+      <a class="medical" href="https://www.eriemedicalsupplies.com/products/optim-air-leak-tester" target="_blank">Erie Medical ($395)</a>
     </div>
-    <div class="card">
-      <h3>Optim EndoCaddy Storage System <span class="badge oem">OEM</span></h3>
-      <p class="desc">OEM storage case for ENTity nasopharyngoscopes. Padded, ventilated. Use for clean scope storage and transport.</p>
-      <div class="retail-links">
-        <a class="medical" href="https://optim-llc.com/medical-endoscope-products/entity-reprocessing-accessories/" target="_blank">Optim LLC</a>
-      </div>
+  </div>
+
+  <div class="card">
+    <h3>Two Lidded Basins</h3>
+    <p class="desc">One for HLD soak, one for rinse. Lid contains OPA fumes. Must be long enough to fit the 53 cm scope. Stainless steel or plastic. ~$10&ndash;20</p>
+    <div class="retail-links">
+      <a class="amazon" href="https://www.amazon.com/s?k=stainless+steel+soaking+tray+lid+instrument" target="_blank">Amazon</a>
     </div>
-    <div class="card">
-      <h3>Laborie ScopeTote Transport Bag</h3>
-      <p class="desc">Leak-proof, puncture-resistant. Color-coded clean/dirty indicator system.</p>
-      <div class="retail-links">
-        <a class="medical" href="https://www.laborie.com/product/scopetote-endoscope-transport-bag/" target="_blank">Laborie</a>
-      </div>
+  </div>
+
+  <div class="card">
+    <h3>Lint-Free Drying Cloths</h3>
+    <p class="desc">For drying the scope after final rinse. Microfiber or medical-grade lint-free. ~$5&ndash;10</p>
+    <div class="retail-links">
+      <a class="amazon" href="https://www.amazon.com/s?k=lint+free+medical+cloth" target="_blank">Amazon</a>
     </div>
-    <div class="card">
-      <h3>STERIS CLEANASCOPE System</h3>
-      <p class="desc">Transport + short-term storage with contamination protection. Minimizes airborne exposure.</p>
-      <div class="retail-links">
-        <a class="medical" href="https://www.steris.com/healthcare/products/endoscope-reprocessing/endoscope-drying-storage-and-transport/cleanascope-system" target="_blank">STERIS</a>
-      </div>
+  </div>
+
+  <div class="card">
+    <h3>Nitrile Gloves</h3>
+    <p class="desc">Wear during all reprocessing steps. OPA can stain skin gray. ~$10&ndash;15/box</p>
+    <div class="retail-links">
+      <a class="amazon" href="https://www.amazon.com/s?k=nitrile+gloves" target="_blank">Amazon</a>
     </div>
   </div>
 </section>
 
-<!-- ══════════ 10. CONSUMABLES ══════════ -->
-<section id="consumables">
+<!-- ══════════ IMPORTANT NOTES ══════════ -->
+<section>
   <div class="section-header">
-    <div class="icon">&#129658;</div>
-    <h2>10. FEES Exam Consumables</h2>
+    <div class="icon">&#9888;</div>
+    <h2>Important Notes</h2>
   </div>
-  <p>Per-patient supplies for each evaluation.</p>
 
-  <div class="consumable-row"><div class="dot"></div><div class="name">Topical Nasal Anesthetic</div><div class="detail">Lidocaine 4% spray or gel</div><div class="note">Rx required &mdash; coordinate with physician</div></div>
-  <div class="consumable-row"><div class="dot"></div><div class="name">Nasal Decongestant</div><div class="detail">Oxymetazoline (Afrin) spray</div><div class="note">OTC &mdash; individual-use bottles</div></div>
-  <div class="consumable-row"><div class="dot"></div><div class="name">Water-Based Lubricant</div><div class="detail">Surgilube or equivalent</div><div class="note">Single-use packets</div></div>
-  <div class="consumable-row"><div class="dot"></div><div class="name">Anti-Fog Solution</div><div class="detail">Fred anti-fog or similar</div><div class="note">Apply to distal tip before insertion</div></div>
-  <div class="consumable-row"><div class="dot"></div><div class="name">Green Food Coloring</div><div class="detail">FDA-approved (McCormick or equiv.)</div><div class="note">Dyes food for visibility on screen</div></div>
-  <div class="consumable-row"><div class="dot"></div><div class="name">Test Food Items</div><div class="detail">Thin liquid, nectar-thick, puree, crackers</div><div class="note">Multiple consistencies per protocol</div></div>
-  <div class="consumable-row"><div class="dot"></div><div class="name">PPE</div><div class="detail">Nitrile gloves, gown, face shield, mask</div><div class="note">Required for infection control</div></div>
-  <div class="consumable-row"><div class="dot"></div><div class="name">Gauze &amp; Biohazard Bags</div><div class="detail">4x4 gauze pads, red biohazard waste bags</div><div class="note">Scope wipe-down &amp; disposal</div></div>
-  <div class="consumable-row"><div class="dot"></div><div class="name">Scope Sheaths (if using)</div><div class="detail">BR Surgical disposable sheaths (3.4&ndash;3.6 mm)</div><div class="note">~$8&ndash;15 each / eliminates HLD</div></div>
+  <div class="card">
+    <h3>MetriCide OPA Plus &mdash; Key Facts</h3>
+    <p class="desc" style="margin-bottom:0;">
+      &bull; <strong>28-day reuse:</strong> Once you pour it into a basin, it's good for 28 days. Write the open date on the basin with a marker.<br>
+      &bull; <strong>Test before every use session:</strong> Dip an OPA test strip before each day's first soak. If it fails, replace the solution.<br>
+      &bull; <strong>OPA stains gray:</strong> Wear gloves. If it gets on skin or clothes, it will stain. If it contacts proteins (dried blood on scope), it stains permanently &mdash; that's why pre-cleaning is critical.<br>
+      &bull; <strong>Low fumes but use a lid:</strong> OPA has mild fumes. Use a lidded basin. If you're doing multiple soaks in a small room, crack a window.<br>
+      &bull; <strong>Do NOT exceed 1 hour soak time.</strong> Longer exposure can degrade scope adhesives.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Leak Tester &mdash; Key Facts</h3>
+    <p class="desc" style="margin-bottom:0;">
+      &bull; <strong>Olympus/Pentax/Fujinon testers will NOT fit</strong> your ENTity XL. Different connector.<br>
+      &bull; Only the <strong>ATT-OP</strong> (Optim-specific adapter) works.<br>
+      &bull; <strong>Leak test port location:</strong> On the handle/proximal body of the scope. Small capped valve. Check your IFU document for exact position.<br>
+      &bull; <strong>Call Optim (800-225-7486)</strong> to ask about the port gauge if you want to source a third-party adapter.<br>
+      &bull; <strong>Call ESS (845-277-1700)</strong> to buy the ATT-OP or ask about compatibility.
+    </p>
+  </div>
 </section>
 
-<!-- ══════════ 11. CHECKLIST ══════════ -->
-<section id="checklist">
+<!-- ══════════ MOBILE KIT CHECKLIST ══════════ -->
+<section>
   <div class="section-header">
-    <div class="icon">&#9745;</div>
-    <h2>11. Mobile Kit Checklist</h2>
+    <div class="icon">&#9989;</div>
+    <h2>Mobile Kit Checklist</h2>
   </div>
-  <p>Run through this before leaving for every facility visit.</p>
+  <p>Print this and check off before heading to each evaluation.</p>
 
   <div class="checklist">
-    <div class="checklist-grid">
-      <label class="checklist-item"><input type="checkbox"> ENTity XL scope (charged, leak tested, reprocessed)</label>
-      <label class="checklist-item"><input type="checkbox"> ESC Medicams camera + coupler + cables</label>
-      <label class="checklist-item"><input type="checkbox"> Laptop or monitor for video</label>
-      <label class="checklist-item"><input type="checkbox"> USB drive for recording</label>
-      <label class="checklist-item"><input type="checkbox"> DC 12V adapter (if using TV/monitor)</label>
-      <label class="checklist-item"><input type="checkbox"> Scope sheaths (if using sheath method)</label>
-      <label class="checklist-item"><input type="checkbox"> Lidocaine spray (check expiration)</label>
-      <label class="checklist-item"><input type="checkbox"> Afrin / nasal decongestant</label>
-      <label class="checklist-item"><input type="checkbox"> Water-based lubricant packets</label>
-      <label class="checklist-item"><input type="checkbox"> Anti-fog solution</label>
-      <label class="checklist-item"><input type="checkbox"> Green food coloring</label>
-      <label class="checklist-item"><input type="checkbox"> Test food items (multiple consistencies)</label>
-      <label class="checklist-item"><input type="checkbox"> Gloves, gown, face shield, mask</label>
-      <label class="checklist-item"><input type="checkbox"> Gauze, tissues, biohazard bags</label>
-      <label class="checklist-item"><input type="checkbox"> Enzymatic wipes/sponges (pre-clean)</label>
-      <label class="checklist-item"><input type="checkbox"> 70% alcohol wipes (if using sheaths)</label>
-      <label class="checklist-item"><input type="checkbox"> HLD solution + test strips (if using HLD)</label>
-      <label class="checklist-item"><input type="checkbox"> Soak basin + rinse basin (if using HLD)</label>
-      <label class="checklist-item"><input type="checkbox"> Leak tester (ATT-OP)</label>
-      <label class="checklist-item"><input type="checkbox"> Consent forms</label>
-      <label class="checklist-item"><input type="checkbox"> FEES report templates</label>
-      <label class="checklist-item"><input type="checkbox"> Reprocessing log (date, time, chemical, test strip result)</label>
-    </div>
+    <label class="checklist-item"><input type="checkbox"> Optim ENTity XL scope (charged)</label>
+    <label class="checklist-item"><input type="checkbox"> ESC Medicams camera + USB cable</label>
+    <label class="checklist-item"><input type="checkbox"> Laptop or monitor</label>
+    <label class="checklist-item"><input type="checkbox"> USB drive for recording</label>
+    <label class="checklist-item"><input type="checkbox"> MetriSponge enzymatic wipes (1 per patient)</label>
+    <label class="checklist-item"><input type="checkbox"> ATT-OP leak tester</label>
+    <label class="checklist-item"><input type="checkbox"> McKesson enzymatic cleanser (diluted in travel bottle)</label>
+    <label class="checklist-item"><input type="checkbox"> MetriCide OPA Plus (pour into soak basin)</label>
+    <label class="checklist-item"><input type="checkbox"> OPA test strips</label>
+    <label class="checklist-item"><input type="checkbox"> Two lidded basins (soak + rinse)</label>
+    <label class="checklist-item"><input type="checkbox"> Clean water for rinse</label>
+    <label class="checklist-item"><input type="checkbox"> Lint-free drying cloths</label>
+    <label class="checklist-item"><input type="checkbox"> Nitrile gloves</label>
+    <label class="checklist-item"><input type="checkbox"> Scope carrying case</label>
+    <label class="checklist-item"><input type="checkbox"> Patient consent forms</label>
+    <label class="checklist-item"><input type="checkbox"> Food/liquid trial items (water, thickened liquids, puree, solids)</label>
+    <label class="checklist-item"><input type="checkbox"> Green food dye (optional)</label>
+    <label class="checklist-item"><input type="checkbox"> Tissues / gauze for patient</label>
+    <label class="checklist-item"><input type="checkbox"> Topical anesthetic spray (if used)</label>
   </div>
 </section>
 
-<!-- ══════════ NOTICE ══════════ -->
-<div class="notice">
-  <h3>&#9888;&#65039; Important Compliance Notes</h3>
-  <p>
-    &bull; Always follow your scope&rsquo;s IFU (Instructions for Use) &mdash; the document that shipped with the ENTity XL, or request from Optim.<br>
-    &bull; Follow BOTH the scope IFU AND the HLD chemical IFU.<br>
-    &bull; Document every reprocessing cycle in a log (date, time, chemical lot, test strip result).<br>
-    &bull; Verify each facility&rsquo;s infection control policies &mdash; some may require HLD even when using sheaths.<br>
-    &bull; Nevada NRS 637B authorizes SLPs to perform flexible nasal endoscopy for swallowing evaluation.<br>
-    &bull; Your compliance obligations: (1) Scope manufacturer IFU, (2) Chemical manufacturer IFU, (3) CDC/FDA guidelines, (4) Facility infection control policies.
-  </p>
-  <div class="ref-links">
-    <a href="https://www.optim-llc.com/service-support/care-maintenance-tips/" target="_blank">Optim Care &amp; Maintenance</a>
-    <a href="https://www.optim-llc.com/medical-endoscope-products/entity-reprocessing-accessories/" target="_blank">Optim Reprocessing Accessories</a>
-    <a href="https://www.cdc.gov/hicpac/media/pdfs/essential-elements-508.pdf" target="_blank">CDC Reprocessing Guidelines</a>
-    <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/guidance-manufacturers-seeking-marketing-clearance-ear-nose-and-throat-endoscope-sheaths-used" target="_blank">FDA Endoscope Sheath Guidance</a>
-    <a href="https://www.asha.org/practice-portal/resources/flexible-endoscopic-evaluation-of-swallowing/" target="_blank">ASHA FEES Resource</a>
-    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9906939/" target="_blank">Cost Analysis Study (2023)</a>
+<!-- ══════════ WHERE TO BUY ══════════ -->
+<section>
+  <div class="section-header">
+    <div class="icon">&#128205;</div>
+    <h2>Where to Buy (No Account Needed)</h2>
   </div>
+
+  <div class="card">
+    <h3>Amazon</h3>
+    <p class="desc">McKesson enzymatic cleanser, MetriSponge wipes, OPA test strips, basins, gloves, lint-free cloths, Cidex OPA (backup HLD)</p>
+  </div>
+  <div class="card">
+    <h3>Mountainside Medical &mdash; <a href="https://www.mountainside-medical.com" target="_blank" style="color:var(--teal);">mountainside-medical.com</a></h3>
+    <p class="desc">MetriCide OPA Plus, OPA test strips, enzymatic cleaners. Call 1-888-687-4334.</p>
+  </div>
+  <div class="card">
+    <h3>MFI Medical &mdash; <a href="https://mfimedical.com" target="_blank" style="color:var(--teal);">mfimedical.com</a></h3>
+    <p class="desc">MetriCide OPA Plus, medical supplies.</p>
+  </div>
+  <div class="card">
+    <h3>DDP Medical &mdash; <a href="https://ddpmedical.com" target="_blank" style="color:var(--teal);">ddpmedical.com</a></h3>
+    <p class="desc">MetriCide OPA Plus, HLD solutions.</p>
+  </div>
+  <div class="card">
+    <h3>Endoscopy.com (ESS) &mdash; <a href="https://www.endoscopy.com" target="_blank" style="color:var(--teal);">endoscopy.com</a></h3>
+    <p class="desc">ATT-OP Optim leak tester ($250). Call 845-277-1700.</p>
+  </div>
+  <div class="card">
+    <h3>Optim LLC &mdash; 800-225-7486</h3>
+    <p class="desc">Scope repairs, warranty, replacement parts, IFU documents, reprocessing questions.</p>
+  </div>
+</section>
+
 </div>
 
-<!-- ══════════ 12. VENDORS ══════════ -->
-<section id="vendors">
-  <div class="section-header">
-    <div class="icon">&#128188;</div>
-    <h2>12. Vendors &amp; Contacts</h2>
-  </div>
-  <p style="margin-bottom:12px;">Retail marketplaces where some products are available, plus specialist medical suppliers.</p>
-
-  <div class="card-grid cols-3">
-    <div class="card vendor-card" style="border-left: 3px solid #f0c040;">
-      <h3>Amazon</h3>
-      <div class="brand">Retail &mdash; Enzymatic detergent, soaking trays, alcohol wipes, Cidex OPA</div>
-      <a style="color:var(--teal); font-size:0.84rem; font-weight:600; text-decoration:none;" href="https://www.amazon.com/s?k=endoscope+cleaning+supplies" target="_blank">Search Amazon &nearr;</a>
-    </div>
-    <div class="card vendor-card" style="border-left: 3px solid #3665f3;">
-      <h3>eBay</h3>
-      <div class="brand">Retail &mdash; Leak testers, Rapicide OPA/28, test strips, used equipment</div>
-      <a style="color:var(--teal); font-size:0.84rem; font-weight:600; text-decoration:none;" href="https://www.ebay.com/sch/i.html?_nkw=endoscope+reprocessing+supplies" target="_blank">Search eBay &nearr;</a>
-    </div>
-    <div class="card vendor-card" style="border-left: 3px solid #0071dc;">
-      <h3>Walmart</h3>
-      <div class="brand">Retail &mdash; Cidex OPA, alcohol wipes, PPE</div>
-      <a style="color:var(--teal); font-size:0.84rem; font-weight:600; text-decoration:none;" href="https://www.walmart.com/ip/Cidex-1-Gal-Shape/5253957850" target="_blank">Cidex OPA &nearr;</a>
-    </div>
-    <div class="card vendor-card">
-      <h3>Optim LLC</h3>
-      <div class="brand">Scope Manufacturer &bull; ATT-OP leak tester &bull; EndoCaddy &bull; VidCap camera</div>
-      <div class="phone">508-754-0880</div>
-      <a style="color:var(--teal); font-size:0.84rem; font-weight:600; text-decoration:none;" href="https://www.optim-llc.com/" target="_blank">Website &nearr;</a>
-    </div>
-    <div class="card vendor-card">
-      <h3>STERIS</h3>
-      <div class="brand">Revital-Ox RESERT &bull; Rapicide OPA/28 &bull; Test strips &bull; Cleaning supplies</div>
-      <div class="phone">800-548-4873</div>
-      <a style="color:var(--teal); font-size:0.84rem; font-weight:600; text-decoration:none;" href="https://www.steris.com/healthcare/products/endoscope-reprocessing" target="_blank">Website &nearr;</a>
-    </div>
-    <div class="card vendor-card">
-      <h3>ESC Medicams</h3>
-      <div class="brand">Portable endoscopy camera &bull; Couplers &bull; Adapters</div>
-      <a style="color:var(--teal); font-size:0.84rem; font-weight:600; text-decoration:none;" href="https://www.escmedicams.com/" target="_blank">Website &nearr;</a>
-    </div>
-    <div class="card vendor-card">
-      <h3>BR Surgical</h3>
-      <div class="brand">FDA-cleared disposable scope sheaths (3.4&ndash;3.6 mm)</div>
-      <a style="color:var(--teal); font-size:0.84rem; font-weight:600; text-decoration:none;" href="https://brsurgical.com/product/flexible-rhinolaryngoscope-sheath-disposable/" target="_blank">Website &nearr;</a>
-    </div>
-    <div class="card vendor-card">
-      <h3>Erie Medical Supplies</h3>
-      <div class="brand">ATT-OP leak tester &bull; Endoscopy accessories</div>
-      <a style="color:var(--teal); font-size:0.84rem; font-weight:600; text-decoration:none;" href="https://www.eriemedicalsupplies.com/" target="_blank">Website &nearr;</a>
-    </div>
-    <div class="card vendor-card">
-      <h3>USA Medical &amp; Surgical</h3>
-      <div class="brand">Rapicide OPA/28 &bull; HLD supplies</div>
-      <a style="color:var(--teal); font-size:0.84rem; font-weight:600; text-decoration:none;" href="https://www.usamedicalsurgical.com/rapicide-opa-28/" target="_blank">Website &nearr;</a>
-    </div>
-  </div>
-</section>
-
-</div><!-- /container -->
-
 <div class="doc-footer">
-  Mobile FEES 702 &mdash; Equipment &amp; Supply Guide &mdash; April 2026<br>
-  For personal reference only. Verify all compatibility with Optim LLC before purchasing. Follow your scope&rsquo;s IFU.
+  Mobile FEES 702 &mdash; Kristine Everett, MA, CCC-SLP &mdash; Last updated April 2026
 </div>
 
 </body>
