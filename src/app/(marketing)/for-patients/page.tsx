@@ -18,7 +18,6 @@ import {
 } from "@/components/ui/accordion";
 import {
   ClipboardCheck,
-  Clock,
   Eye,
   Utensils,
   MessageSquare,
@@ -31,7 +30,10 @@ import {
 export const metadata: Metadata = {
   title: "For Patients & Families",
   description:
-    "Learn what to expect during a FEES evaluation, how to prepare, and how to understand your results. Written in plain language for patients and families.",
+    "Learn what to expect during a mobile FEES evaluation in Las Vegas, how to prepare, and how to understand the results in plain language.",
+  alternates: {
+    canonical: "/for-patients",
+  },
 };
 
 const expectSteps = [
@@ -103,7 +105,7 @@ const patientFaqs = [
   {
     question: "Does my insurance cover this?",
     answer:
-      "Most insurance plans, including Medicare and Medicaid, cover FEES when it is ordered by your doctor. We can help check your coverage before your appointment.",
+      "Coverage depends on where the service is being provided, what kind of referral or order is in place, and whether the visit is part of a facility agreement or a concierge self-pay appointment. We do not promise Medicare, Medicaid, or commercial reimbursement until the pathway is verified. For concierge visits, we can provide a superbill for out-of-network submission when appropriate.",
   },
   {
     question: "Can a family member be present during the exam?",
@@ -120,11 +122,10 @@ const patientFaqs = [
 export default function ForPatientsPage() {
   return (
     <div className="container mx-auto max-w-4xl px-4 py-12 space-y-16">
-      {/* Header */}
       <div className="space-y-4">
         <PageHeader
-          title="For Patients & Families"
-          description="Everything you need to know about your FEES evaluation, explained in plain language."
+          title="For Las Vegas Patients & Families"
+          description="Understand the FEES visit, review the next steps, and move into a simple appointment request when you are ready."
         />
         <VoiceNarration
           src="/audio/what-to-expect.mp3"
@@ -283,21 +284,64 @@ export default function ForPatientsPage() {
         </Accordion>
       </section>
 
-      {/* CTA */}
+      <section className="grid gap-4 md:grid-cols-2">
+        <Card className="border-primary/15">
+          <CardContent className="space-y-3 pt-6">
+            <h2 className="text-xl font-semibold text-foreground">
+              Looking for a bedside swallow study?
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Use the local bedside page if the patient is medically fragile,
+              bedbound, or the family needs a faster answer without transport.
+            </p>
+            <Link
+              href="/bedside-swallow-study-las-vegas"
+              className={buttonVariants({ variant: "outline" })}
+            >
+              Read the Bedside Page
+            </Link>
+          </CardContent>
+        </Card>
+        <Card className="border-primary/15">
+          <CardContent className="space-y-3 pt-6">
+            <h2 className="text-xl font-semibold text-foreground">
+              Need an at-home swallow evaluation?
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Use the at-home page if the patient is in a private residence and
+              the family wants the shortest route to an appointment or estimate.
+            </p>
+            <Link
+              href="/at-home-swallow-evaluation-las-vegas"
+              className={buttonVariants({ variant: "outline" })}
+            >
+              Read the At-Home Page
+            </Link>
+          </CardContent>
+        </Card>
+      </section>
+
       <section className="rounded-[var(--radius)] border border-primary-light bg-primary-light/30 p-8 text-center space-y-4">
         <h2 className="text-xl font-semibold text-foreground">
-          Have More Questions?
+          Ready for the next step?
         </h2>
         <p className="text-muted-foreground max-w-xl mx-auto">
-          We are here to help you feel comfortable and informed. Contact us
-          anytime with questions about your upcoming FEES evaluation.
+          Use the Mobile FEES LV request funnel to ask for a Las Vegas
+          appointment, pricing review, or concierge fit check without filling
+          out the wrong form.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
-          <Link href="/contact" className={buttonVariants({ size: "lg" })}>
-            Contact Us
+          <Link
+            href="/contact?path=patient&intent=appointment"
+            className={buttonVariants({ size: "lg" })}
+          >
+            Request Appointment
           </Link>
-          <Link href="/faq" className={buttonVariants({ variant: "outline", size: "lg" })}>
-            View All FAQs
+          <Link
+            href="/contact?path=patient&intent=estimate"
+            className={buttonVariants({ variant: "outline", size: "lg" })}
+          >
+            Request Pricing Review
           </Link>
         </div>
       </section>

@@ -1,207 +1,257 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageHeader } from "@/components/ui/page-header";
 import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from "@/components/ui/card";
+  ArrowRight,
+  Building2,
+  Check,
+  HandCoins,
+  House,
+  Scale,
+} from "lucide-react";
+import { PageHeader } from "@/components/ui/page-header";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
+import {
+  comparisonRows,
+  conciergePlans,
+  facilityPlans,
+  pricingNotes,
+  reimbursementSteps,
+} from "@/data/pricing";
 
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Transparent pricing for mobile FEES evaluations, facility contracts, and concierge swallowing services in the Las Vegas area.",
+    "Starting rates for Mobile FEES LV facility partnerships and Las Vegas concierge patient visits, plus practical guidance on how payment usually flows in SNFs.",
+  alternates: {
+    canonical: "/pricing",
+  },
 };
 
-interface PricingFeature {
-  text: string;
-}
-
-interface PricingTier {
+function PricingCard({
+  name,
+  description,
+  price,
+  priceNote,
+  highlights,
+  icon,
+}: {
   name: string;
   description: string;
   price: string;
   priceNote: string;
-  popular?: boolean;
-  features: PricingFeature[];
-}
+  highlights: string[];
+  icon: React.ComponentType<{ className?: string }>;
+}) {
+  const Icon = icon;
 
-const tiers: PricingTier[] = [
-  {
-    name: "Standard",
-    description: "Per-visit pricing for individual evaluations and services.",
-    price: "$550",
-    priceNote: "per FEES evaluation",
-    features: [
-      { text: "Single FEES Evaluation: $550" },
-      { text: "Follow-up FEES Evaluation: $400" },
-      { text: "Clinical Swallowing Evaluation (bedside, no scope): $200" },
-      { text: "Staff Training / In-Service: $350/hour" },
-      { text: "Travel fee included within 25 miles of Las Vegas" },
-      { text: "Report delivered within 48 hours" },
-      { text: "Scheduling within 3\u20135 business days" },
-    ],
-  },
-  {
-    name: "Facility Contract",
-    description:
-      "Volume-based pricing for facilities with ongoing evaluation needs.",
-    price: "$475",
-    priceNote: "per evaluation",
-    popular: true,
-    features: [
-      { text: "Per-evaluation rate: $475" },
-      { text: "5+ evaluations/month: $425 each" },
-      { text: "10+ evaluations/month: $375 each" },
-      { text: "Follow-up evaluations: $325" },
-      { text: "Clinical swallowing evaluations: $175" },
-      { text: "2 free staff in-services per year" },
-      { text: "Report delivered within 24 hours" },
-      { text: "Priority scheduling (48\u201372 hours)" },
-      { text: "Net 30 payment terms" },
-      { text: "Dedicated contact line" },
-    ],
-  },
-  {
-    name: "Concierge",
-    description:
-      "Premium retainer for facilities needing guaranteed availability and rapid response.",
-    price: "$2,500",
-    priceNote: "per month",
-    features: [
-      { text: "Includes up to 6 FEES evaluations" },
-      { text: "Additional evaluations: $350 each" },
-      { text: "Same-day / next-day scheduling guaranteed" },
-      { text: "Unlimited phone consultations" },
-      { text: "Monthly swallowing wellness rounds" },
-      { text: "Premium reports with video clips" },
-      { text: "Dedicated clinician availability" },
-      { text: "Net 15 payment terms" },
-    ],
-  },
-];
+  return (
+    <Card className="h-full">
+      <CardHeader className="space-y-4">
+        <div className="flex items-center gap-3">
+          <div className="flex h-11 w-11 items-center justify-center rounded-[var(--radius)] bg-primary-light">
+            <Icon className="h-5 w-5 text-primary" />
+          </div>
+          <div className="space-y-1">
+            <CardTitle className="text-xl">{name}</CardTitle>
+            <CardDescription>{description}</CardDescription>
+          </div>
+        </div>
+        <div>
+          <span className="text-3xl font-bold text-foreground">{price}</span>
+          <span className="ml-2 text-sm text-muted-foreground">{priceNote}</span>
+        </div>
+      </CardHeader>
+      <CardContent>
+        <ul className="space-y-3">
+          {highlights.map((highlight) => (
+            <li key={highlight} className="flex items-start gap-2">
+              <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+              <span className="text-sm leading-relaxed text-muted-foreground">
+                {highlight}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </CardContent>
+    </Card>
+  );
+}
 
 export default function PricingPage() {
   return (
     <div className="container mx-auto max-w-6xl px-4 py-12 space-y-16">
       <PageHeader
-        title="Transparent Pricing"
-        description="Flexible plans designed for individual referrals, skilled nursing facilities, and organizations that need dedicated swallowing care."
-      />
+        title="Pricing & Payment Paths"
+        description="Transparent starting rates for facilities and concierge patients, with billing language designed to match how SNF payment actually works."
+      >
+        <div className="flex flex-wrap gap-2 pt-2">
+          <Badge>Starting rates</Badge>
+          <Badge variant="secondary">Facility-paid agreements</Badge>
+          <Badge variant="outline">Good Faith Estimates available</Badge>
+        </div>
+      </PageHeader>
 
-      {/* Pricing cards */}
-      <div className="grid gap-8 md:grid-cols-3">
-        {tiers.map((tier) => (
-          <Card
-            key={tier.name}
-            className={
-              tier.popular
-                ? "border-primary border-2 relative"
-                : "relative"
-            }
-          >
-            {tier.popular && (
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                <Badge>Most Popular</Badge>
-              </div>
-            )}
-            <CardHeader className="text-center pt-8">
-              <CardTitle className="text-xl">{tier.name}</CardTitle>
-              <CardDescription className="mt-1">
-                {tier.description}
-              </CardDescription>
-              <div className="mt-4">
-                <span className="text-3xl font-bold text-foreground">
-                  {tier.price}
-                </span>
-                <span className="text-sm text-muted-foreground ml-1">
-                  {tier.priceNote}
-                </span>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <ul className="space-y-3">
-                {tier.features.map((feature) => (
-                  <li key={feature.text} className="flex items-start gap-2">
-                    <Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" />
-                    <span className="text-sm text-foreground">
-                      {feature.text}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/contact"
-                className={buttonVariants({
-                  variant: tier.popular ? "default" : "outline",
-                  size: "md",
-                  className: "w-full mt-4",
-                })}
-              >
-                Get Started
-              </Link>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-
-      {/* Insurance & Medicare */}
       <section className="space-y-6">
-        <h2 className="text-2xl font-bold text-foreground">
-          Insurance &amp; Medicare
+        <div className="flex items-center gap-2">
+          <Building2 className="h-5 w-5 text-primary" />
+          <h2 className="text-2xl font-semibold text-foreground">
+            Facility Partnership Pricing
+          </h2>
+        </div>
+        <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
+          These plans are structured around the most defensible SNF workflow:
+          the facility contracts with Mobile FEES LV, the facility pays the vendor,
+          and the facility determines whether it can recover through its own Part A,
+          Part B, managed-care, or private-pay billing pathway.
+        </p>
+        <div className="grid gap-6 lg:grid-cols-3">
+          {facilityPlans.map((plan, index) => (
+            <PricingCard
+              key={plan.id}
+              name={plan.name}
+              description={plan.description}
+              price={plan.price}
+              priceNote={plan.priceNote}
+              highlights={plan.highlights}
+              icon={index === 2 ? HandCoins : Building2}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <div className="flex items-center gap-2">
+          <House className="h-5 w-5 text-primary" />
+          <h2 className="text-2xl font-semibold text-foreground">
+            Concierge Patient Pricing
+          </h2>
+        </div>
+        <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
+          Concierge visits are designed for patients who need faster access or who
+          cannot easily complete an outpatient MBSS. These visits are typically self-pay
+          first, with superbill support when out-of-network submission makes sense.
+        </p>
+        <div className="grid gap-6 md:grid-cols-2">
+          {conciergePlans.map((plan) => (
+            <PricingCard
+              key={plan.id}
+              name={plan.name}
+              description={plan.description}
+              price={plan.price}
+              priceNote={plan.priceNote}
+              highlights={plan.highlights}
+              icon={House}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <div className="flex items-center gap-2">
+          <HandCoins className="h-5 w-5 text-primary" />
+          <h2 className="text-2xl font-semibold text-foreground">
+            How Payment Usually Flows
+          </h2>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          {reimbursementSteps.map((step) => (
+            <Card key={step.title}>
+              <CardContent className="space-y-2 pt-6">
+                <h3 className="font-semibold text-foreground">{step.title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {step.description}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <div className="flex items-center gap-2">
+          <Scale className="h-5 w-5 text-primary" />
+          <h2 className="text-2xl font-semibold text-foreground">
+            Mobile FEES vs Outpatient MBSS
+          </h2>
+        </div>
+        <Card className="overflow-hidden">
+          <div className="grid grid-cols-[1fr_1fr_1fr] border-b border-border bg-muted/50 text-sm font-semibold text-foreground">
+            <div className="p-4">Decision point</div>
+            <div className="border-l border-border p-4">Mobile FEES</div>
+            <div className="border-l border-border p-4">Outpatient MBSS</div>
+          </div>
+          {comparisonRows.map((row) => (
+            <div
+              key={row.topic}
+              className="grid grid-cols-1 border-b border-border last:border-b-0 md:grid-cols-[1fr_1fr_1fr]"
+            >
+              <div className="p-4 text-sm font-medium text-foreground">{row.topic}</div>
+              <div className="border-t border-border p-4 text-sm leading-relaxed text-muted-foreground md:border-l md:border-t-0">
+                {row.mobileFees}
+              </div>
+              <div className="border-t border-border p-4 text-sm leading-relaxed text-muted-foreground md:border-l md:border-t-0">
+                {row.outpatientMbss}
+              </div>
+            </div>
+          ))}
+        </Card>
+        <p className="text-sm text-muted-foreground">
+          Short version: FEES is often the faster bedside answer for pharyngeal dysphagia questions,
+          while MBSS remains valuable when oral-phase or esophageal information is the main priority.
+        </p>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold text-foreground">
+          Billing Guardrails
         </h2>
         <Card>
-          <CardContent className="pt-6">
-            <ul className="space-y-3">
-              <li className="flex items-start gap-2">
-                <Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" />
-                <span className="text-sm text-foreground">
-                  Medicare Part B covers FEES (CPT 92612, 92613)
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" />
-                <span className="text-sm text-foreground">
-                  Most major insurance accepted
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" />
-                <span className="text-sm text-foreground">
-                  We handle billing and prior authorization
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Check className="h-4 w-4 mt-0.5 shrink-0 text-primary" />
-                <span className="text-sm text-foreground">
-                  Self-pay rates available upon request
-                </span>
-              </li>
-            </ul>
+          <CardContent className="space-y-3 pt-6">
+            {pricingNotes.map((note) => (
+              <div key={note} className="flex items-start gap-2">
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {note}
+                </p>
+              </div>
+            ))}
           </CardContent>
         </Card>
       </section>
 
-      {/* CTA */}
-      <section className="text-center space-y-4">
-        <h2 className="text-2xl font-bold text-foreground">
-          Ready to partner with Mobile FEES 702?
+      <section className="rounded-[var(--radius)] border border-primary-light bg-primary-light/30 p-8 space-y-4 text-center">
+        <Badge variant="default">Need a final quote?</Badge>
+        <h2 className="text-2xl font-semibold text-foreground">
+          Request a Facility Packet or Concierge Estimate
         </h2>
-        <p className="text-muted-foreground max-w-xl mx-auto">
-          Contact us to discuss which plan best fits your facility&apos;s needs, or to
-          schedule a single evaluation.
+        <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          We can tailor pricing around travel radius, monthly volume, and facility workflow.
+          If you are comparing FEES with outpatient MBSS, the resource library also includes a
+          printable comparison sheet and reimbursement quick guide.
         </p>
-        <Link
-          href="/contact"
-          className={buttonVariants({ size: "lg" })}
-        >
-          Contact Us
-        </Link>
+        <div className="flex flex-wrap justify-center gap-3">
+          <Link
+            href="/contact?path=facility&intent=consult"
+            className={buttonVariants({ size: "lg" })}
+          >
+            Request Facility Pricing Review
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+          <Link
+            href="/contact?path=patient&intent=estimate"
+            className={buttonVariants({ variant: "outline", size: "lg" })}
+          >
+            Request Patient Estimate
+          </Link>
+          <Link
+            href="/resources"
+            className={buttonVariants({ variant: "outline", size: "lg" })}
+          >
+            View Resource Library
+          </Link>
+        </div>
       </section>
     </div>
   );

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHeader } from "@/components/ui/page-header";
 import {
   Card,
@@ -6,6 +7,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { VoiceNarration } from "@/components/media/voice-narration";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Eye,
   Utensils,
@@ -24,7 +26,10 @@ import {
 export const metadata: Metadata = {
   title: "What is FEES?",
   description:
-    "Learn about Fiberoptic Endoscopic Evaluation of Swallowing (FEES) — a portable, radiation-free procedure that lets clinicians see how you swallow in real time.",
+    "Learn what FEES is and how Mobile FEES LV provides portable, radiation-free swallow evaluations for Las Vegas patients and families.",
+  alternates: {
+    canonical: "/what-is-fees",
+  },
 };
 
 const steps = [
@@ -266,6 +271,164 @@ export default function WhatIsFeesPage() {
         </div>
       </section>
 
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold text-foreground">
+          Common Las Vegas Search Paths
+        </h2>
+        <p className="text-muted-foreground leading-relaxed">
+          Many patients and families do not search for the term FEES first.
+          They search for the problem or setting they are dealing with. These
+          pages are built to answer those questions and move people toward the
+          right next step.
+        </p>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <Link
+            href="/coughing-during-meals-las-vegas"
+            className="rounded-[var(--radius)] border border-border bg-card p-5 transition-colors hover:border-primary/40"
+          >
+            <p className="font-semibold text-foreground">
+              Coughing during meals
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              When repeated coughing, choking, or throat clearing raises the
+              question of whether a swallow evaluation is needed.
+            </p>
+          </Link>
+          <Link
+            href="/aspiration-concern-las-vegas"
+            className="rounded-[var(--radius)] border border-border bg-card p-5 transition-colors hover:border-primary/40"
+          >
+            <p className="font-semibold text-foreground">
+              Aspiration concern
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              When families or referral teams are worried that food or liquid
+              may be entering the airway.
+            </p>
+          </Link>
+          <Link
+            href="/stroke-swallow-evaluation-las-vegas"
+            className="rounded-[var(--radius)] border border-border bg-card p-5 transition-colors hover:border-primary/40"
+          >
+            <p className="font-semibold text-foreground">
+              Stroke swallowing evaluation
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              For patients and families navigating new swallowing concerns after
+              stroke.
+            </p>
+          </Link>
+          <Link
+            href="/parkinsons-swallowing-evaluation-las-vegas"
+            className="rounded-[var(--radius)] border border-border bg-card p-5 transition-colors hover:border-primary/40"
+          >
+            <p className="font-semibold text-foreground">
+              Parkinson&apos;s swallowing concerns
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              For progressive swallowing change, fatigue, or meal-time decline
+              related to Parkinson&apos;s disease.
+            </p>
+          </Link>
+          <Link
+            href="/recurrent-pneumonia-swallow-evaluation-las-vegas"
+            className="rounded-[var(--radius)] border border-border bg-card p-5 transition-colors hover:border-primary/40"
+          >
+            <p className="font-semibold text-foreground">
+              Recurrent pneumonia concern
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              For cases where repeated pneumonia raises the question of airway
+              protection and swallowing safety.
+            </p>
+          </Link>
+          <Link
+            href="/difficulty-swallowing-pills-las-vegas"
+            className="rounded-[var(--radius)] border border-border bg-card p-5 transition-colors hover:border-primary/40"
+          >
+            <p className="font-semibold text-foreground">
+              Difficulty swallowing pills
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              For coughing with pills, medication sticking, or anxiety around
+              taking medications safely.
+            </p>
+          </Link>
+          <Link
+            href="/homebound-swallow-evaluation-las-vegas"
+            className="rounded-[var(--radius)] border border-border bg-card p-5 transition-colors hover:border-primary/40"
+          >
+            <p className="font-semibold text-foreground">
+              Homebound swallow evaluation
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              For patients who cannot realistically leave home and need a
+              practical next-step route.
+            </p>
+          </Link>
+          <Link
+            href="/wet-voice-after-swallowing-las-vegas"
+            className="rounded-[var(--radius)] border border-border bg-card p-5 transition-colors hover:border-primary/40"
+          >
+            <p className="font-semibold text-foreground">
+              Wet voice after swallowing
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              For wet or gurgly voice after meals when the next question is
+              whether airway protection needs a closer look.
+            </p>
+          </Link>
+          <Link
+            href="/dementia-swallowing-evaluation-las-vegas"
+            className="rounded-[var(--radius)] border border-border bg-card p-5 transition-colors hover:border-primary/40"
+          >
+            <p className="font-semibold text-foreground">
+              Dementia swallowing evaluation
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              For progressive mealtime change, cueing needs, or intake decline
+              in dementia-related care.
+            </p>
+          </Link>
+          <Link
+            href="/fees-vs-mbss-after-stroke-las-vegas"
+            className="rounded-[var(--radius)] border border-border bg-card p-5 transition-colors hover:border-primary/40"
+          >
+            <p className="font-semibold text-foreground">
+              FEES vs MBSS after stroke
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              For families and teams trying to decide which instrumental study
+              may answer the most important post-stroke question first.
+            </p>
+          </Link>
+          <Link
+            href="/bedside-swallow-study-las-vegas"
+            className="rounded-[var(--radius)] border border-border bg-card p-5 transition-colors hover:border-primary/40"
+          >
+            <p className="font-semibold text-foreground">
+              Bedside swallow study
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              For medically fragile or transport-sensitive patients who need a
+              practical bedside answer.
+            </p>
+          </Link>
+          <Link
+            href="/at-home-swallow-evaluation-las-vegas"
+            className="rounded-[var(--radius)] border border-border bg-card p-5 transition-colors hover:border-primary/40"
+          >
+            <p className="font-semibold text-foreground">
+              At-home swallow evaluation
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              For private-home and concierge cases that need a simpler route to
+              an appointment or estimate.
+            </p>
+          </Link>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="rounded-[var(--radius)] border border-primary-light bg-primary-light/30 p-8 space-y-3 text-center">
         <Badge variant="default">Have Questions?</Badge>
@@ -273,13 +436,24 @@ export default function WhatIsFeesPage() {
           Not sure if FEES is right for you?
         </h2>
         <p className="text-muted-foreground max-w-xl mx-auto">
-          We are happy to answer any questions about the procedure and help
-          determine if a FEES evaluation is appropriate.{" "}
-          <a href="/contact" className="text-primary hover:underline font-medium">
-            Contact us
-          </a>{" "}
-          to learn more.
+          We are happy to help patients and families understand whether a
+          bedside swallow evaluation makes sense and what the next Las Vegas
+          step should be.
         </p>
+        <div className="flex flex-wrap justify-center gap-3">
+          <Link
+            href="/contact?path=patient&intent=appointment"
+            className={buttonVariants({ size: "lg" })}
+          >
+            Request Appointment
+          </Link>
+          <Link
+            href="/las-vegas-mobile-fees"
+            className={buttonVariants({ variant: "outline", size: "lg" })}
+          >
+            Read the Las Vegas FEES Page
+          </Link>
+        </div>
       </section>
     </div>
   );

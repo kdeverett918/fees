@@ -20,7 +20,7 @@ import {
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Mobile FEES 702 evaluations, swallowing consultations, and staff training — expert dysphagia services brought directly to your facility or home.",
+    "Mobile FEES LV evaluations, swallowing consultations, and staff training for Las Vegas facilities and patients.",
 };
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -42,7 +42,7 @@ export default function ServicesPage() {
       {/* Header */}
       <PageHeader
         title="Our Services"
-        description="Comprehensive dysphagia evaluation and education services, delivered wherever you need them."
+        description="Comprehensive dysphagia evaluation and education services, with clear next-step routing for Las Vegas patients and referral teams."
       />
 
       {/* Service Cards */}
@@ -92,19 +92,73 @@ export default function ServicesPage() {
         })}
       </div>
 
+      <section className="grid gap-4 md:grid-cols-2">
+        <Card className="border-primary/15">
+          <CardContent className="space-y-3 pt-6">
+            <h2 className="text-xl font-semibold text-foreground">
+              Bedside swallow study page
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Supports searchers who need a bedside answer because transport,
+              timing, or patient fragility makes outpatient radiology a poor fit.
+            </p>
+            <Link
+              href="/bedside-swallow-study-las-vegas"
+              className={buttonVariants({ variant: "outline" })}
+            >
+              View Bedside Page
+            </Link>
+          </CardContent>
+        </Card>
+        <Card className="border-primary/15">
+          <CardContent className="space-y-3 pt-6">
+            <h2 className="text-xl font-semibold text-foreground">
+              At-home swallow evaluation page
+            </h2>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Supports family and concierge searches for private-home FEES
+              visits, pricing review, and practical next steps.
+            </p>
+            <Link
+              href="/at-home-swallow-evaluation-las-vegas"
+              className={buttonVariants({ variant: "outline" })}
+            >
+              View At-Home Page
+            </Link>
+          </CardContent>
+        </Card>
+      </section>
+
       {/* CTA */}
       <section className="rounded-[var(--radius)] border border-primary-light bg-primary-light/30 p-8 text-center space-y-4">
         <h2 className="text-2xl font-semibold text-foreground">
-          Ready to Schedule a Service?
+          Ready to Request the Right Next Step?
         </h2>
         <p className="text-muted-foreground max-w-xl mx-auto">
-          Whether you need a FEES evaluation, a swallowing consultation, or
-          staff training, we are here to help. Contact us to discuss your needs
-          and schedule an appointment.
+          Use the Mobile FEES LV funnel to request a patient appointment,
+          facility consult, pricing review, or service conversation without
+          starting from a blank message box.
         </p>
-        <Link href="/contact" className={buttonVariants({ size: "lg" })}>
-          Contact Us
-        </Link>
+        <div className="flex flex-wrap justify-center gap-3">
+          <Link
+            href="/contact?path=patient&intent=appointment"
+            className={buttonVariants({ size: "lg" })}
+          >
+            Request Appointment
+          </Link>
+          <Link
+            href="/las-vegas-mobile-fees"
+            className={buttonVariants({ variant: "outline", size: "lg" })}
+          >
+            Las Vegas FEES Page
+          </Link>
+          <Link
+            href="/contact?path=facility&intent=consult"
+            className={buttonVariants({ variant: "outline", size: "lg" })}
+          >
+            Request Facility Consult
+          </Link>
+        </div>
       </section>
     </div>
   );

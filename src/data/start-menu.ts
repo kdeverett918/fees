@@ -3,31 +3,34 @@ import type { StartMenuItem } from "@/types";
 export const startMenuItems: StartMenuItem[] = [
   // Facility items
   {
-    id: "schedule",
+    id: "schedule-consult",
     role: "facility",
-    label: "Schedule FEES Evaluations",
+    label: "Start the Facility Portal",
     description:
-      "Bring mobile FEES directly to your facility. No patient transfers needed — we arrive with our Optim ENTity XL scope and portable camera system, ready to evaluate.",
+      "Open the facility-facing portal for onboarding, consult requests, workflow planning, and launch questions.",
     image: "/images/services/mobile-arrival.jpg",
-    href: "/contact",
+    href: "/facility-portal",
+    ctaLabel: "Open Facility Portal",
   },
   {
-    id: "learn-mobile",
+    id: "facility-workflow",
     role: "facility",
-    label: "Learn About Mobile FEES 702",
+    label: "Review the Facility Workflow",
     description:
-      "Discover how on-site FEES evaluations reduce hospital transfers, speed up diagnosis, and improve patient outcomes.",
+      "See how bedside FEES fits referral intake, payer verification, scheduling, and report delivery without overpromising reimbursement.",
     image: "/images/fees/equipment-setup.jpg",
-    href: "/services",
+    href: "/for-facilities",
+    ctaLabel: "See Facility Workflow",
   },
   {
     id: "referral",
     role: "facility",
-    label: "Referral Information",
+    label: "Open the Contract & Referral Packet",
     description:
-      "Simple 3-step referral process. Download forms, view insurance information, and learn about our coverage area.",
+      "Open the referral checklist, agreement template, reimbursement guide, and onboarding documents in one place.",
     image: "/images/start/referral.jpg",
-    href: "/for-facilities",
+    href: "/facility-onboarding-packet",
+    ctaLabel: "Open Onboarding Packet",
   },
   {
     id: "credentials",
@@ -37,45 +40,48 @@ export const startMenuItems: StartMenuItem[] = [
       "9 years of clinical experience. FEES certified through Stanford with all competency passes completed. ASHA-certified CCC-SLP.",
     image: "/images/about/headshot.jpg",
     href: "/about",
+    ctaLabel: "Meet Kristine",
   },
   // Patient items
   {
+    id: "appointment",
+    role: "patient",
+    label: "Open the Concierge Patient Portal",
+    description:
+      "Open the patient-facing portal for concierge appointment requests, Good Faith Estimate review, and at-home visit guidance.",
+    image: "/images/services/mobile-arrival.jpg",
+    href: "/concierge-patient-portal",
+    ctaLabel: "Open Patient Portal",
+  },
+  {
     id: "what-is-fees",
     role: "patient",
-    label: "What is a FEES Exam?",
+    label: "See What to Expect",
     description:
-      "A simple, safe procedure that helps your doctor understand how you swallow. Learn what happens step by step.",
+      "Learn how FEES works, how to prepare, and what your family should expect during a bedside visit.",
     image: "/images/fees/procedure-diagram.jpg",
-    href: "/what-is-fees",
+    href: "/for-patients",
+    ctaLabel: "Read the Patient Guide",
     narrationSrc: "/audio/what-is-fees.mp3",
   },
   {
-    id: "prepare",
+    id: "estimate",
     role: "patient",
-    label: "How to Prepare",
+    label: "Request Pricing or a Good Faith Estimate",
     description:
-      "Everything you need to know before your FEES evaluation — what to eat, what to bring, and what to expect.",
-    image: "/images/start/prepare.jpg",
-    href: "/for-patients",
-    narrationSrc: "/audio/how-to-prepare.mp3",
-  },
-  {
-    id: "results",
-    role: "patient",
-    label: "Understanding Your Results",
-    description:
-      "Your FEES results explained in plain language. Learn what the findings mean and what happens next.",
+      "Tell us your location, referral status, and visit goal so we can guide the right next step for a Las Vegas concierge visit.",
     image: "/images/fees/results-discussion.jpg",
-    href: "/for-patients#results",
-    narrationSrc: "/audio/understanding-results.mp3",
+    href: "/contact?path=patient&intent=estimate",
+    ctaLabel: "Request Pricing Review",
   },
   {
     id: "contact-patient",
     role: "patient",
-    label: "Questions? Contact Us",
+    label: "Browse Las Vegas Patient Services",
     description:
-      "Have questions about your upcoming evaluation? We're here to help you feel comfortable and informed.",
+      "Review FEES visits, consult pathways, and support services before you submit your request.",
     image: "/images/start/facility.jpg",
-    href: "/contact",
+    href: "/services",
+    ctaLabel: "Explore Services",
   },
 ];

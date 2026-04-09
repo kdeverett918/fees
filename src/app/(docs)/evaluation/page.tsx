@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { PageHeader } from "@/components/ui/page-header";
 import { cn } from "@/lib/utils";
+import { usePersistedForm } from "@/hooks/use-persisted-form";
 import {
   ChevronLeft,
   ChevronRight,
@@ -16,8 +17,6 @@ import {
   RotateCcw,
 } from "lucide-react";
 import type { FEESEvaluation, FEESTrial } from "@/types";
-
-const STORAGE_KEY = "fees-evaluation";
 
 const STEPS = [
   "Patient Info",
@@ -46,25 +45,35 @@ const PA_OPTIONS = [
 
 const RESIDUE_OPTIONS = ["None", "Mild", "Moderate", "Severe"];
 
+const STORAGE_KEY = "mobile-fees-lv-evaluation";
+
 function defaultEvaluation(): FEESEvaluation {
   return {
     patientName: "",
     dob: "",
     mrn: "",
     facility: "",
+    serviceLocation: "",
     referringPhysician: "",
+    orderDate: "",
     evaluationDate: "",
     evaluatorName: "Kristine Everett, MA, CCC-SLP",
     diagnosis: "",
     medicalHistory: "",
+    respiratoryStatus: "",
+    cognitionCommunication: "",
+    precautions: "",
     currentDietSolids: "",
     currentDietLiquids: "",
     swallowingComplaints: "",
     previousStudies: "",
+    positioningAndAssist: "",
     anatomyObservations: "",
+    oralMotorObservations: "",
     secretionManagement: "",
     trials: [],
     sensationTesting: "",
+    responseToStrategies: "",
     severityRating: "",
     riskAssessment: "",
     recommendedDietSolids: "",
@@ -87,79 +96,61 @@ function defaultTrial(): FEESTrial {
 
 export default function EvaluationPage() {
   const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState<FEESEvaluation>(defaultEvaluation);
-  const [mounted, setMounted] = useState(false);
+  const {
+    hydrated,
+    value: formData,
+    setValue: setFormData,
+    reset,
+  } = usePersistedForm<FEESEvaluation>(STORAGE_KEY, defaultEvaluation());
 
-  // Load from localStorage on mount
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored) as FEESEvaluation;
-        setFormData(parsed);
-      }
-    } catch {
-      // ignore parse errors
-    }
-    setMounted(true);
-  }, []);
+  const updateField = (field: keyof FEESEvaluation, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
 
-  // Save to localStorage on every change
-  useEffect(() => {
-    if (mounted) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
-    }
-  }, [formData, mounted]);
-
-  const updateField = useCallback(
-    (field: keyof FEESEvaluation, value: string) => {
-      setFormData((prev) => ({ ...prev, [field]: value }));
-    },
-    []
-  );
-
-  const addTrial = useCallback(() => {
+  const addTrial = () => {
     setFormData((prev) => ({
       ...prev,
       trials: [...prev.trials, defaultTrial()],
     }));
-  }, []);
+  };
 
-  const removeTrial = useCallback((index: number) => {
+  const removeTrial = (index: number) => {
     setFormData((prev) => ({
       ...prev,
       trials: prev.trials.filter((_, i) => i !== index),
     }));
-  }, []);
+  };
 
-  const updateTrial = useCallback(
-    (index: number, field: keyof FEESTrial, value: string) => {
-      setFormData((prev) => ({
-        ...prev,
-        trials: prev.trials.map((t, i) =>
-          i === index ? { ...t, [field]: value } : t
-        ),
-      }));
-    },
-    []
-  );
+  const updateTrial = (
+    index: number,
+    field: keyof FEESTrial,
+    value: string
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      trials: prev.trials.map((t, i) =>
+        i === index ? { ...t, [field]: value } : t
+      ),
+    }));
+  };
 
-  const resetForm = useCallback(() => {
+  const resetForm = () => {
     if (window.confirm("Reset all evaluation data? This cannot be undone.")) {
-      setFormData(defaultEvaluation());
+      reset(defaultEvaluation());
       setCurrentStep(0);
-      localStorage.removeItem(STORAGE_KEY);
     }
-  }, []);
+  };
 
-  if (!mounted) return null;
+  if (!hydrated) {
+    return null;
+  }
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="no-print">
         <PageHeader
           title="FEES Evaluation Report"
-          description="Complete the evaluation step by step. Data saves automatically."
+          description="Complete the evaluation step by step. Draft data saves automatically on this device until you reset it."
         />
       </div>
 
@@ -285,10 +276,24 @@ function StepPatientInfo({ formData, updateField }: StepProps) {
           onChange={(e) => updateField("facility", e.target.value)}
         />
         <Input
+          label="Service Location"
+          id="serviceLocation"
+          value={formData.serviceLocation}
+          onChange={(e) => updateField("serviceLocation", e.target.value)}
+          placeholder="SNF room, home, clinic, ALF..."
+        />
+        <Input
           label="Referring Physician"
           id="referringPhysician"
           value={formData.referringPhysician}
           onChange={(e) => updateField("referringPhysician", e.target.value)}
+        />
+        <Input
+          label="Order Date"
+          id="orderDate"
+          type="date"
+          value={formData.orderDate}
+          onChange={(e) => updateField("orderDate", e.target.value)}
         />
         <Input
           label="Evaluation Date"
@@ -332,6 +337,24 @@ function StepClinicalHistory({ formData, updateField }: StepProps) {
         />
         <div className="grid gap-4 sm:grid-cols-2">
           <Input
+            label="Respiratory Status"
+            id="respiratoryStatus"
+            value={formData.respiratoryStatus}
+            onChange={(e) => updateField("respiratoryStatus", e.target.value)}
+            placeholder="Room air, O2, trach, pneumonia history..."
+          />
+          <Input
+            label="Cognition / Communication"
+            id="cognitionCommunication"
+            value={formData.cognitionCommunication}
+            onChange={(e) =>
+              updateField("cognitionCommunication", e.target.value)
+            }
+            placeholder="Alert, cueing needs, aphasia, impulsivity..."
+          />
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <Input
             label="Current Diet - Solids"
             id="currentDietSolids"
             value={formData.currentDietSolids}
@@ -357,6 +380,22 @@ function StepClinicalHistory({ formData, updateField }: StepProps) {
           rows={2}
           value={formData.previousStudies}
           onChange={(e) => updateField("previousStudies", e.target.value)}
+        />
+        <Textarea
+          label="Precautions / Contraindications"
+          id="precautions"
+          rows={2}
+          value={formData.precautions}
+          onChange={(e) => updateField("precautions", e.target.value)}
+          placeholder="Epistaxis history, nasal obstruction, anticoagulation concerns, behavior or positioning precautions..."
+        />
+        <Textarea
+          label="Positioning / Feeding Assistance"
+          id="positioningAndAssist"
+          rows={2}
+          value={formData.positioningAndAssist}
+          onChange={(e) => updateField("positioningAndAssist", e.target.value)}
+          placeholder="Upright in bed, wheelchair, self-fed, full assist..."
         />
       </CardContent>
     </Card>
@@ -394,6 +433,16 @@ function StepFindings({
             placeholder="Velopharyngeal closure, base of tongue, epiglottis, arytenoids, vocal folds..."
           />
           <Textarea
+            label="Oral Motor / Voice Observations"
+            id="oralMotorObservations"
+            rows={2}
+            value={formData.oralMotorObservations}
+            onChange={(e) =>
+              updateField("oralMotorObservations", e.target.value)
+            }
+            placeholder="Dentition, oral containment, secretion handling, vocal quality..."
+          />
+          <Textarea
             label="Secretion Management"
             id="secretionManagement"
             rows={2}
@@ -410,6 +459,16 @@ function StepFindings({
             value={formData.sensationTesting}
             onChange={(e) => updateField("sensationTesting", e.target.value)}
             placeholder="Response to touch of epiglottis and aryepiglottic folds..."
+          />
+          <Textarea
+            label="Response to Strategies"
+            id="responseToStrategies"
+            rows={2}
+            value={formData.responseToStrategies}
+            onChange={(e) =>
+              updateField("responseToStrategies", e.target.value)
+            }
+            placeholder="Double swallow, chin tuck, cough-reswallow, bolus control changes..."
           />
         </CardContent>
       </Card>
@@ -637,10 +696,12 @@ function StepReview({ formData }: { formData: FEESEvaluation }) {
         <ReviewRow label="Date of Birth" value={formData.dob} />
         <ReviewRow label="MRN" value={formData.mrn} />
         <ReviewRow label="Facility" value={formData.facility} />
+        <ReviewRow label="Service Location" value={formData.serviceLocation} />
         <ReviewRow
           label="Referring Physician"
           value={formData.referringPhysician}
         />
+        <ReviewRow label="Order Date" value={formData.orderDate} />
         <ReviewRow label="Evaluation Date" value={formData.evaluationDate} />
         <ReviewRow label="Evaluator" value={formData.evaluatorName} />
         <ReviewRow label="Diagnosis" value={formData.diagnosis} />
@@ -648,6 +709,14 @@ function StepReview({ formData }: { formData: FEESEvaluation }) {
 
       <ReviewSection title="Clinical History">
         <ReviewRow label="Medical History" value={formData.medicalHistory} />
+        <ReviewRow
+          label="Respiratory Status"
+          value={formData.respiratoryStatus}
+        />
+        <ReviewRow
+          label="Cognition / Communication"
+          value={formData.cognitionCommunication}
+        />
         <ReviewRow
           label="Current Diet (Solids)"
           value={formData.currentDietSolids}
@@ -664,6 +733,11 @@ function StepReview({ formData }: { formData: FEESEvaluation }) {
           label="Previous Studies"
           value={formData.previousStudies}
         />
+        <ReviewRow label="Precautions" value={formData.precautions} />
+        <ReviewRow
+          label="Positioning / Assist"
+          value={formData.positioningAndAssist}
+        />
       </ReviewSection>
 
       <ReviewSection title="FEES Findings">
@@ -672,12 +746,20 @@ function StepReview({ formData }: { formData: FEESEvaluation }) {
           value={formData.anatomyObservations}
         />
         <ReviewRow
+          label="Oral Motor / Voice"
+          value={formData.oralMotorObservations}
+        />
+        <ReviewRow
           label="Secretion Management"
           value={formData.secretionManagement}
         />
         <ReviewRow
           label="Sensation Testing"
           value={formData.sensationTesting}
+        />
+        <ReviewRow
+          label="Response to Strategies"
+          value={formData.responseToStrategies}
         />
       </ReviewSection>
 

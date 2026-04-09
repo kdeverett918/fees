@@ -3,7 +3,7 @@ import { PageHeader } from "@/components/ui/page-header";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy policy for Mobile FEES 702 evaluation services.",
+  description: "Privacy policy for Mobile FEES LV evaluation services.",
 };
 
 export default function PrivacyPage() {
@@ -58,11 +58,12 @@ export default function PrivacyPage() {
             Data Storage
           </h2>
           <p>
-            Clinical documentation created through this platform is stored
-            locally on your device using browser storage. No patient health
-            information is transmitted to or stored on our servers through
-            this website. Completed evaluation reports are delivered directly
-            to referring providers through secure channels.
+            Clinical documentation created through the documentation tools on
+            this site is saved locally in browser storage on the device in use
+            until reset or cleared. Contact form inquiries are retained on our
+            server for follow-up and scheduling. Completed clinical reports and other protected health
+            information should be handled and transmitted through your
+            organization&apos;s approved secure channels.
           </p>
         </section>
 

@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { usePersistedForm } from "@/hooks/use-persisted-form";
 import {
   Check,
   ChevronLeft,
@@ -14,8 +14,6 @@ import {
   RotateCcw,
 } from "lucide-react";
 
-const STORAGE_KEY = "fees-agreement";
-
 const STEPS = [
   "Facility Info",
   "Service Selection",
@@ -23,6 +21,8 @@ const STEPS = [
   "Signatures",
   "Review & Print",
 ];
+
+const STORAGE_KEY = "mobile-fees-lv-agreement";
 
 type ServiceTier = "standard" | "facility" | "concierge";
 
@@ -74,66 +74,48 @@ function defaultAgreement(): AgreementFormData {
 }
 
 const TIER_LABELS: Record<ServiceTier, string> = {
-  standard: "Standard",
-  facility: "Facility Contract",
-  concierge: "Concierge",
+  standard: "Single Study",
+  facility: "Partner Facility",
+  concierge: "High-Volume Facility",
 };
 
 const TIER_DESCRIPTIONS: Record<ServiceTier, string> = {
   standard:
-    "Per-visit pricing. FEES evaluation $550, follow-up $400, clinical swallow eval $200, in-service $350/hr.",
+    "Starting at $495 per FEES study for intermittent facility referrals without a monthly volume commitment.",
   facility:
-    "Volume-based pricing starting at $475/eval, with discounts at 5+ and 10+ evaluations per month. Net 30 terms.",
+    "Starting at $465 per FEES study for facilities scheduling 5-9 studies per month, with Net 30 invoicing.",
   concierge:
-    "$2,500/month retainer including up to 6 FEES evaluations, same-day scheduling, and premium reports. Net 15 terms.",
+    "Starting at $435 per FEES study for facilities consistently scheduling 10+ studies per month.",
 };
 
 export default function AgreementPage() {
   const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState<AgreementFormData>(
-    defaultAgreement
-  );
-  const [mounted, setMounted] = useState(false);
+  const {
+    hydrated,
+    value: formData,
+    setValue: setFormData,
+    reset,
+  } = usePersistedForm<AgreementFormData>(STORAGE_KEY, defaultAgreement());
 
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        setFormData(JSON.parse(stored) as AgreementFormData);
-      }
-    } catch {
-      // ignore
-    }
-    setMounted(true);
-  }, []);
+  const updateField = <K extends keyof AgreementFormData>(
+    field: K,
+    value: AgreementFormData[K]
+  ) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
 
-  useEffect(() => {
-    if (mounted) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
-    }
-  }, [formData, mounted]);
-
-  const updateField = useCallback(
-    <K extends keyof AgreementFormData>(
-      field: K,
-      value: AgreementFormData[K]
-    ) => {
-      setFormData((prev) => ({ ...prev, [field]: value }));
-    },
-    []
-  );
-
-  const resetForm = useCallback(() => {
+  const resetForm = () => {
     if (
       window.confirm("Reset all agreement form data? This cannot be undone.")
     ) {
-      setFormData(defaultAgreement());
+      reset(defaultAgreement());
       setCurrentStep(0);
-      localStorage.removeItem(STORAGE_KEY);
     }
-  }, []);
+  };
 
-  if (!mounted) return null;
+  if (!hydrated) {
+    return null;
+  }
 
   return (
     <div className="max-w-3xl mx-auto space-y-6">
@@ -142,8 +124,12 @@ export default function AgreementPage() {
           Facility Services Agreement
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mt-2">
-          Mobile FEES 702 &mdash; Professional services agreement for skilled
-          nursing and healthcare facilities.
+          Mobile FEES LV &mdash; Professional services agreement for skilled
+          nursing and healthcare facilities. Template only; review with counsel
+          and compliance before production use.
+        </p>
+        <p className="mt-3 text-sm text-muted-foreground">
+          This draft saves locally on this device until you print or reset it.
         </p>
       </div>
 
@@ -394,23 +380,21 @@ function StepServiceSelection({ formData, updateField }: StepProps) {
 
 function StepTerms({ selectedTier }: { selectedTier: ServiceTier }) {
   const paymentTerms =
-    selectedTier === "concierge"
-      ? "Net 15 days from date of invoice"
-      : selectedTier === "facility"
+    selectedTier === "facility" || selectedTier === "concierge"
         ? "Net 30 days from date of invoice"
-        : "Payment due at time of service or Net 15 days from date of invoice";
+      : "Payment due at time of service or Net 15 days from date of invoice";
 
   return (
     <Card>
       <CardContent className="pt-6 space-y-6 text-sm leading-relaxed text-foreground">
         <h3 className="text-lg font-semibold">
-          Mobile FEES 702 &mdash; Facility Services Agreement
+          Mobile FEES LV &mdash; Facility Services Agreement
         </h3>
 
         <section>
           <h4 className="font-semibold mb-1">1. Services Provided</h4>
           <p>
-            Mobile FEES 702 (&quot;Provider&quot;) agrees to furnish Fiberoptic
+            Mobile FEES LV (&quot;Provider&quot;) agrees to furnish Fiberoptic
             Endoscopic Evaluation of Swallowing (FEES) services, clinical
             swallowing evaluations, dysphagia consultations, and staff
             training/in-services at the contracting facility
@@ -426,31 +410,30 @@ function StepTerms({ selectedTier }: { selectedTier: ServiceTier }) {
           </h4>
           {selectedTier === "standard" && (
             <ul className="list-disc ml-5 space-y-1">
-              <li>FEES Evaluation: $550 per evaluation</li>
-              <li>Follow-up FEES Evaluation: $400 per evaluation</li>
-              <li>Clinical Swallowing Evaluation (bedside): $200</li>
-              <li>Staff Training / In-Service: $350 per hour</li>
-              <li>Travel included within 25 miles of Las Vegas</li>
+              <li>Comprehensive mobile FEES visit: from $495</li>
+              <li>Focused repeat FEES within 30 days: from $375</li>
+              <li>Clinical swallowing evaluation without scope: from $195</li>
+              <li>STAT / same-day add-on: $125-$175 when available</li>
+              <li>Travel beyond the core service radius quoted before service</li>
             </ul>
           )}
           {selectedTier === "facility" && (
             <ul className="list-disc ml-5 space-y-1">
-              <li>Per-evaluation rate: $475</li>
-              <li>5+ evaluations/month: $425 each</li>
-              <li>10+ evaluations/month: $375 each</li>
-              <li>Follow-up evaluations: $325</li>
-              <li>Clinical swallowing evaluations: $175</li>
-              <li>2 complimentary staff in-services per year</li>
+              <li>5-9 FEES per month: $465 each</li>
+              <li>Clinical swallowing evaluation without scope: from $195</li>
+              <li>Repeat FEES: from $325</li>
+              <li>Quarterly education block may be included by addendum</li>
+              <li>Priority scheduling within 2-3 business days when clinically appropriate</li>
             </ul>
           )}
           {selectedTier === "concierge" && (
             <ul className="list-disc ml-5 space-y-1">
-              <li>Monthly retainer: $2,500</li>
-              <li>Includes up to 6 FEES evaluations per month</li>
-              <li>Additional evaluations: $350 each</li>
-              <li>Unlimited phone consultations</li>
-              <li>Monthly swallowing wellness rounds included</li>
-              <li>Premium reports with video clips</li>
+              <li>10+ FEES per month: $435 each</li>
+              <li>Repeat FEES: from $325</li>
+              <li>Reserved scheduling blocks based on monthly planning</li>
+              <li>Priority operational coordination with the facility contact</li>
+              <li>Training and workflow refinement included by addendum</li>
+              <li>Travel beyond the core service radius quoted before service</li>
             </ul>
           )}
         </section>
@@ -459,8 +442,10 @@ function StepTerms({ selectedTier }: { selectedTier: ServiceTier }) {
           <h4 className="font-semibold mb-1">3. Payment Terms</h4>
           <p>
             {paymentTerms}. Late payments are subject to a 1.5% monthly finance
-            charge. Facility agrees to provide accurate billing and insurance
-            information for each patient evaluated.
+            charge. Facility agrees to designate an internal billing contact and
+            remain financially responsible to Provider for services delivered
+            under this Agreement, regardless of payer outcome unless a written
+            amendment states otherwise.
           </p>
         </section>
 
@@ -469,26 +454,33 @@ function StepTerms({ selectedTier }: { selectedTier: ServiceTier }) {
           <p>
             Scheduling is subject to Provider availability.{" "}
             {selectedTier === "concierge"
-              ? "Same-day or next-day scheduling is guaranteed under the Concierge tier."
+              ? "High-volume facilities receive the highest scheduling priority and reserved blocks when planned in advance."
               : selectedTier === "facility"
-                ? "Priority scheduling within 48\u201372 hours for Facility Contract clients."
+                ? "Partner facilities receive priority scheduling within 2-3 business days when clinically appropriate."
                 : "Standard scheduling within 3\u20135 business days."}{" "}
-            A minimum of 24 hours&apos; notice is required for cancellations. A $75
-            late cancellation fee will apply to cancellations made with less than
-            24 hours&apos; notice or for no-shows.
+            A minimum of 24 hours&apos; notice is required for cancellations. A $150
+            late cancellation fee may apply when the resident is not available,
+            the order is not ready, or the visit is canceled with less than 24
+            hours&apos; notice after the Provider has reserved the slot.
           </p>
         </section>
 
         <section>
           <h4 className="font-semibold mb-1">5. Insurance &amp; Billing</h4>
           <p>
-            Provider will bill applicable insurance carriers, including Medicare
-            Part B (CPT codes 92612, 92613), on behalf of the patient when
-            directed. Facility is responsible for providing accurate patient
-            insurance information. For uninsured or out-of-network patients,
-            Facility and patient shall be notified of self-pay rates prior to
-            service delivery. Facility may choose to assume financial
-            responsibility for services rendered.
+            For residents in a covered Medicare Part A SNF stay, Facility
+            acknowledges that swallowing services arranged under this Agreement
+            are typically handled within the Facility&apos;s consolidated
+            billing/PPS payment structure rather than billed separately by
+            Provider. For residents not in Part A, Facility may choose to bill
+            covered Part B services under its own workflow when services are
+            furnished under arrangement, subject to payer rules. Provider will
+            supply the clinical report and reasonable supporting documentation,
+            but Facility remains responsible for payer enrollment, claim
+            submission, denials, refunds, audits, and Medicaid or managed-care
+            verification. If coverage is unavailable or denied, Facility remains
+            responsible for Provider&apos;s invoice unless a separate written
+            patient-pay agreement has been executed in advance.
           </p>
         </section>
 
@@ -500,9 +492,10 @@ function StepTerms({ selectedTier }: { selectedTier: ServiceTier }) {
             Both parties agree to comply with the Health Insurance Portability
             and Accountability Act (HIPAA) and all applicable federal and state
             regulations regarding protected health information (PHI). Provider
-            will execute a Business Associate Agreement (BAA) upon request. All
-            patient records, reports, and clinical documentation shall be
-            maintained in accordance with HIPAA standards.
+            will execute a Business Associate Agreement (BAA) if required by the
+            parties&apos; workflow. All patient records, reports, and clinical
+            documentation shall be maintained in accordance with HIPAA
+            standards.
           </p>
         </section>
 
@@ -589,7 +582,7 @@ function StepSignatures({ formData, updateField }: StepProps) {
             Kristine Everett, MA, CCC-SLP
           </p>
           <p className="text-sm text-muted-foreground">
-            Mobile FEES 702 &mdash; Owner / FEES Clinician
+            Mobile FEES LV &mdash; Owner / FEES Clinician
           </p>
         </div>
 
@@ -619,7 +612,7 @@ function StepReview({ formData }: { formData: AgreementFormData }) {
       {/* Agreement header for print */}
       <div className="text-center space-y-1">
         <h2 className="text-xl font-bold text-foreground">
-          Mobile FEES 702 &mdash; Facility Services Agreement
+          Mobile FEES LV &mdash; Facility Services Agreement
         </h2>
         <p className="text-sm text-muted-foreground">
           Professional Swallowing Evaluation Services

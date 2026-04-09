@@ -54,7 +54,7 @@ export default function AboutPage() {
       {/* Header */}
       <PageHeader
         title="About Kristine Everett, MA, CCC-SLP"
-        description="Dedicated to improving swallowing safety and quality of life through expert mobile FEES evaluations."
+        description="Dedicated to improving swallowing safety and quality of life through expert mobile FEES evaluations for the Las Vegas community."
       />
 
       {/* Professional Photo + Bio */}
@@ -119,10 +119,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Why Mobile FEES 702 */}
+      {/* Why Mobile FEES LV */}
       <section className="space-y-6">
         <h2 className="text-2xl font-semibold text-foreground">
-          Why Mobile FEES 702?
+          Why Mobile FEES LV?
         </h2>
         <div className="space-y-4">
           <p className="text-muted-foreground leading-relaxed">

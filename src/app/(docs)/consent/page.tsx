@@ -1,15 +1,14 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { PageHeader } from "@/components/ui/page-header";
 import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight, Printer, RotateCcw } from "lucide-react";
+import { usePersistedForm } from "@/hooks/use-persisted-form";
 import type { ConsentFormData } from "@/types";
-
-const STORAGE_KEY = "fees-consent";
 
 const STEPS = [
   "Patient Info",
@@ -18,19 +17,30 @@ const STEPS = [
   "Signatures & Review",
 ];
 
+const STORAGE_KEY = "mobile-fees-lv-consent";
+
 function defaultConsent(): ConsentFormData {
   return {
     patientName: "",
     dob: "",
     facility: "",
+    responsiblePartyName: "",
+    responsiblePartyRelationship: "",
+    orderingProvider: "",
+    locationOfService: "",
     procedureDate: "",
     procedureExplained: false,
     risksExplained: false,
     benefitsExplained: false,
     alternativesExplained: false,
     questionsAnswered: false,
+    mayStopProcedure: false,
+    releaseReportConsent: false,
+    imageVideoConsent: false,
+    financialPolicyAcknowledged: false,
     patientConsents: false,
     patientSignature: "",
+    responsiblePartySignature: "",
     witnessSignature: "",
     clinicianSignature: "",
     signatureDate: "",
@@ -39,54 +49,41 @@ function defaultConsent(): ConsentFormData {
 
 export default function ConsentPage() {
   const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState<ConsentFormData>(defaultConsent);
-  const [mounted, setMounted] = useState(false);
+  const {
+    hydrated,
+    value: formData,
+    setValue: setFormData,
+    reset,
+  } = usePersistedForm<ConsentFormData>(STORAGE_KEY, defaultConsent());
 
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        setFormData(JSON.parse(stored) as ConsentFormData);
-      }
-    } catch {
-      // ignore
-    }
-    setMounted(true);
-  }, []);
+  const updateField = <K extends keyof ConsentFormData>(
+    field: K,
+    value: ConsentFormData[K]
+  ) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
 
-  useEffect(() => {
-    if (mounted) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
-    }
-  }, [formData, mounted]);
-
-  const updateField = useCallback(
-    <K extends keyof ConsentFormData>(
-      field: K,
-      value: ConsentFormData[K]
-    ) => {
-      setFormData((prev) => ({ ...prev, [field]: value }));
-    },
-    []
-  );
-
-  const resetForm = useCallback(() => {
+  const resetForm = () => {
     if (window.confirm("Reset all consent form data? This cannot be undone.")) {
-      setFormData(defaultConsent());
+      reset(defaultConsent());
       setCurrentStep(0);
-      localStorage.removeItem(STORAGE_KEY);
     }
-  }, []);
+  };
 
-  if (!mounted) return null;
+  if (!hydrated) {
+    return null;
+  }
 
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       <div className="no-print">
         <PageHeader
           title="FEES Consent Form"
-          description="Informed consent for Fiberoptic Endoscopic Evaluation of Swallowing."
+          description="Informed consent for Fiberoptic Endoscopic Evaluation of Swallowing, with report-release and financial acknowledgments for Mobile FEES LV."
         />
+        <p className="mt-3 text-sm text-muted-foreground">
+          This draft saves locally on this device until you print or reset it.
+        </p>
       </div>
 
       {/* Step indicator */}
@@ -174,7 +171,7 @@ interface StepProps {
 
 function StepPatientInfo({ formData, updateField }: StepProps) {
   return (
-    <Card>
+      <Card>
       <CardHeader>
         <CardTitle>Patient Information</CardTitle>
       </CardHeader>
@@ -197,6 +194,36 @@ function StepPatientInfo({ formData, updateField }: StepProps) {
           id="facility"
           value={formData.facility}
           onChange={(e) => updateField("facility", e.target.value)}
+        />
+        <Input
+          label="Location of Service"
+          id="locationOfService"
+          value={formData.locationOfService}
+          onChange={(e) => updateField("locationOfService", e.target.value)}
+          placeholder="Home, SNF, ALF, physician office..."
+        />
+        <Input
+          label="Responsible Party Name"
+          id="responsiblePartyName"
+          value={formData.responsiblePartyName}
+          onChange={(e) =>
+            updateField("responsiblePartyName", e.target.value)
+          }
+        />
+        <Input
+          label="Relationship to Patient"
+          id="responsiblePartyRelationship"
+          value={formData.responsiblePartyRelationship}
+          onChange={(e) =>
+            updateField("responsiblePartyRelationship", e.target.value)
+          }
+        />
+        <Input
+          label="Ordering Provider"
+          id="orderingProvider"
+          value={formData.orderingProvider}
+          onChange={(e) => updateField("orderingProvider", e.target.value)}
+          className="sm:col-span-2"
         />
         <Input
           label="Procedure Date"
@@ -288,6 +315,18 @@ function StepProcedureInfo() {
             </li>
           </ul>
         </div>
+
+        <div>
+          <h4 className="font-semibold mb-2">Practical Notes</h4>
+          <ul className="list-disc ml-5 space-y-1">
+            <li>The patient may ask to pause or stop the procedure at any time.</li>
+            <li>Stopping early may limit the amount of diagnostic information available.</li>
+            <li>
+              For concierge or self-pay visits, financial responsibility should be
+              reviewed separately before the appointment is confirmed.
+            </li>
+          </ul>
+        </div>
       </CardContent>
     </Card>
   );
@@ -322,6 +361,26 @@ function StepAcknowledgments({ formData, updateField }: StepProps) {
       field: "questionsAnswered",
       label:
         "I have had the opportunity to ask questions, and my questions have been answered to my satisfaction.",
+    },
+    {
+      field: "mayStopProcedure",
+      label:
+        "I understand that I may ask to stop the procedure, but stopping early may limit the findings available to my clinician.",
+    },
+    {
+      field: "releaseReportConsent",
+      label:
+        "I authorize release of the FEES report to my referring provider and care team for treatment coordination.",
+    },
+    {
+      field: "imageVideoConsent",
+      label:
+        "I understand that clinical images or short video clips may be stored as part of my medical documentation.",
+    },
+    {
+      field: "financialPolicyAcknowledged",
+      label:
+        "I understand the payment pathway discussed with me and know that insurance or out-of-network reimbursement is not guaranteed.",
     },
     {
       field: "patientConsents",
@@ -381,6 +440,15 @@ function StepSignatures({ formData, updateField }: StepProps) {
             placeholder="Type full legal name"
           />
           <Input
+            label="Responsible Party Signature (if applicable)"
+            id="responsiblePartySignature"
+            value={formData.responsiblePartySignature}
+            onChange={(e) =>
+              updateField("responsiblePartySignature", e.target.value)
+            }
+            placeholder="Type full legal name"
+          />
+          <Input
             label="Witness Signature (typed name)"
             id="witnessSignature"
             value={formData.witnessSignature}
@@ -415,6 +483,22 @@ function StepSignatures({ formData, updateField }: StepProps) {
           <SummaryRow label="Patient" value={formData.patientName} />
           <SummaryRow label="Date of Birth" value={formData.dob} />
           <SummaryRow label="Facility" value={formData.facility} />
+          <SummaryRow
+            label="Location of Service"
+            value={formData.locationOfService}
+          />
+          <SummaryRow
+            label="Responsible Party"
+            value={formData.responsiblePartyName}
+          />
+          <SummaryRow
+            label="Relationship"
+            value={formData.responsiblePartyRelationship}
+          />
+          <SummaryRow
+            label="Ordering Provider"
+            value={formData.orderingProvider}
+          />
           <SummaryRow label="Procedure Date" value={formData.procedureDate} />
           <div className="border-t border-border/30 my-2" />
           <SummaryRow
@@ -438,6 +522,22 @@ function StepSignatures({ formData, updateField }: StepProps) {
             value={formData.questionsAnswered ? "Yes" : "No"}
           />
           <SummaryRow
+            label="May Stop Procedure"
+            value={formData.mayStopProcedure ? "Yes" : "No"}
+          />
+          <SummaryRow
+            label="Report Release Consent"
+            value={formData.releaseReportConsent ? "Yes" : "No"}
+          />
+          <SummaryRow
+            label="Image / Video Consent"
+            value={formData.imageVideoConsent ? "Yes" : "No"}
+          />
+          <SummaryRow
+            label="Financial Policy Acknowledged"
+            value={formData.financialPolicyAcknowledged ? "Yes" : "No"}
+          />
+          <SummaryRow
             label="Patient Consents"
             value={formData.patientConsents ? "Yes" : "No"}
           />
@@ -445,6 +545,10 @@ function StepSignatures({ formData, updateField }: StepProps) {
           <SummaryRow
             label="Patient Signature"
             value={formData.patientSignature}
+          />
+          <SummaryRow
+            label="Responsible Party Signature"
+            value={formData.responsiblePartySignature}
           />
           <SummaryRow
             label="Witness Signature"

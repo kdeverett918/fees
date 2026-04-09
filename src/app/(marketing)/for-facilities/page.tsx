@@ -1,141 +1,164 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageHeader } from "@/components/ui/page-header";
 import {
-  Card,
-  CardContent,
-} from "@/components/ui/card";
+  Ambulance,
+  BadgeDollarSign,
+  Building2,
+  CheckCircle,
+  ClipboardCheck,
+  Clock,
+  FileText,
+  GraduationCap,
+  Hospital,
+  ShieldCheck,
+  Stethoscope,
+  Warehouse,
+} from "lucide-react";
+import { PageHeader } from "@/components/ui/page-header";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
-import {
-  Building2,
-  Clock,
-  ShieldCheck,
-  Ambulance,
-  FileText,
-  Phone,
-  CalendarCheck,
-  ClipboardCheck,
-  DollarSign,
-  Award,
-  CheckCircle,
-} from "lucide-react";
+import { reimbursementSteps } from "@/data/pricing";
+import { resourceDocuments } from "@/data/resources";
 
 export const metadata: Metadata = {
   title: "For Healthcare Facilities",
   description:
-    "Partner with us for on-site mobile FEES evaluations at your skilled nursing facility, hospital, rehabilitation center, or physician office. Reduce transfers and get faster diagnoses.",
+    "Mobile FEES for skilled nursing, rehab, assisted living, and post-acute teams that need faster dysphagia decisions without sending residents out to radiology.",
 };
 
 const benefits = [
   {
-    title: "No Hospital Transfers Required",
+    title: "Faster bedside decisions",
     description:
-      "Stop sending patients to the hospital and waiting weeks for a modified barium swallow to be scheduled and completed. FEES is performed right at your facility — same week, not weeks later.",
-    icon: Ambulance,
-  },
-  {
-    title: "Same-Day Results, Not Weeks of Waiting",
-    description:
-      "With MBS, you wait for scheduling, transport, the study, and the report. With mobile FEES, results and diet recommendations are delivered the same day. Your patients start eating safely sooner.",
+      "When a resident cannot wait for transport, radiology scheduling, and report turnaround, mobile FEES keeps the decision-making window much tighter.",
     icon: Clock,
   },
   {
-    title: "Convenience for Your Team",
+    title: "Fewer send-outs",
     description:
-      "We arrive with our Optim ENTity XL scope and portable HD camera system — fully self-contained. Your staff can observe and participate without disrupting their daily schedule.",
-    icon: Building2,
+      "Avoid the coordination burden of transport, family updates, missed meals, and post-appointment follow-up whenever FEES is the right instrumental study.",
+    icon: Ambulance,
   },
   {
-    title: "Comprehensive Documentation",
+    title: "Stronger dysphagia documentation",
     description:
-      "Detailed written reports with findings, severity ratings, diet recommendations, and follow-up plans are provided within 24-48 hours.",
+      "A FEES report can support clearer diagnosis, safer diet decisions, and better documentation of swallowing status when dysphagia or related conditions are clinically present.",
     icon: FileText,
   },
-];
-
-const processSteps = [
   {
-    number: 1,
-    title: "Contact Us",
+    title: "Education for your team",
     description:
-      "Call or submit a referral through our contact form. Provide patient demographics, diagnosis, current diet, and reason for referral.",
-    icon: Phone,
-  },
-  {
-    number: 2,
-    title: "Schedule",
-    description:
-      "We will coordinate a convenient date and time with your facility. Most evaluations are scheduled within 48-72 hours of referral.",
-    icon: CalendarCheck,
-  },
-  {
-    number: 3,
-    title: "Evaluation",
-    description:
-      "We arrive with the Optim ENTity XL and portable HD camera, perform the evaluation, review findings with your team, and provide same-day recommendations.",
-    icon: ClipboardCheck,
+      "Facility partners can pair the study with nurse/therapy education, referral workflow coaching, and case-based follow-up for complex residents.",
+    icon: GraduationCap,
   },
 ];
 
-const credentialItems = [
-  "ASHA-certified speech-language pathologist (CCC-SLP)",
-  "9 years of clinical experience",
-  "FEES certification from Stanford — all competency passes completed",
-  "State licensed and fully insured",
-  "HIPAA compliant documentation and communication",
-  "Professional liability coverage",
+const contractPoints = [
+  "The facility identifies the resident's payer status before the visit and remains responsible for the contracted vendor fee unless another billing path is approved in writing.",
+  "During a Medicare Part A SNF stay, FEES should generally be treated as part of the facility's consolidated billing workflow rather than as a direct vendor-to-Medicare claim.",
+  "For Part B, Medicare Advantage, Medicaid, and Medicaid managed-care residents, the facility verifies plan rules before scheduling and decides whether it will submit the claim, bill the resident, or absorb the service cost.",
+  "The agreement should state that Mobile FEES LV provides clinical documentation and a superbill or coding support when requested, but never guarantees reimbursement.",
+  "Cancellation, after-hours, travel, infection-control, and report-turnaround expectations should be explicit so the workflow is predictable on both sides.",
+];
+
+const facilityResources = resourceDocuments.filter(
+  (document) => document.audience === "facility" || document.audience === "all"
+);
+
+const settingPages = [
+  {
+    title: "Skilled nursing and rehab",
+    description:
+      "For SNF and post-acute teams balancing bedside speed, consolidated billing, and dysphagia workflow.",
+    href: "/skilled-nursing-facility-fees-las-vegas",
+    icon: Hospital,
+  },
+  {
+    title: "Assisted living and memory care",
+    description:
+      "For ALFs and memory-care settings coordinating resident referrals and family communication.",
+    href: "/assisted-living-fees-las-vegas",
+    icon: Warehouse,
+  },
+  {
+    title: "Physician referral teams",
+    description:
+      "For physician offices and referral coordinators building a cleaner FEES referral path.",
+    href: "/physician-referral-fees-las-vegas",
+    icon: Stethoscope,
+  },
 ];
 
 export default function ForFacilitiesPage() {
   return (
-    <div className="container mx-auto max-w-4xl px-4 py-12 space-y-16">
-      {/* Hero Banner */}
+    <div className="container mx-auto max-w-6xl px-4 py-12 space-y-16">
       <img
         src="/images/start/facility.jpg"
         alt="Healthcare facility hallway"
-        className="w-full h-auto rounded-[var(--radius)] shadow-sm"
+        className="w-full rounded-[var(--radius)] shadow-sm"
       />
 
-      {/* Header */}
       <PageHeader
-        title="For Healthcare Facilities"
-        description="On-site mobile FEES evaluations for skilled nursing facilities, hospitals, rehabilitation centers, physician offices, and assisted living communities."
-      />
+        title="Mobile FEES for Skilled Nursing & Post-Acute Teams"
+        description="For facilities that need faster swallowing decisions, fewer transport delays, and documentation that supports the care plan without overpromising reimbursement."
+      >
+        <div className="flex flex-wrap gap-2 pt-2">
+          <Badge>No hospital transfer when FEES is appropriate</Badge>
+          <Badge variant="secondary">Facility-paid contract model</Badge>
+          <Badge variant="outline">PDPM-aware but reimbursement-safe messaging</Badge>
+        </div>
+      </PageHeader>
 
-      {/* Value Proposition */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">
-          Bring Instrumental Swallowing Assessments to Your Patients
-        </h2>
-        <p className="text-muted-foreground leading-relaxed">
-          Tired of sending patients to the hospital and waiting weeks to get
-          an MBS completed? Our mobile FEES service eliminates that entire
-          process. No hospital transfers, no scheduling delays, no waiting for
-          radiology reports. We bring the evaluation to your facility and
-          deliver results the same day — so your patients start eating safely
-          sooner, not weeks later.
-        </p>
+      <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="space-y-4">
+          <h2 className="text-2xl font-semibold text-foreground">
+            Where Mobile FEES Helps Most
+          </h2>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            Mobile FEES is especially useful when a resident is clinically fragile, hard to
+            transport, on isolation, cognitively overwhelmed by outside appointments, or when
+            the team needs a pharyngeal dysphagia answer sooner than an outpatient MBSS can be
+            arranged. It does not replace every MBSS. It gives your team a faster bedside option
+            when bedside reality matters more than radiology access.
+          </p>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            The facility value is usually a combination of timelier care, reduced transport
+            complexity, stronger dysphagia documentation, and cleaner coordination between
+            nursing, therapy, providers, and families.
+          </p>
+        </div>
+        <Card>
+          <CardContent className="space-y-3 pt-6">
+            <div className="flex items-center gap-2">
+              <BadgeDollarSign className="h-5 w-5 text-primary" />
+              <h3 className="text-lg font-semibold text-foreground">
+                Important billing reality
+              </h3>
+            </div>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              FEES can improve diagnostic clarity and support accurate swallow-related
+              documentation. It does not create PDPM reimbursement by itself. The safest sales
+              position is that your facility gains faster, clinically supported decisions and a
+              cleaner chart when dysphagia or related comorbidities are actually present.
+            </p>
+          </CardContent>
+        </Card>
       </section>
 
-      {/* Benefits */}
       <section className="space-y-6">
         <h2 className="text-2xl font-semibold text-foreground">
-          Why Partner With Us
+          Why Facilities Partner With Us
         </h2>
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {benefits.map((benefit) => (
             <Card key={benefit.title}>
-              <CardContent className="pt-6 space-y-2">
-                <div className="flex items-center gap-2">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[var(--radius)] bg-primary-light">
-                    <benefit.icon className="h-4.5 w-4.5 text-primary" />
-                  </div>
-                  <h3 className="font-semibold text-foreground">
-                    {benefit.title}
-                  </h3>
+              <CardContent className="space-y-3 pt-6">
+                <div className="flex h-10 w-10 items-center justify-center rounded-[var(--radius)] bg-primary-light">
+                  <benefit.icon className="h-5 w-5 text-primary" />
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <h3 className="font-semibold text-foreground">{benefit.title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
                   {benefit.description}
                 </p>
               </CardContent>
@@ -144,93 +167,128 @@ export default function ForFacilitiesPage() {
         </div>
       </section>
 
-      {/* Referral Process */}
       <section className="space-y-6">
-        <h2 className="text-2xl font-semibold text-foreground">
-          How to Refer a Patient
-        </h2>
-        <p className="text-muted-foreground">
-          Getting started is simple. Our three-step process ensures a smooth
-          experience for your facility and your patients.
-        </p>
-        <div className="grid gap-6 md:grid-cols-3">
-          {processSteps.map((step) => (
-            <Card key={step.number} className="text-center">
-              <CardContent className="pt-6 space-y-3">
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <step.icon className="h-6 w-6" />
-                </div>
-                <div className="space-y-1">
-                  <Badge variant="secondary">Step {step.number}</Badge>
-                  <h3 className="font-semibold text-foreground text-lg">
-                    {step.title}
-                  </h3>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+        <div className="flex items-center gap-2">
+          <Building2 className="h-5 w-5 text-primary" />
+          <h2 className="text-2xl font-semibold text-foreground">
+            SNF Medicare / Medicaid Workflow
+          </h2>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          {reimbursementSteps.map((step) => (
+            <Card key={step.title}>
+              <CardContent className="space-y-2 pt-6">
+                <h3 className="font-semibold text-foreground">{step.title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
                   {step.description}
                 </p>
               </CardContent>
             </Card>
           ))}
         </div>
-      </section>
-
-      {/* Insurance & Billing */}
-      <section className="space-y-4">
-        <div className="flex items-center gap-2">
-          <DollarSign className="h-6 w-6 text-primary" />
-          <h2 className="text-2xl font-semibold text-foreground">
-            Insurance & Billing
-          </h2>
-        </div>
-        <p className="text-muted-foreground leading-relaxed">
-          FEES is covered by most major insurance plans, including Medicare and
-          Medicaid, when ordered by a physician and deemed medically necessary.
-          We handle all billing and insurance verification directly. Your
-          facility is not burdened with additional billing work.
-        </p>
-        <p className="text-muted-foreground leading-relaxed">
-          A physician order is required for FEES evaluations. We can assist with
-          the order process and provide the necessary documentation to support
-          medical necessity.
+        <p className="text-sm text-muted-foreground">
+          Bottom line: the facility should know the resident&apos;s stay status before the visit,
+          and the contract should assume facility payment first. Medicaid and managed-care
+          recovery should be verified plan by plan, not marketed as automatic.
         </p>
       </section>
 
-      {/* Credentials */}
-      <section className="space-y-4">
+      <section className="space-y-6">
         <div className="flex items-center gap-2">
-          <Award className="h-6 w-6 text-primary" />
+          <ShieldCheck className="h-5 w-5 text-primary" />
           <h2 className="text-2xl font-semibold text-foreground">
-            Our Credentials
+            What the Facility Agreement Should Say
           </h2>
         </div>
-        <ShieldCheck className="hidden" />
-        <ul className="space-y-2">
-          {credentialItems.map((item) => (
-            <li key={item} className="flex items-start gap-2">
-              <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-              <span className="text-muted-foreground">{item}</span>
-            </li>
+        <Card>
+          <CardContent className="space-y-3 pt-6">
+            {contractPoints.map((point) => (
+              <div key={point} className="flex items-start gap-2">
+                <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <p className="text-sm leading-relaxed text-muted-foreground">{point}</p>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+      </section>
+
+      <section className="space-y-6">
+        <div className="flex items-center gap-2">
+          <ClipboardCheck className="h-5 w-5 text-primary" />
+          <h2 className="text-2xl font-semibold text-foreground">
+            Choose Your Facility Path
+          </h2>
+        </div>
+        <div className="grid gap-4 md:grid-cols-3">
+          {settingPages.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="rounded-[var(--radius)] border border-border bg-card p-5 transition-colors hover:border-primary/40"
+            >
+              <item.icon className="h-5 w-5 text-primary" />
+              <p className="mt-3 font-semibold text-foreground">{item.title}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {item.description}
+              </p>
+            </Link>
           ))}
-        </ul>
+        </div>
       </section>
 
-      {/* CTA */}
-      <section className="rounded-[var(--radius)] border border-primary-light bg-primary-light/30 p-8 text-center space-y-4">
+      <section className="space-y-6">
+        <div className="flex items-center gap-2">
+          <ClipboardCheck className="h-5 w-5 text-primary" />
+          <h2 className="text-2xl font-semibold text-foreground">
+            Download the Facility Toolkit
+          </h2>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2">
+          {facilityResources.map((document) => (
+            <Card key={document.href}>
+              <CardContent className="space-y-3 pt-6">
+                <div className="flex items-center justify-between gap-2">
+                  <h3 className="font-semibold text-foreground">{document.title}</h3>
+                  <Badge variant="outline">{document.format}</Badge>
+                </div>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {document.description}
+                </p>
+                <a
+                  href={document.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto" })}
+                >
+                  Open document
+                </a>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="rounded-[var(--radius)] border border-primary-light bg-primary-light/30 p-8 space-y-4 text-center">
         <h2 className="text-2xl font-semibold text-foreground">
-          Ready to Get Started?
+          Ready to Start a Facility Consult?
         </h2>
-        <p className="text-muted-foreground max-w-xl mx-auto">
-          Contact us to discuss how mobile FEES can benefit your patients and
-          your facility. We will answer any questions and help you set up your
-          first referral.
+        <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          Use the Mobile FEES LV funnel to route your team into the right
+          consult path, clarify the contract model, and start onboarding with a
+          methodical click-through process.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
-          <Link href="/contact" className={buttonVariants({ size: "lg" })}>
-            Submit a Referral
+          <Link
+            href="/contact?path=facility&intent=consult"
+            className={buttonVariants({ size: "lg" })}
+          >
+            Request Facility Consult
           </Link>
-          <Link href="/services" className={buttonVariants({ variant: "outline", size: "lg" })}>
-            View All Services
+          <Link
+            href="/resources"
+            className={buttonVariants({ variant: "outline", size: "lg" })}
+          >
+            Review Facility Packet
           </Link>
         </div>
       </section>

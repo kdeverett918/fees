@@ -10,17 +10,27 @@ export function Footer() {
               <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
                 <span className="text-sm font-bold text-primary-foreground">F</span>
               </div>
-              <span className="font-semibold text-foreground">Mobile FEES 702</span>
+              <span className="font-semibold text-foreground">Mobile FEES LV</span>
             </div>
             <p className="text-sm text-muted-foreground max-w-xs">
-              Professional mobile Fiberoptic Endoscopic Evaluation of Swallowing
-              services. Bringing quality dysphagia care directly to you.
+              Mobile FEES for Las Vegas patients, families, and referral teams.
+              Bedside dysphagia care with a clear consult-to-scheduling path.
             </p>
           </div>
 
           <div>
             <h3 className="font-semibold text-foreground mb-3">Quick Links</h3>
             <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/concierge-patient-portal" className="text-muted-foreground hover:text-primary transition-colors">
+                  Concierge Portal
+                </Link>
+              </li>
+              <li>
+                <Link href="/facility-portal" className="text-muted-foreground hover:text-primary transition-colors">
+                  Facility Portal
+                </Link>
+              </li>
               <li>
                 <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">
                   About
@@ -37,6 +47,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/facility-onboarding-packet" className="text-muted-foreground hover:text-primary transition-colors">
+                  Facility Onboarding Packet
+                </Link>
+              </li>
+              <li>
                 <Link href="/for-patients" className="text-muted-foreground hover:text-primary transition-colors">
                   For Patients & Families
                 </Link>
@@ -44,6 +59,26 @@ export function Footer() {
               <li>
                 <Link href="/faq" className="text-muted-foreground hover:text-primary transition-colors">
                   FAQ
+                </Link>
+              </li>
+              <li>
+                <Link href="/resources" className="text-muted-foreground hover:text-primary transition-colors">
+                  Resources
+                </Link>
+              </li>
+              <li>
+                <Link href="/las-vegas-mobile-fees" className="text-muted-foreground hover:text-primary transition-colors">
+                  Las Vegas FEES
+                </Link>
+              </li>
+              <li>
+                <Link href="/bedside-swallow-study-las-vegas" className="text-muted-foreground hover:text-primary transition-colors">
+                  Bedside Swallow Study
+                </Link>
+              </li>
+              <li>
+                <Link href="/at-home-swallow-evaluation-las-vegas" className="text-muted-foreground hover:text-primary transition-colors">
+                  At-Home Swallow Evaluation
                 </Link>
               </li>
             </ul>
@@ -64,7 +99,7 @@ export function Footer() {
 
         <div className="mt-8 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} Mobile FEES 702. All rights reserved.
+            &copy; {new Date().getFullYear()} Mobile FEES LV. All rights reserved.
           </p>
           <div className="flex gap-4 text-xs text-muted-foreground">
             <Link href="/privacy" className="hover:text-primary transition-colors">

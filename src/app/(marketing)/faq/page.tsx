@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/seo/json-ld";
 import { PageHeader } from "@/components/ui/page-header";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -10,7 +11,10 @@ import { HelpCircle } from "lucide-react";
 export const metadata: Metadata = {
   title: "FAQ",
   description:
-    "Frequently asked questions about FEES evaluations, including what to expect, insurance coverage, referral process, and more.",
+    "Frequently asked questions about mobile FEES in Las Vegas, including what to expect, pricing, insurance, and referral workflow.",
+  alternates: {
+    canonical: "/faq",
+  },
 };
 
 export default function FAQPage() {
@@ -19,24 +23,38 @@ export default function FAQPage() {
   );
   const patientFaqs = faqItems.filter((item) => item.audience === "patient");
   const facilityFaqs = faqItems.filter((item) => item.audience === "facility");
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
 
   return (
-    <div className="container mx-auto max-w-3xl px-4 py-12 space-y-16">
+    <>
+      <JsonLd data={faqSchema} />
+      <div className="container mx-auto max-w-3xl px-4 py-12 space-y-16">
       {/* Header */}
-      <PageHeader
-        title="Frequently Asked Questions"
-        description="Find answers to common questions about FEES evaluations, preparation, insurance, and referrals."
-      >
-        <div className="flex items-center gap-2 pt-2">
-          <HelpCircle className="h-4 w-4 text-muted-foreground" />
-          <p className="text-sm text-muted-foreground">
-            Can&apos;t find what you&apos;re looking for?{" "}
-            <Link href="/contact" className="text-primary hover:underline font-medium">
-              Contact us
-            </Link>
-          </p>
-        </div>
-      </PageHeader>
+        <PageHeader
+          title="Frequently Asked Questions"
+          description="Find answers to common questions about mobile FEES in Las Vegas, preparation, pricing, insurance, and referrals."
+        >
+          <div className="flex items-center gap-2 pt-2">
+            <HelpCircle className="h-4 w-4 text-muted-foreground" />
+            <p className="text-sm text-muted-foreground">
+              Can&apos;t find what you&apos;re looking for?{" "}
+              <Link href="/contact" className="text-primary hover:underline font-medium">
+                Request the next step
+              </Link>
+            </p>
+          </div>
+        </PageHeader>
 
       {/* General */}
       <section className="space-y-4">
@@ -80,10 +98,19 @@ export default function FAQPage() {
           We are happy to answer any additional questions about FEES
           evaluations, our services, or the referral process.
         </p>
-        <Link href="/contact" className={buttonVariants({ size: "lg" })}>
-          Contact Us
-        </Link>
+        <div className="flex flex-wrap justify-center gap-3">
+          <Link href="/contact?path=patient&intent=appointment" className={buttonVariants({ size: "lg" })}>
+            Request Appointment
+          </Link>
+          <Link href="/las-vegas-mobile-fees" className={buttonVariants({ variant: "outline", size: "lg" })}>
+            View Las Vegas FEES Page
+          </Link>
+          <Link href="/at-home-swallow-evaluation-las-vegas" className={buttonVariants({ variant: "outline", size: "lg" })}>
+            View At-Home Page
+          </Link>
+        </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

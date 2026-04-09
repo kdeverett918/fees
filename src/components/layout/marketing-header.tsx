@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/concierge-patient-portal", label: "Concierge Portal" },
+  { href: "/facility-portal", label: "Facility Portal" },
   { href: "/about", label: "About" },
-  { href: "/what-is-fees", label: "What is FEES?" },
   { href: "/services", label: "Services" },
-  { href: "/for-facilities", label: "For Facilities" },
-  { href: "/for-patients", label: "For Patients" },
   { href: "/faq", label: "FAQ" },
   { href: "/pricing", label: "Pricing" },
+  { href: "/resources", label: "Resources" },
 ];
 
 export function MarketingHeader() {
@@ -31,7 +31,7 @@ export function MarketingHeader() {
               <span className="text-sm font-bold text-primary-foreground">F</span>
             </div>
             <span className="font-semibold text-foreground hidden sm:block">
-              Mobile FEES 702
+              Mobile FEES LV
             </span>
           </Link>
 
@@ -53,10 +53,15 @@ export function MarketingHeader() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <Link href="/contact">
-              <Button size="sm" className="hidden sm:inline-flex">
+            <Link href="/concierge-patient-portal">
+              <Button size="sm" className="hidden xl:inline-flex">
                 <Phone className="h-4 w-4" />
-                Contact Us
+                Patient Portal
+              </Button>
+            </Link>
+            <Link href="/facility-portal">
+              <Button variant="outline" size="sm" className="hidden sm:inline-flex">
+                Facility Portal
               </Button>
             </Link>
             <button
@@ -88,10 +93,15 @@ export function MarketingHeader() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/contact" onClick={() => setMobileOpen(false)}>
+            <Link href="/concierge-patient-portal" onClick={() => setMobileOpen(false)}>
               <Button size="sm" className="w-full mt-2">
                 <Phone className="h-4 w-4" />
-                Contact Us
+                Open Patient Portal
+              </Button>
+            </Link>
+            <Link href="/facility-portal" onClick={() => setMobileOpen(false)}>
+              <Button variant="outline" size="sm" className="w-full">
+                Open Facility Portal
               </Button>
             </Link>
           </nav>
