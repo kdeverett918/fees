@@ -10,6 +10,8 @@ import {
   FileText,
   GraduationCap,
   Hospital,
+  Mail,
+  Phone,
   ShieldCheck,
   Stethoscope,
   Warehouse,
@@ -19,7 +21,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { reimbursementSteps } from "@/data/pricing";
-import { resourceDocuments } from "@/data/resources";
 
 export const metadata: Metadata = {
   title: "For Healthcare Facilities",
@@ -31,60 +32,56 @@ const benefits = [
   {
     title: "Faster bedside decisions",
     description:
-      "When a resident cannot wait for transport, radiology scheduling, and report turnaround, mobile FEES keeps the decision-making window much tighter.",
+      "No transport, no radiology scheduling. The swallowing answer stays at the bedside.",
     icon: Clock,
   },
   {
     title: "Fewer send-outs",
     description:
-      "Avoid the coordination burden of transport, family updates, missed meals, and post-appointment follow-up whenever FEES is the right instrumental study.",
+      "Skip the coordination burden of transport, family updates, and post-appointment follow-up.",
     icon: Ambulance,
   },
   {
-    title: "Stronger dysphagia documentation",
+    title: "Stronger documentation",
     description:
-      "A FEES report can support clearer diagnosis, safer diet decisions, and better documentation of swallowing status when dysphagia or related conditions are clinically present.",
+      "FEES reports support clearer diagnosis, safer diet decisions, and better swallowing documentation.",
     icon: FileText,
   },
   {
-    title: "Education for your team",
+    title: "Team education",
     description:
-      "Facility partners can pair the study with nurse/therapy education, referral workflow coaching, and case-based follow-up for complex residents.",
+      "Pair the study with nurse/therapy education, referral coaching, and case-based follow-up.",
     icon: GraduationCap,
   },
 ];
 
 const contractPoints = [
-  "The facility identifies the resident's payer status before the visit and remains responsible for the contracted vendor fee unless another billing path is approved in writing.",
-  "During a Medicare Part A SNF stay, FEES should generally be treated as part of the facility's consolidated billing workflow rather than as a direct vendor-to-Medicare claim.",
-  "For Part B, Medicare Advantage, Medicaid, and Medicaid managed-care residents, the facility verifies plan rules before scheduling and decides whether it will submit the claim, bill the resident, or absorb the service cost.",
-  "The agreement should state that Mobile FEES LV provides clinical documentation and a superbill or coding support when requested, but never guarantees reimbursement.",
-  "Cancellation, after-hours, travel, infection-control, and report-turnaround expectations should be explicit so the workflow is predictable on both sides.",
+  "The facility identifies the resident's payer status before the visit and is responsible for the contracted vendor fee.",
+  "During a Medicare Part A SNF stay, FEES is treated as part of consolidated billing, not a direct vendor-to-Medicare claim.",
+  "For Part B, Medicare Advantage, Medicaid, and managed-care residents, the facility verifies plan rules before scheduling.",
+  "Mobile FEES LV provides clinical documentation and a superbill or coding support when requested, but does not guarantee reimbursement.",
+  "Cancellation, after-hours, travel, infection-control, and report-turnaround expectations are explicit in the agreement.",
 ];
-
-const facilityResources = resourceDocuments.filter(
-  (document) => document.audience === "facility" || document.audience === "all"
-);
 
 const settingPages = [
   {
     title: "Skilled nursing and rehab",
     description:
-      "For SNF and post-acute teams balancing bedside speed, consolidated billing, and dysphagia workflow.",
+      "Bedside speed, consolidated billing, and dysphagia workflow for SNF teams.",
     href: "/skilled-nursing-facility-fees-las-vegas",
     icon: Hospital,
   },
   {
     title: "Assisted living and memory care",
     description:
-      "For ALFs and memory-care settings coordinating resident referrals and family communication.",
+      "Resident referrals and family communication for ALF and memory-care settings.",
     href: "/assisted-living-fees-las-vegas",
     icon: Warehouse,
   },
   {
     title: "Physician referral teams",
     description:
-      "For physician offices and referral coordinators building a cleaner FEES referral path.",
+      "A cleaner FEES referral path for physician offices and coordinators.",
     href: "/physician-referral-fees-las-vegas",
     icon: Stethoscope,
   },
@@ -100,13 +97,12 @@ export default function ForFacilitiesPage() {
       />
 
       <PageHeader
-        title="Mobile FEES for Skilled Nursing & Post-Acute Teams"
-        description="For facilities that need faster swallowing decisions, fewer transport delays, and documentation that supports the care plan without overpromising reimbursement."
+        title="Mobile FEES for Healthcare Facilities"
+        description="Faster swallowing decisions at the bedside, fewer transport delays, and stronger documentation for your care team."
       >
         <div className="flex flex-wrap gap-2 pt-2">
-          <Badge>No hospital transfer when FEES is appropriate</Badge>
-          <Badge variant="secondary">Facility-paid contract model</Badge>
-          <Badge variant="outline">PDPM-aware but reimbursement-safe messaging</Badge>
+          <Badge>Bedside evaluations</Badge>
+          <Badge variant="secondary">Facility-paid contract</Badge>
         </div>
       </PageHeader>
 
@@ -116,16 +112,9 @@ export default function ForFacilitiesPage() {
             Where Mobile FEES Helps Most
           </h2>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            Mobile FEES is especially useful when a resident is clinically fragile, hard to
-            transport, on isolation, cognitively overwhelmed by outside appointments, or when
-            the team needs a pharyngeal dysphagia answer sooner than an outpatient MBSS can be
-            arranged. It does not replace every MBSS. It gives your team a faster bedside option
-            when bedside reality matters more than radiology access.
-          </p>
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            The facility value is usually a combination of timelier care, reduced transport
-            complexity, stronger dysphagia documentation, and cleaner coordination between
-            nursing, therapy, providers, and families.
+            Mobile FEES is most useful when a resident is clinically fragile,
+            hard to transport, on isolation, or when the team needs a swallowing
+            answer sooner than an outpatient MBSS can be arranged.
           </p>
         </div>
         <Card>
@@ -133,14 +122,14 @@ export default function ForFacilitiesPage() {
             <div className="flex items-center gap-2">
               <BadgeDollarSign className="h-5 w-5 text-primary" />
               <h3 className="text-lg font-semibold text-foreground">
-                Important billing reality
+                Billing reality
               </h3>
             </div>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              FEES can improve diagnostic clarity and support accurate swallow-related
-              documentation. It does not create PDPM reimbursement by itself. The safest sales
-              position is that your facility gains faster, clinically supported decisions and a
-              cleaner chart when dysphagia or related comorbidities are actually present.
+              FEES supports accurate swallow documentation and faster clinical
+              decisions. It does not create PDPM reimbursement by itself. Your
+              facility gains a cleaner chart when dysphagia or related
+              comorbidities are present.
             </p>
           </CardContent>
         </Card>
@@ -157,7 +146,9 @@ export default function ForFacilitiesPage() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-[var(--radius)] bg-primary-light">
                   <benefit.icon className="h-5 w-5 text-primary" />
                 </div>
-                <h3 className="font-semibold text-foreground">{benefit.title}</h3>
+                <h3 className="font-semibold text-foreground">
+                  {benefit.title}
+                </h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   {benefit.description}
                 </p>
@@ -187,9 +178,9 @@ export default function ForFacilitiesPage() {
           ))}
         </div>
         <p className="text-sm text-muted-foreground">
-          Bottom line: the facility should know the resident&apos;s stay status before the visit,
-          and the contract should assume facility payment first. Medicaid and managed-care
-          recovery should be verified plan by plan, not marketed as automatic.
+          The facility should know the resident&apos;s stay status before the
+          visit. The contract assumes facility payment first. Medicaid and
+          managed-care recovery is verified plan by plan.
         </p>
       </section>
 
@@ -197,7 +188,7 @@ export default function ForFacilitiesPage() {
         <div className="flex items-center gap-2">
           <ShieldCheck className="h-5 w-5 text-primary" />
           <h2 className="text-2xl font-semibold text-foreground">
-            What the Facility Agreement Should Say
+            What the Facility Agreement Covers
           </h2>
         </div>
         <Card>
@@ -205,7 +196,9 @@ export default function ForFacilitiesPage() {
             {contractPoints.map((point) => (
               <div key={point} className="flex items-start gap-2">
                 <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <p className="text-sm leading-relaxed text-muted-foreground">{point}</p>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {point}
+                </p>
               </div>
             ))}
           </CardContent>
@@ -236,46 +229,12 @@ export default function ForFacilitiesPage() {
         </div>
       </section>
 
-      <section className="space-y-6">
-        <div className="flex items-center gap-2">
-          <ClipboardCheck className="h-5 w-5 text-primary" />
-          <h2 className="text-2xl font-semibold text-foreground">
-            Download the Facility Toolkit
-          </h2>
-        </div>
-        <div className="grid gap-4 md:grid-cols-2">
-          {facilityResources.map((document) => (
-            <Card key={document.href}>
-              <CardContent className="space-y-3 pt-6">
-                <div className="flex items-center justify-between gap-2">
-                  <h3 className="font-semibold text-foreground">{document.title}</h3>
-                  <Badge variant="outline">{document.format}</Badge>
-                </div>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {document.description}
-                </p>
-                <a
-                  href={document.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={buttonVariants({ variant: "outline", className: "w-full sm:w-auto" })}
-                >
-                  Open document
-                </a>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
       <section className="rounded-[var(--radius)] border border-primary-light bg-primary-light/30 p-8 space-y-4 text-center">
         <h2 className="text-2xl font-semibold text-foreground">
           Ready to Start a Facility Consult?
         </h2>
         <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted-foreground">
-          Use the Mobile FEES LV funnel to route your team into the right
-          consult path, clarify the contract model, and start onboarding with a
-          methodical click-through process.
+          Request a consult, clarify the contract model, or reach out directly.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <Link
@@ -285,11 +244,27 @@ export default function ForFacilitiesPage() {
             Request Facility Consult
           </Link>
           <Link
-            href="/resources"
+            href="/facility-onboarding-packet"
             className={buttonVariants({ variant: "outline", size: "lg" })}
           >
-            Review Facility Packet
+            Open Onboarding Packet
           </Link>
+        </div>
+        <div className="flex flex-wrap justify-center gap-6 pt-2 text-sm text-muted-foreground">
+          <a
+            href="tel:+19374899209"
+            className="flex items-center gap-2 font-medium text-foreground hover:text-primary transition-colors"
+          >
+            <Phone className="h-4 w-4 text-primary" />
+            (937) 489-9209
+          </a>
+          <a
+            href="mailto:kristine@thetechslp.com"
+            className="flex items-center gap-2 font-medium text-foreground hover:text-primary transition-colors"
+          >
+            <Mail className="h-4 w-4 text-primary" />
+            kristine@thetechslp.com
+          </a>
         </div>
       </section>
     </div>

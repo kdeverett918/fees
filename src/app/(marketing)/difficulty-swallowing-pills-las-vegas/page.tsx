@@ -124,9 +124,9 @@ export default function DifficultySwallowingPillsLasVegasPage() {
           description="For patients and families trying to decide whether pill-swallowing difficulty is its own issue or part of a larger swallowing problem."
         >
           <div className="flex flex-wrap gap-2 pt-2">
-            <Badge>Symptom-based search page</Badge>
+            <Badge>Medication concern</Badge>
             <Badge variant="secondary">Medication swallowing concerns</Badge>
-            <Badge variant="outline">Routes into patient funnel</Badge>
+            <Badge variant="outline">Request evaluation</Badge>
           </div>
         </PageHeader>
 
@@ -137,9 +137,8 @@ export default function DifficultySwallowingPillsLasVegasPage() {
               families start looking for a more specific swallowing answer.
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground">
-              Searchers here are often not asking for broad dysphagia education.
-              They want to know why pills are suddenly harder, whether the
-              patient is safe taking medication by mouth, and what next step
+              Families often want to know why pills are suddenly harder, whether
+              the patient is safe taking medication by mouth, and what next step
               makes sense in Las Vegas.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -209,7 +208,7 @@ export default function DifficultySwallowingPillsLasVegasPage() {
               <div className="flex items-center gap-2">
                 <AlertCircle className="h-5 w-5 text-primary" />
                 <h2 className="text-2xl font-semibold text-foreground">
-                  Common reasons families search this
+                  Common reasons families ask about this
                 </h2>
               </div>
               <ul className="space-y-3">

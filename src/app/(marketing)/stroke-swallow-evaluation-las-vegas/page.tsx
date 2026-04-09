@@ -124,9 +124,9 @@ export default function StrokeSwallowEvaluationLasVegasPage() {
           description="For patients, families, and referral teams trying to decide what the next swallowing step should be after stroke."
         >
           <div className="flex flex-wrap gap-2 pt-2">
-            <Badge>Condition-based search page</Badge>
+            <Badge>Post-stroke support</Badge>
             <Badge variant="secondary">Post-stroke swallowing concern</Badge>
-            <Badge variant="outline">Routes into patient funnel</Badge>
+            <Badge variant="outline">Request evaluation</Badge>
           </div>
         </PageHeader>
 
@@ -139,9 +139,8 @@ export default function StrokeSwallowEvaluationLasVegasPage() {
             <p className="text-base leading-relaxed text-muted-foreground">
               Families want to know what is safe now, clinicians want better
               bedside clarity, and patients need a next step that does not add
-              unnecessary friction. Mobile FEES LV is positioned for that Las
-              Vegas search intent: not just “what is dysphagia,” but “what do we
-              do next after stroke?”
+              unnecessary friction. The goal is to make the next step easier to
+              understand and easier to start.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -183,7 +182,7 @@ export default function StrokeSwallowEvaluationLasVegasPage() {
 
         <section className="space-y-6">
           <h2 className="text-2xl font-semibold text-foreground">
-            Why this page is useful for stroke-related searches
+            Why this page is useful after stroke
           </h2>
           <div className="grid gap-4 md:grid-cols-3">
             {strokePatterns.map((item) => (

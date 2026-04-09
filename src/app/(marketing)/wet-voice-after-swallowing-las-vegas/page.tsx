@@ -124,23 +124,22 @@ export default function WetVoiceAfterSwallowingLasVegasPage() {
           description="For patients, families, and referral teams trying to decide whether a wet or gurgly voice after swallowing deserves a closer look."
         >
           <div className="flex flex-wrap gap-2 pt-2">
-            <Badge>Symptom-based search page</Badge>
+            <Badge>Meal-time symptom</Badge>
             <Badge variant="secondary">Wet voice and airway concern</Badge>
-            <Badge variant="outline">Routes into patient funnel</Badge>
+            <Badge variant="outline">Request evaluation</Badge>
           </div>
         </PageHeader>
 
         <section className="grid gap-8 rounded-[calc(var(--radius)*2)] border border-primary/15 bg-card p-8 shadow-sm lg:grid-cols-[1.05fr_0.95fr]">
           <div className="space-y-4">
             <h2 className="text-3xl font-semibold text-foreground">
-              “Wet voice after swallowing” is exactly the kind of search people make
-              when something sounds wrong but they do not know the clinical term.
+              A wet or gurgly voice after swallowing can be one of the clearest
+              signs that a closer swallowing review may help.
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground">
-              This is high-intent traffic. Families usually are not browsing out
-              of curiosity. They are hearing a repeated sound after meals and
-              trying to decide whether it is meaningful enough to justify a
-              swallow evaluation in Las Vegas.
+              Families are often hearing a repeated sound after meals and trying
+              to decide whether it is meaningful enough to justify a swallow
+              evaluation in Las Vegas.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -182,7 +181,7 @@ export default function WetVoiceAfterSwallowingLasVegasPage() {
 
         <section className="space-y-6">
           <h2 className="text-2xl font-semibold text-foreground">
-            Why this symptom deserves its own page
+            Why this symptom matters
           </h2>
           <div className="grid gap-4 md:grid-cols-3">
             {voicePatterns.map((item) => (
@@ -209,7 +208,7 @@ export default function WetVoiceAfterSwallowingLasVegasPage() {
               <div className="flex items-center gap-2">
                 <ShieldCheck className="h-5 w-5 text-primary" />
                 <h2 className="text-2xl font-semibold text-foreground">
-                  Common reasons families search this
+                  Common reasons families ask about this
                 </h2>
               </div>
               <ul className="space-y-3">

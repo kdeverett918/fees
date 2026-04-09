@@ -124,23 +124,23 @@ export default function FeesVsMbssAfterStrokeLasVegasPage() {
           description="For families and referral teams trying to decide which instrumental swallow study may answer the post-stroke question that matters most right now."
         >
           <div className="flex flex-wrap gap-2 pt-2">
-            <Badge>Decision-page search intent</Badge>
+            <Badge>Test comparison</Badge>
             <Badge variant="secondary">Post-stroke test choice</Badge>
-            <Badge variant="outline">Routes into patient funnel</Badge>
+            <Badge variant="outline">Request evaluation</Badge>
           </div>
         </PageHeader>
 
         <section className="grid gap-8 rounded-[calc(var(--radius)*2)] border border-primary/15 bg-card p-8 shadow-sm lg:grid-cols-[1.05fr_0.95fr]">
           <div className="space-y-4">
             <h2 className="text-3xl font-semibold text-foreground">
-              “FEES or MBSS after stroke?” is a decision-stage search, which is why
-              it deserves a full page and not a stray FAQ line.
+              “FEES or MBSS after stroke?” is a practical question that deserves
+              a clear side-by-side explanation.
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground">
-              Searchers here usually already know an instrumental swallow study is
-              on the table. What they need is a practical framework for deciding
-              which test answers the most useful question first in a Las Vegas
-              care setting.
+              Families and referral teams often already know an instrumental
+              swallow study is on the table. What they need is a practical
+              framework for deciding which test answers the most useful question
+              first in a Las Vegas care setting.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link

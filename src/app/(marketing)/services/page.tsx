@@ -42,7 +42,7 @@ export default function ServicesPage() {
       {/* Header */}
       <PageHeader
         title="Our Services"
-        description="Comprehensive dysphagia evaluation and education services, with clear next-step routing for Las Vegas patients and referral teams."
+        description="Comprehensive dysphagia evaluation and education services for Las Vegas patients, families, and referral teams."
       />
 
       {/* Service Cards */}
@@ -99,8 +99,8 @@ export default function ServicesPage() {
               Bedside swallow study page
             </h2>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Supports searchers who need a bedside answer because transport,
-              timing, or patient fragility makes outpatient radiology a poor fit.
+              Helps when transport, timing, or patient fragility makes
+              outpatient radiology a poor fit.
             </p>
             <Link
               href="/bedside-swallow-study-las-vegas"
@@ -116,7 +116,7 @@ export default function ServicesPage() {
               At-home swallow evaluation page
             </h2>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Supports family and concierge searches for private-home FEES
+              Helps families and concierge cases explore private-home FEES
               visits, pricing review, and practical next steps.
             </p>
             <Link
@@ -135,9 +135,9 @@ export default function ServicesPage() {
           Ready to Request the Right Next Step?
         </h2>
         <p className="text-muted-foreground max-w-xl mx-auto">
-          Use the Mobile FEES LV funnel to request a patient appointment,
-          facility consult, pricing review, or service conversation without
-          starting from a blank message box.
+          Use the request form to ask for a patient appointment, facility
+          consult, pricing review, or service conversation without starting from
+          a blank message box.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <Link

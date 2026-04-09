@@ -126,9 +126,9 @@ export default function AspirationConcernLasVegasPage() {
           description="A focused page for families and referral teams who are worried something may be getting into the airway and need a clearer next step."
         >
           <div className="flex flex-wrap gap-2 pt-2">
-            <Badge>Concern-based search page</Badge>
+            <Badge>Airway concern</Badge>
             <Badge variant="secondary">Educational, not diagnostic</Badge>
-            <Badge variant="outline">Routes into appointment funnel</Badge>
+            <Badge variant="outline">Request evaluation</Badge>
           </div>
         </PageHeader>
 

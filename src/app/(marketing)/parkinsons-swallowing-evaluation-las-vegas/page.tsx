@@ -21,7 +21,7 @@ import { absoluteUrl, siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Parkinson's Swallowing Evaluation Las Vegas",
   description:
-    "Looking for a swallowing evaluation related to Parkinson's disease in Las Vegas? This page explains common meal-time changes and how Mobile FEES LV routes patients into the next step.",
+    "Looking for a swallowing evaluation related to Parkinson's disease in Las Vegas? This page explains common meal-time changes and what the next step may look like.",
   keywords: [
     "Parkinson's swallowing evaluation Las Vegas",
     "Parkinson's dysphagia Las Vegas",
@@ -40,7 +40,7 @@ const pageSchema = [
     name: "Parkinson's Swallowing Evaluation Las Vegas",
     url: absoluteUrl("/parkinsons-swallowing-evaluation-las-vegas"),
     description:
-      "Educational landing page for Parkinson's-related swallowing change and next-step evaluation in Las Vegas.",
+      "Information for families and clinicians concerned about Parkinson's-related swallowing change in Las Vegas.",
   },
   {
     "@context": "https://schema.org",
@@ -124,9 +124,9 @@ export default function ParkinsonsSwallowingEvaluationLasVegasPage() {
           description="For patients and families noticing progressive meal-time change and trying to decide whether it is time for a swallowing evaluation."
         >
           <div className="flex flex-wrap gap-2 pt-2">
-            <Badge>Condition-based search page</Badge>
+            <Badge>Parkinson&apos;s support</Badge>
             <Badge variant="secondary">Parkinson&apos;s meal-time decline</Badge>
-            <Badge variant="outline">Routes into patient funnel</Badge>
+            <Badge variant="outline">Request evaluation</Badge>
           </div>
         </PageHeader>
 
@@ -137,10 +137,9 @@ export default function ParkinsonsSwallowingEvaluationLasVegasPage() {
               families wait too long before looking for a structured next step.
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground">
-              Search intent here is usually very specific: the patient is still
-              eating, but meals are changing, pills are harder, coughing is more
-              frequent, or intake is slipping. Mobile FEES LV is positioned to
-              capture that Las Vegas search and route it into a clearer next step.
+              The patient is often still eating, but meals are changing, pills
+              are harder, coughing is more frequent, or intake is slipping.
+              Mobile FEES LV helps make the next step clearer.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -182,7 +181,7 @@ export default function ParkinsonsSwallowingEvaluationLasVegasPage() {
 
         <section className="space-y-6">
           <h2 className="text-2xl font-semibold text-foreground">
-            Why this page fits Parkinson&apos;s-related search behavior
+            Why this page focuses on Parkinson&apos;s-related meal changes
           </h2>
           <div className="grid gap-4 md:grid-cols-3">
             {parkinsonsPatterns.map((item) => (
@@ -230,7 +229,7 @@ export default function ParkinsonsSwallowingEvaluationLasVegasPage() {
               <div className="flex items-center gap-2">
                 <Users className="h-5 w-5 text-primary" />
                 <h2 className="text-2xl font-semibold text-foreground">
-                  Best next route for Parkinson&apos;s cases
+                  Best next step for Parkinson&apos;s cases
                 </h2>
               </div>
               <div className="grid gap-3 sm:grid-cols-2">

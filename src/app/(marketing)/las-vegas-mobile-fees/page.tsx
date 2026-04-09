@@ -73,7 +73,7 @@ const benefits = [
     icon: Clock3,
   },
   {
-    title: "Built for local referrals",
+    title: "Local referral support",
     description:
       "Works for Las Vegas families, SNFs, rehab teams, assisted living communities, and physician-office referrals.",
     icon: Users,
@@ -116,12 +116,11 @@ export default function LasVegasMobileFeesPage() {
         <section className="grid gap-8 rounded-[calc(var(--radius)*2)] border border-primary/15 bg-card p-8 shadow-sm lg:grid-cols-[1.05fr_0.95fr]">
           <div className="space-y-4">
             <h2 className="text-3xl font-semibold text-foreground">
-              Looking for a mobile swallow evaluation instead of an outbound sales conversation?
+              Looking for a mobile swallow evaluation in Las Vegas?
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground">
-              This page is designed for the patient side of the market: families,
-              caregivers, concierge cases, and referring clinicians who already know
-              there is a swallowing concern and want a practical Las Vegas next step.
+              Mobile FEES LV is for families, caregivers, concierge cases, and
+              referral teams who want a practical next step when swallowing is a concern.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -159,7 +158,7 @@ export default function LasVegasMobileFeesPage() {
 
         <section className="space-y-6">
           <h2 className="text-2xl font-semibold text-foreground">
-            When this page should convert well
+            Why families choose mobile FEES
           </h2>
           <div className="grid gap-4 md:grid-cols-3">
             {benefits.map((item) => (
@@ -208,9 +207,8 @@ export default function LasVegasMobileFeesPage() {
                 Keep the next click easy
               </h2>
               <p className="text-sm leading-relaxed text-muted-foreground">
-                The strongest organic pages do not stop at education. They move
-                visitors into a short next-step action with the minimum amount of
-                friction needed to qualify the request.
+                If you are ready to ask a question, request an appointment, or
+                review what to expect, the next steps are kept short and simple.
               </p>
               <div className="grid gap-3 sm:grid-cols-2">
                 <Link

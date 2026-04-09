@@ -124,23 +124,23 @@ export default function HomeboundSwallowEvaluationLasVegasPage() {
           description="For patients and families who know the patient cannot realistically leave home and need a practical swallowing next step."
         >
           <div className="flex flex-wrap gap-2 pt-2">
-            <Badge>Setting-based search page</Badge>
+            <Badge>Homebound care</Badge>
             <Badge variant="secondary">Homebound patient pathway</Badge>
-            <Badge variant="outline">Routes into patient funnel</Badge>
+            <Badge variant="outline">Request evaluation</Badge>
           </div>
         </PageHeader>
 
         <section className="grid gap-8 rounded-[calc(var(--radius)*2)] border border-primary/15 bg-card p-8 shadow-sm lg:grid-cols-[1.05fr_0.95fr]">
           <div className="space-y-4">
             <h2 className="text-3xl font-semibold text-foreground">
-              Homebound swallowing cases need a different kind of page because the
-              main obstacle is often logistics, not awareness.
+              Homebound swallowing cases often need a different process because
+              logistics can be the main obstacle.
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground">
-              Families searching this phrase usually already know the patient
-              cannot handle a standard outpatient route. They need to know whether
-              there is a realistic home-based next step in Las Vegas and how to
-              start that process without a long back-and-forth.
+              Families usually already know the patient cannot handle a standard
+              outpatient route. They need to know whether there is a realistic
+              home-based next step in Las Vegas and how to start without a long
+              back-and-forth.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -174,7 +174,7 @@ export default function HomeboundSwallowEvaluationLasVegasPage() {
               </p>
               <p className="text-sm leading-relaxed text-muted-foreground">
                 Homebound status and payment pathways can vary, so the request
-                funnel is designed to qualify those details up front.
+                form asks for those details up front.
               </p>
             </CardContent>
           </Card>
@@ -182,7 +182,7 @@ export default function HomeboundSwallowEvaluationLasVegasPage() {
 
         <section className="space-y-6">
           <h2 className="text-2xl font-semibold text-foreground">
-            Why this page is different from a general at-home page
+            Why this page is different from a general home-visit page
           </h2>
           <div className="grid gap-4 md:grid-cols-3">
             {homeboundPatterns.map((item) => (
@@ -209,7 +209,7 @@ export default function HomeboundSwallowEvaluationLasVegasPage() {
               <div className="flex items-center gap-2">
                 <Waves className="h-5 w-5 text-primary" />
                 <h2 className="text-2xl font-semibold text-foreground">
-                  Common reasons families search this
+                  Common reasons families ask about this
                 </h2>
               </div>
               <ul className="space-y-3">

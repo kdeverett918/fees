@@ -1,7 +1,7 @@
 export interface PricingPlan {
   id: string;
   name: string;
-  audience: "facility" | "concierge";
+  audience: "facility" | "patient";
   description: string;
   price: string;
   priceNote: string;
@@ -21,127 +21,81 @@ export interface ComparisonRow {
 
 export const facilityPlans: PricingPlan[] = [
   {
-    id: "facility-day",
-    name: "Single-Facility Study",
+    id: "facility-fees",
+    name: "FEES Study",
     audience: "facility",
     description:
-      "Best for facilities testing the service or scheduling intermittent instrumental swallow studies without a monthly volume commitment.",
-    price: "$495",
-    priceNote: "starting per FEES study",
+      "Per-study rate for skilled nursing facilities, rehab programs, assisted living, and physician offices.",
+    price: "$350",
+    priceNote: "per FEES study",
     highlights: [
       "Bedside FEES with same-day verbal recommendations",
-      "Written report targeted for delivery within 24 business hours",
-      "One nurse/SLP care-team review included at time of study",
-      "Urgent scheduling and travel outside the core Las Vegas service area quoted separately",
-    ],
-  },
-  {
-    id: "facility-partner",
-    name: "Partner Facility Program",
-    audience: "facility",
-    description:
-      "For SNFs, rehab centers, and ALFs that expect recurring referrals and want a defined billing workflow.",
-    price: "$465",
-    priceNote: "per FEES study with 5-9 studies per month",
-    highlights: [
-      "Priority scheduling within 2-3 business days",
-      "Clustered same-day visits to reduce staff disruption",
-      "Quarterly staff in-service included",
-      "Clinical swallow evaluation add-on from $185 when instrumentation is not indicated",
-    ],
-  },
-  {
-    id: "facility-high-volume",
-    name: "High-Volume Facility Program",
-    audience: "facility",
-    description:
-      "For facilities that consistently run 10 or more FEES studies per month and want the lowest per-study rate.",
-    price: "$435",
-    priceNote: "per FEES study with 10+ studies per month",
-    highlights: [
-      "Reserved scheduling blocks based on monthly volume planning",
-      "Best fit for high-census SNFs and multi-building referral streams",
-      "Monthly utilization review and workflow check-in",
-      "Training and referral-packet refinement included for partner teams",
+      "Written report delivered within 24 business hours",
+      "Care-team review included at time of study",
+      "Facility submits to Medicare or Medicaid for reimbursement",
     ],
   },
 ];
 
-export const conciergePlans: PricingPlan[] = [
+export const patientPlans: PricingPlan[] = [
   {
-    id: "concierge-fees",
-    name: "Concierge FEES Home Visit",
-    audience: "concierge",
+    id: "patient-virtual",
+    name: "Virtual Swallowing Wellness Consult",
+    audience: "patient",
     description:
-      "For homebound or medically fragile patients who need instrumental swallowing assessment without an outpatient transport burden.",
-    price: "$650",
-    priceNote: "starting per visit in the core service area",
+      "A virtual consultation to review swallowing concerns, answer questions, and determine next steps.",
+    price: "$75",
+    priceNote: "per session",
     highlights: [
-      "In-home FEES and bedside swallowing assessment when clinically appropriate",
-      "Caregiver education and same-day results discussion",
-      "Written report sent to the referring medical team",
-      "Good Faith Estimate available before scheduling",
+      "Video consultation from home",
+      "Review of swallowing concerns and history",
+      "Guidance on whether a FEES evaluation is recommended",
+      "Written summary of recommendations",
     ],
   },
   {
-    id: "concierge-plus",
-    name: "Concierge FEES Plus",
-    audience: "concierge",
+    id: "patient-fees",
+    name: "FEES Evaluation — Cash Pay",
+    audience: "patient",
     description:
-      "For families who want a fuller caregiver conference, video review packet, and coordinated follow-up after the study.",
-    price: "$750",
-    priceNote: "starting per visit",
+      "A complete in-home FEES evaluation for patients paying out of pocket.",
+    price: "$250",
+    priceNote: "per visit",
     highlights: [
-      "Everything in the Concierge FEES Home Visit",
-      "Extended caregiver conference and questions review",
-      "Video review packet or enhanced education summary when clinically appropriate",
-      "Best fit when multiple family members or caregivers need the plan explained clearly",
-    ],
-  },
-  {
-    id: "concierge-consult",
-    name: "Concierge Swallow Consult",
-    audience: "concierge",
-    description:
-      "For patients who need clinical triage, diet guidance, or follow-up support without repeat endoscopy.",
-    price: "$275",
-    priceNote: "starting per home visit",
-    highlights: [
-      "Clinical swallow evaluation and chart review",
-      "Home mealtime observation when appropriate",
-      "Recommendation summary for the patient and physician",
-      "Optional virtual results conference from $125",
+      "In-home FEES evaluation with portable equipment",
+      "Same-day results and diet recommendations",
+      "Written report sent to your doctor",
+      "Superbill available for out-of-network insurance submission",
     ],
   },
 ];
 
 export const pricingNotes = [
-  "All rates are starting points for Las Vegas-area service and may change based on distance, same-day clustering, isolation/PPE requirements, and after-hours urgency.",
-  "Facility agreements should state that reimbursement is never guaranteed and that the facility remains responsible for contracted vendor payment unless a different pathway is explicitly approved in writing.",
-  "Part A SNF residents are typically handled under consolidated billing. For Part B, Medicare Advantage, Medicaid managed care, and private plans, billing workflow must be verified before the visit.",
-  "Concierge patients receive a Good Faith Estimate on request. Superbills can be supplied for out-of-network submission, but plan reimbursement is not guaranteed.",
+  "All rates are for Las Vegas-area service. Travel outside the core service area may be quoted separately.",
+  "Good Faith Estimates are available for patient visits on request.",
+  "Superbills can be provided for out-of-network insurance submission, but reimbursement is not guaranteed.",
 ];
 
 export const reimbursementSteps: ReimbursementStep[] = [
   {
     title: "1. Confirm the resident's payer status",
     description:
-      "Determine whether the resident is in a Medicare Part A SNF stay, a Part B/outpatient episode, a Medicare Advantage plan, Medicaid, Medicaid managed care, or private pay. This drives the billing pathway before the visit is scheduled.",
+      "Determine whether the resident is in a Medicare Part A stay, Part B, Medicare Advantage, Medicaid, or private pay before scheduling.",
   },
   {
-    title: "2. Obtain the clinical order and referral packet",
+    title: "2. Obtain the clinical order",
     description:
-      "Secure the physician or qualified practitioner order required by your facility or payer, plus demographics, current diet, diagnoses, medication list, recent pneumonia history, and the reason instrumental assessment is needed now.",
+      "Secure the physician order, demographics, current diet, diagnoses, and the reason instrumental assessment is needed.",
   },
   {
-    title: "3. Complete the study and document the swallow status",
+    title: "3. Complete the study",
     description:
-      "The FEES report should describe airway protection, secretion management, residue, diet recommendations, compensatory strategies, and any dysphagia-related diagnoses or comorbidities that are clinically present and supportable.",
+      "Mobile FEES LV provides the bedside evaluation and delivers a written report with findings, diet recommendations, and diagnosis codes.",
   },
   {
-    title: "4. Bill through the correct pathway",
+    title: "4. Submit the claim",
     description:
-      "For Part A residents, facilities usually pay the FEES vendor under the facility agreement because therapy-related services fall under consolidated billing. For Part B and some managed-care residents, the facility usually submits the claim and pays the vendor per contract after confirming plan rules.",
+      "The facility submits the claim to Medicare or Medicaid using the report and coding documentation provided. Part A residents are typically billed under consolidated billing. Part B and managed-care claims follow the plan's standard submission process.",
   },
 ];
 
@@ -149,48 +103,41 @@ export const comparisonRows: ComparisonRow[] = [
   {
     topic: "Where the study happens",
     mobileFees:
-      "At bedside, in the SNF, ALF, physician office, or home when clinically appropriate.",
+      "At bedside, in the SNF, ALF, physician office, or home.",
     outpatientMbss:
-      "In an outpatient radiology suite or hospital setting.",
+      "In an outpatient radiology suite or hospital.",
   },
   {
-    topic: "Turnaround and logistics",
+    topic: "Turnaround",
     mobileFees:
-      "Avoids transport and can usually be coordinated around facility workflow.",
+      "No transport needed. Coordinated around facility workflow.",
     outpatientMbss:
-      "Requires scheduling, transport, radiology coordination, and a return trip or report follow-up.",
+      "Requires scheduling, transport, and radiology coordination.",
   },
   {
-    topic: "Radiation exposure",
-    mobileFees: "No radiation exposure.",
-    outpatientMbss: "Uses fluoroscopy and therefore involves radiation.",
+    topic: "Radiation",
+    mobileFees: "No radiation.",
+    outpatientMbss: "Uses fluoroscopy (radiation).",
   },
   {
-    topic: "What FEES/MBSS visualizes best",
+    topic: "What it shows best",
     mobileFees:
-      "Excellent for secretion management, pharyngeal residue, laryngeal function, and repeated reassessment.",
+      "Secretion management, pharyngeal residue, laryngeal function, and repeated reassessment.",
     outpatientMbss:
-      "Better for oral phase timing, upper esophageal screening, and full bolus flow through the swallow.",
+      "Oral phase timing, upper esophageal screening, and full bolus flow.",
   },
   {
-    topic: "Patient tolerance in fragile populations",
+    topic: "Patient tolerance",
     mobileFees:
-      "Useful when a patient is bedbound, on isolation, cognitively fragile, or cannot leave the unit easily.",
+      "Useful when the patient is bedbound, on isolation, or cannot leave the unit.",
     outpatientMbss:
       "Better when transport is safe and oral/esophageal visualization is needed.",
   },
   {
-    topic: "Ability to repeat",
-    mobileFees:
-      "Can be repeated without radiation when clinical status changes or therapy strategies need retesting.",
-    outpatientMbss:
-      "Repeat studies are possible, but radiation and radiology access limit how often they are used.",
-  },
-  {
     topic: "Main limitation",
     mobileFees:
-      "Does not visualize the oral phase or esophageal phase, and white-out occurs during the swallow.",
+      "Does not visualize the oral or esophageal phase.",
     outpatientMbss:
-      "May not reflect a patient's usual mealtime environment and often takes longer to arrange.",
+      "May not reflect the patient's usual mealtime environment.",
   },
 ];

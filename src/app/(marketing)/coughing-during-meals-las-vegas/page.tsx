@@ -126,7 +126,7 @@ export default function CoughingDuringMealsLasVegasPage() {
           description="A practical page for families and referral teams trying to decide whether repeated mealtime coughing deserves a swallow evaluation."
         >
           <div className="flex flex-wrap gap-2 pt-2">
-            <Badge>Symptom-based search page</Badge>
+            <Badge>Meal-time symptom</Badge>
             <Badge variant="secondary">Patient-first next step</Badge>
             <Badge variant="outline">Mobile FEES LV</Badge>
           </div>
@@ -135,15 +135,14 @@ export default function CoughingDuringMealsLasVegasPage() {
         <section className="grid gap-8 rounded-[calc(var(--radius)*2)] border border-primary/15 bg-card p-8 shadow-sm lg:grid-cols-[1.05fr_0.95fr]">
           <div className="space-y-4">
             <h2 className="text-3xl font-semibold text-foreground">
-              Many people do not search for FEES first. They search for the meal
-              problem they are seeing.
+              Repeated coughing during meals can be one of the clearest signs
+              that a swallow evaluation may help.
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground">
               If meals bring repeated coughing, choking, throat clearing, or a wet
               voice afterward, the right next step may be a clinical swallow
-              evaluation. Mobile FEES LV is built to help Las Vegas families move
-              from uncertainty to a clearer plan without starting in a generic
-              contact box.
+              evaluation. Mobile FEES LV helps Las Vegas families move from
+              uncertainty to a clearer plan.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link

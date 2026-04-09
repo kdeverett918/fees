@@ -76,7 +76,7 @@ const dementiaPatterns = [
   {
     title: "The next step needs to fit the setting",
     description:
-      "These searches often come from families managing care at home, in memory care, or in a facility who need a practical route, not a complicated hospital-style process.",
+      "Families managing care at home, in memory care, or in a facility often need a practical next step, not a complicated hospital-style process.",
     icon: ShieldCheck,
   },
 ];
@@ -124,23 +124,23 @@ export default function DementiaSwallowingEvaluationLasVegasPage() {
           description="For families, caregivers, and teams trying to decide whether progressive meal-time change in dementia deserves a swallowing evaluation."
         >
           <div className="flex flex-wrap gap-2 pt-2">
-            <Badge>Condition-based search page</Badge>
+            <Badge>Dementia support</Badge>
             <Badge variant="secondary">Dementia-related meal changes</Badge>
-            <Badge variant="outline">Routes into patient funnel</Badge>
+            <Badge variant="outline">Request evaluation</Badge>
           </div>
         </PageHeader>
 
         <section className="grid gap-8 rounded-[calc(var(--radius)*2)] border border-primary/15 bg-card p-8 shadow-sm lg:grid-cols-[1.05fr_0.95fr]">
           <div className="space-y-4">
             <h2 className="text-3xl font-semibold text-foreground">
-              Dementia-related swallowing searches usually come from families who
-              can see the meal-time change but do not know what the next step should be.
+              Dementia-related swallowing concerns often become more visible when
+              families can see the meal-time change but do not know the next step.
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground">
-              This traffic is high-value because the family is often already
-              dealing with daily care decisions, not abstract theory. They need
-              a route in Las Vegas that respects the care setting, the patient’s
-              tolerance, and the practical reality of how meals are going.
+              Families are often already dealing with daily care decisions, not
+              abstract theory. They need a Las Vegas option that respects the care
+              setting, the patient’s tolerance, and the practical reality of how
+              meals are going.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -182,7 +182,7 @@ export default function DementiaSwallowingEvaluationLasVegasPage() {
 
         <section className="space-y-6">
           <h2 className="text-2xl font-semibold text-foreground">
-            Why this page fits dementia-related search intent
+            Why this page focuses on dementia-related meal changes
           </h2>
           <div className="grid gap-4 md:grid-cols-3">
             {dementiaPatterns.map((item) => (
@@ -209,7 +209,7 @@ export default function DementiaSwallowingEvaluationLasVegasPage() {
               <div className="flex items-center gap-2">
                 <Users className="h-5 w-5 text-primary" />
                 <h2 className="text-2xl font-semibold text-foreground">
-                  Common reasons families search this
+                  Common reasons families ask about this
                 </h2>
               </div>
               <ul className="space-y-3">

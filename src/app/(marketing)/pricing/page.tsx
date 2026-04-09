@@ -14,7 +14,7 @@ import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import {
   comparisonRows,
-  conciergePlans,
+  patientPlans,
   facilityPlans,
   pricingNotes,
   reimbursementSteps,
@@ -23,7 +23,7 @@ import {
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Starting rates for Mobile FEES LV facility partnerships and Las Vegas concierge patient visits, plus practical guidance on how payment usually flows in SNFs.",
+    "Simple pricing for Mobile FEES LV — $250 cash-pay FEES for patients, $350 per study for facilities, and $75 virtual swallowing consults.",
   alternates: {
     canonical: "/pricing",
   },
@@ -83,58 +83,24 @@ export default function PricingPage() {
   return (
     <div className="container mx-auto max-w-6xl px-4 py-12 space-y-16">
       <PageHeader
-        title="Pricing & Payment Paths"
-        description="Transparent starting rates for facilities and concierge patients, with billing language designed to match how SNF payment actually works."
+        title="Pricing"
+        description="Clear pricing for patients and facilities. No hidden fees."
       >
         <div className="flex flex-wrap gap-2 pt-2">
-          <Badge>Starting rates</Badge>
-          <Badge variant="secondary">Facility-paid agreements</Badge>
-          <Badge variant="outline">Good Faith Estimates available</Badge>
+          <Badge>Cash pay available</Badge>
+          <Badge variant="secondary">Good Faith Estimates on request</Badge>
         </div>
       </PageHeader>
 
       <section className="space-y-6">
         <div className="flex items-center gap-2">
-          <Building2 className="h-5 w-5 text-primary" />
-          <h2 className="text-2xl font-semibold text-foreground">
-            Facility Partnership Pricing
-          </h2>
-        </div>
-        <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
-          These plans are structured around the most defensible SNF workflow:
-          the facility contracts with Mobile FEES LV, the facility pays the vendor,
-          and the facility determines whether it can recover through its own Part A,
-          Part B, managed-care, or private-pay billing pathway.
-        </p>
-        <div className="grid gap-6 lg:grid-cols-3">
-          {facilityPlans.map((plan, index) => (
-            <PricingCard
-              key={plan.id}
-              name={plan.name}
-              description={plan.description}
-              price={plan.price}
-              priceNote={plan.priceNote}
-              highlights={plan.highlights}
-              icon={index === 2 ? HandCoins : Building2}
-            />
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <div className="flex items-center gap-2">
           <House className="h-5 w-5 text-primary" />
           <h2 className="text-2xl font-semibold text-foreground">
-            Concierge Patient Pricing
+            Patient Pricing
           </h2>
         </div>
-        <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
-          Concierge visits are designed for patients who need faster access or who
-          cannot easily complete an outpatient MBSS. These visits are typically self-pay
-          first, with superbill support when out-of-network submission makes sense.
-        </p>
         <div className="grid gap-6 md:grid-cols-2">
-          {conciergePlans.map((plan) => (
+          {patientPlans.map((plan) => (
             <PricingCard
               key={plan.id}
               name={plan.name}
@@ -150,11 +116,37 @@ export default function PricingPage() {
 
       <section className="space-y-6">
         <div className="flex items-center gap-2">
-          <HandCoins className="h-5 w-5 text-primary" />
+          <Building2 className="h-5 w-5 text-primary" />
           <h2 className="text-2xl font-semibold text-foreground">
-            How Payment Usually Flows
+            Facility Pricing
           </h2>
         </div>
+        <div className="grid gap-6 md:grid-cols-1 lg:max-w-lg">
+          {facilityPlans.map((plan) => (
+            <PricingCard
+              key={plan.id}
+              name={plan.name}
+              description={plan.description}
+              price={plan.price}
+              priceNote={plan.priceNote}
+              highlights={plan.highlights}
+              icon={Building2}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <div className="flex items-center gap-2">
+          <HandCoins className="h-5 w-5 text-primary" />
+          <h2 className="text-2xl font-semibold text-foreground">
+            How Facilities Submit for Reimbursement
+          </h2>
+        </div>
+        <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
+          Facilities pay $350 per study and can submit claims to Medicare or
+          Medicaid for reimbursement. Here is how the process typically works:
+        </p>
         <div className="grid gap-4 md:grid-cols-2">
           {reimbursementSteps.map((step) => (
             <Card key={step.title}>
@@ -197,15 +189,11 @@ export default function PricingPage() {
             </div>
           ))}
         </Card>
-        <p className="text-sm text-muted-foreground">
-          Short version: FEES is often the faster bedside answer for pharyngeal dysphagia questions,
-          while MBSS remains valuable when oral-phase or esophageal information is the main priority.
-        </p>
       </section>
 
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold text-foreground">
-          Billing Guardrails
+          Good to Know
         </h2>
         <Card>
           <CardContent className="space-y-3 pt-6">
@@ -222,34 +210,26 @@ export default function PricingPage() {
       </section>
 
       <section className="rounded-[var(--radius)] border border-primary-light bg-primary-light/30 p-8 space-y-4 text-center">
-        <Badge variant="default">Need a final quote?</Badge>
         <h2 className="text-2xl font-semibold text-foreground">
-          Request a Facility Packet or Concierge Estimate
+          Ready to get started?
         </h2>
         <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted-foreground">
-          We can tailor pricing around travel radius, monthly volume, and facility workflow.
-          If you are comparing FEES with outpatient MBSS, the resource library also includes a
-          printable comparison sheet and reimbursement quick guide.
+          Request an appointment, estimate, or facility consult and we will
+          follow up within one business day.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <Link
-            href="/contact?path=facility&intent=consult"
+            href="/contact?path=patient&intent=appointment"
             className={buttonVariants({ size: "lg" })}
           >
-            Request Facility Pricing Review
+            Request Appointment
             <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
-            href="/contact?path=patient&intent=estimate"
+            href="/contact?path=facility&intent=consult"
             className={buttonVariants({ variant: "outline", size: "lg" })}
           >
-            Request Patient Estimate
-          </Link>
-          <Link
-            href="/resources"
-            className={buttonVariants({ variant: "outline", size: "lg" })}
-          >
-            View Resource Library
+            Request Facility Consult
           </Link>
         </div>
       </section>

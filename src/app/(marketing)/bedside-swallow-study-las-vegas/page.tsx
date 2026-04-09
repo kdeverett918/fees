@@ -40,7 +40,7 @@ const pageSchema = [
     name: "Bedside Swallow Study Las Vegas",
     url: absoluteUrl("/bedside-swallow-study-las-vegas"),
     description:
-      "Landing page for bedside swallow study searches in Las Vegas focused on mobile FEES visits.",
+      "Information for patients, families, and facilities looking for a bedside swallow study in Las Vegas.",
   },
   {
     "@context": "https://schema.org",
@@ -113,26 +113,25 @@ export default function BedsideSwallowStudyLasVegasPage() {
         />
         <PageHeader
           title="Bedside Swallow Study in Las Vegas"
-          description="Built for searchers who need a practical swallow answer without turning the patient into a transport project."
+          description="For patients, families, and care teams who need a bedside swallowing option without turning the patient into a transport project."
         >
           <div className="flex flex-wrap gap-2 pt-2">
-            <Badge>High-intent bedside page</Badge>
+            <Badge>Bedside option</Badge>
             <Badge variant="secondary">Transport-sensitive patients</Badge>
-            <Badge variant="outline">Direct appointment funnel</Badge>
+            <Badge variant="outline">Request appointment</Badge>
           </div>
         </PageHeader>
 
         <section className="grid gap-8 rounded-[calc(var(--radius)*2)] border border-primary/15 bg-card p-8 shadow-sm lg:grid-cols-[1.05fr_0.95fr]">
           <div className="space-y-4">
             <h2 className="text-3xl font-semibold text-foreground">
-              This page exists for one very specific search: &quot;I need a bedside
-              swallow study in Las Vegas.&quot;
+              Bedside care is often the most practical option when leaving the
+              room is difficult.
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground">
               That usually means the patient cannot easily leave the room, the
               family wants clarity fast, or the referral team needs a bedside
-              instrumental answer without a long scheduling chain. Mobile FEES LV
-              is positioned for that exact intent.
+              instrumental answer without a long scheduling chain.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -170,7 +169,7 @@ export default function BedsideSwallowStudyLasVegasPage() {
 
         <section className="space-y-6">
           <h2 className="text-2xl font-semibold text-foreground">
-            Why a bedside page converts different traffic
+            Why bedside FEES can be the right fit
           </h2>
           <div className="grid gap-4 md:grid-cols-3">
             {bedsideReasons.map((item) => (

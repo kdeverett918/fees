@@ -42,15 +42,14 @@ test("homepage routes concierge patients through the portal and into the request
 }) => {
   await page.goto("/");
 
-  await page.getByRole("button", { name: /Concierge Patient Portal/i }).click();
   await expect(
-    page.locator("h3").filter({ hasText: "Open the Concierge Patient Portal" })
+    page.getByRole("heading", { name: /Mobile FEES in Las Vegas/i })
   ).toBeVisible();
 
-  await page.getByRole("link", { name: /Open Patient Portal/i }).click();
+  await page.getByRole("link", { name: /Get Started/i }).first().click();
 
   await expect(page).toHaveURL(/\/concierge-patient-portal/);
-  await page.getByRole("link", { name: /Start Patient Request/i }).click();
+  await page.getByRole("link", { name: /Request Appointment/i }).first().click();
 
   await expect(page).toHaveURL(/\/contact\?path=patient&intent=appointment/);
   await expect(
@@ -70,7 +69,7 @@ test.describe("contact submission routing", () => {
     clearSubmissionArtifacts();
 
     await page.goto("/concierge-patient-portal");
-    await page.getByRole("link", { name: /Start Patient Request/i }).click();
+    await page.getByRole("link", { name: /Request Appointment/i }).first().click();
 
     await page.getByLabel(/Patient city \/ neighborhood/i).fill("Las Vegas");
     await page.getByLabel(/Requested service/i).selectOption("mobile-fees");
@@ -92,7 +91,7 @@ test.describe("contact submission routing", () => {
     await page.getByRole("button", { name: /Request Next Step/i }).click();
 
     await expect(
-      page.getByRole("heading", { name: /concierge patient request is in/i })
+      page.getByRole("heading", { name: /your patient request is in/i })
     ).toBeVisible();
 
     await expect.poll(() => readJsonLines(conciergeLeadsFile).length).toBe(1);
@@ -230,12 +229,13 @@ test("concierge patient portal routes into the patient funnel", async ({
 
   await expect(
     page.getByRole("heading", {
-      name: "Concierge Patient Portal",
+      name: "Patient Portal",
+      level: 1,
       exact: true,
     })
   ).toBeVisible();
 
-  await page.getByRole("link", { name: /Start Patient Request/i }).click();
+  await page.getByRole("link", { name: /Request Appointment/i }).first().click();
 
   await expect(page).toHaveURL(/\/contact\?path=patient&intent=appointment/);
   await expect(
@@ -253,7 +253,7 @@ test("facility portal routes into the facility funnel", async ({ page }) => {
     })
   ).toBeVisible();
 
-  await page.getByRole("link", { name: /Start Facility Request/i }).click();
+  await page.getByRole("link", { name: /Request a Consult/i }).first().click();
 
   await expect(page).toHaveURL(/\/contact\?path=facility&intent=consult/);
   await expect(

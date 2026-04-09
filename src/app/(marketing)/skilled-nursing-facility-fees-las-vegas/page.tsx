@@ -133,13 +133,13 @@ export default function SkilledNursingFacilityFeesLasVegasPage() {
         <section className="grid gap-8 rounded-[calc(var(--radius)*2)] border border-primary/15 bg-card p-8 shadow-sm lg:grid-cols-[1.05fr_0.95fr]">
           <div className="space-y-4">
             <h2 className="text-3xl font-semibold text-foreground">
-              Skilled nursing facilities do not need a generic sales page. They need a workflow answer.
+              Skilled nursing facilities need a clear bedside FEES process.
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground">
               The real decision is whether mobile FEES improves bedside access,
               reduces transport friction, supports documentation, and fits the
               building’s current billing and referral process. This page is built
-              around that SNF reality, not abstract service language.
+              around that day-to-day SNF reality.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link

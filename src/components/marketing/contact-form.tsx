@@ -58,14 +58,14 @@ const STEPS = ["Path", "Details", "Contact"];
 const pathOptions = [
   {
     id: "patient" as const,
-    label: "Concierge Patient Portal",
-    description: "Request a mobile FEES appointment, pricing review, or patient-facing next step.",
+    label: "Patient Portal",
+    description: "Request an appointment, pricing, or estimate.",
     icon: Heart,
   },
   {
     id: "facility" as const,
     label: "Facility Portal",
-    description: "Request a facility consult, onboarding call, or referral packet review.",
+    description: "Request a consult, onboarding, or referral packet.",
     icon: Building2,
   },
 ];
@@ -98,7 +98,7 @@ const facilityIntentOptions = [
 
 function getPortalSource(path: ContactPath) {
   if (path === "patient") {
-    return "concierge-patient-portal";
+    return "patient-portal";
   }
 
   if (path === "facility") {
@@ -222,26 +222,26 @@ export function ContactForm() {
       return "pricing or Good Faith Estimate request";
     }
 
-    return "concierge patient request";
+    return "patient request";
   }, [form.intent, form.path]);
 
   const activeGuide = useMemo(() => {
     if (!form.path) {
       return {
         icon: Send,
-        portalLabel: "Request Funnel",
+        portalLabel: "Request Form",
         heading: "Choose the portal that fits the request",
         description:
-          "The funnel separates concierge patient scheduling from facility onboarding so each audience sees the right next step first.",
+          "Choose patient or facility so we can guide this correctly.",
         checklist: [
-          "Choose the patient or facility portal path.",
-          "Answer only the questions needed to route the request.",
+          "Choose the patient or facility portal.",
+          "Answer only the questions we need.",
           "Get a callback within one business day with the next step.",
         ],
         submitDescription:
-          "We use this final step to confirm the callback plan and respond quickly with the right next action.",
+          "We use this final step to confirm the callback plan.",
         afterSubmit:
-          "We review the request, confirm the best pathway, and reply within one business day.",
+          "We review the request and reply within one business day.",
       };
     }
 
@@ -251,58 +251,58 @@ export function ContactForm() {
         portalLabel: "Facility Portal",
         heading:
           form.intent === "packet"
-            ? "Packet-first facility intake"
-            : "Operational facility consult route",
+            ? "Facility packet request"
+            : "Facility consult request",
         description:
           form.intent === "packet"
-            ? "This route is built for teams that want the contract packet, referral checklist, billing guardrails, and onboarding documents before the consult."
-            : "This route is built for SNFs, rehab teams, ALFs, physician offices, and referral coordinators who need workflow, timing, and launch-fit guidance.",
+            ? "Use this when you want documents first."
+            : "Use this when you want a facility consult.",
         checklist:
           form.intent === "packet"
             ? [
-                "Collect the organization name, setting, and timing.",
-                "Confirm the main service or document need.",
-                "Route the request into packet follow-up within one business day.",
+                "Share the organization name, setting, and timing.",
+                "Tell us what documents you need.",
+                "We follow up within one business day.",
               ]
             : [
-                "Collect the setting, expected volume, and billing expectations.",
-                "Confirm the best operational contact for follow-up.",
-                "Route the request into onboarding or consult planning within one business day.",
+                "Share the setting, expected volume, and billing questions.",
+                "Add the best contact for follow-up.",
+                "We follow up within one business day.",
               ],
         submitDescription:
-          "We use this final step to confirm the operational contact, review the setting and payer lane, and respond with the next onboarding action.",
+          "We use this step to confirm the contact and next action.",
         afterSubmit:
-          "We review the request, confirm service fit, and reply within one business day with the best next consult, packet, or rollout step.",
+          "We review the request and reply within one business day.",
       };
     }
 
     return {
       icon: Heart,
-      portalLabel: "Concierge Patient Portal",
+      portalLabel: "Patient Portal",
       heading:
         form.intent === "estimate"
-          ? "Estimate-first patient intake"
-          : "Appointment-first patient intake",
+          ? "Estimate request"
+          : "Appointment request",
       description:
         form.intent === "estimate"
-          ? "This route is built for families who need pricing guidance or a Good Faith Estimate before deciding on scheduling."
-          : "This route is built for Las Vegas patients, caregivers, and self-pay families who want the shortest path into a bedside or at-home swallowing evaluation request.",
+          ? "Use this when you want pricing first."
+          : "Use this when you want to request a visit.",
       checklist:
         form.intent === "estimate"
           ? [
-              "Confirm the Las Vegas-area location and visit type.",
-              "Review referral status and the likely payment path.",
-              "Route the request into estimate follow-up within one business day.",
+              "Share the Las Vegas-area location and visit type.",
+              "Tell us the referral status and likely payment path.",
+              "We follow up within one business day.",
             ]
           : [
-              "Confirm the patient location, service goal, and timing.",
-              "Review whether an order or referral is already in place.",
-              "Route the request into scheduling follow-up within one business day.",
+              "Share the patient location, service goal, and timing.",
+              "Tell us whether an order or referral is already in place.",
+              "We follow up within one business day.",
             ],
       submitDescription:
-        "We use this final step to confirm the callback plan, review the referral lane, and respond with the next scheduling or estimate action.",
+        "We use this step to confirm the callback plan and next action.",
       afterSubmit:
-        "We review the request and respond within one business day with the next scheduling step, fit check, or pricing guidance for Las Vegas-area service.",
+        "We review the request and reply within one business day.",
     };
   }, [form.intent, form.path]);
 
@@ -386,7 +386,7 @@ export function ContactForm() {
       setSubmitted(true);
     } catch {
       setError(
-        "Something went wrong. Please try again or call directly for urgent Las Vegas scheduling."
+        "Something went wrong. Please try again or call us directly."
       );
     } finally {
       setSubmitting(false);
@@ -401,9 +401,8 @@ export function ContactForm() {
           Your {requestLabel} is in
         </h3>
         <p className="mx-auto max-w-xl text-sm leading-relaxed text-muted-foreground">
-          We will review the request and respond within one business day with the
-          next scheduling step, fit check, or pricing guidance for Las Vegas-area
-          service.
+          We will review your request and respond within one business day with
+          next steps.
         </p>
         <Button
           variant="outline"
@@ -447,7 +446,7 @@ export function ContactForm() {
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
               <activeGuide.icon className="h-4 w-4" />
-              Routing through the {activeGuide.portalLabel}
+              {activeGuide.portalLabel}
             </div>
             <h3 className="text-lg font-semibold text-foreground">
               {activeGuide.heading}
@@ -458,7 +457,7 @@ export function ContactForm() {
           </div>
           <div className="rounded-[var(--radius)] border border-border bg-background/85 p-4">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-              What this route does
+              What to expect
             </p>
             <ul className="mt-3 space-y-2">
               {activeGuide.checklist.map((item) => (
@@ -481,8 +480,7 @@ export function ContactForm() {
               Choose the portal path
             </h3>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              This first step keeps the rest of the intake short and specific to
-              either concierge patient signup or facility onboarding.
+              Start with patient or facility.
             </p>
           </div>
 
@@ -633,7 +631,7 @@ export function ContactForm() {
                 className="flex h-10 w-full rounded-[var(--radius)] border border-border bg-card px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <option value="">Choose one</option>
-                <option value="self-pay">Concierge self-pay</option>
+                <option value="self-pay">Self-pay / cash pay</option>
                 <option value="superbill">Self-pay with superbill request</option>
                 <option value="facility-arranged">Facility-arranged visit</option>
                 <option value="not-sure">Not sure yet</option>
@@ -821,8 +819,8 @@ export function ContactForm() {
                 rows={4}
                 placeholder={
                   form.path === "facility"
-                    ? "Share the building workflow, referral blockers, payer concerns, preferred launch timing, or any detail that helps route the facility request."
-                    : "Share the swallow concern, preferred day, referring provider, or any detail that will help us route the patient request."
+                    ? "Share the building workflow, referral blockers, payer concerns, preferred launch timing, or any detail that will help us prepare."
+                    : "Share the swallow concern, preferred day, referring provider, or any detail that will help us prepare."
                 }
                 value={form.message}
                 onChange={(event) => updateField("message", event.target.value)}
@@ -852,10 +850,10 @@ export function ContactForm() {
       <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border pt-4">
         <div className="text-sm text-muted-foreground">
           {step === 0
-            ? "This form is designed to route to the right next step quickly."
+            ? "Pick the right path."
             : step === 1
-              ? "Only the details needed to move scheduling forward."
-              : "Final step: tell us how to reach you."}
+              ? "Add the key details."
+              : "Add your contact info."}
         </div>
         <div className="flex flex-wrap gap-2">
           {step > 0 && (

@@ -25,6 +25,8 @@ import {
   CheckSquare,
   Heart,
   HelpCircle,
+  Phone,
+  Mail,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -40,37 +42,37 @@ const expectSteps = [
   {
     title: "We come to you",
     description:
-      "Your clinician will arrive at your facility or home with the Optim ENTity XL scope and portable HD camera — everything needed for a complete evaluation. There is nothing you need to set up.",
+      "Your clinician arrives at your facility or home with all the equipment needed for a complete evaluation. There is nothing you need to set up.",
     icon: Heart,
   },
   {
     title: "We review your history",
     description:
-      "The clinician will ask about your medical history, current diet, medications, and any swallowing problems you have been experiencing.",
+      "The clinician asks about your medical history, current diet, medications, and any swallowing problems you have been experiencing.",
     icon: ClipboardCheck,
   },
   {
     title: "A small camera is placed",
     description:
-      "A thin, flexible camera (about the width of a piece of spaghetti) is gently passed through your nose. This takes just a few seconds. It may feel slightly uncomfortable but it is not painful.",
+      "A thin, flexible camera (about the width of a piece of spaghetti) is gently passed through your nose. It takes a few seconds and may feel slightly uncomfortable but is not painful.",
     icon: Eye,
   },
   {
     title: "You eat and drink",
     description:
-      "While the camera is in place, you will be given different foods and liquids to eat and drink. The clinician watches on a screen to see how your swallowing works.",
+      "While the camera is in place, you eat and drink different foods and liquids. The clinician watches on a screen to see how your swallowing works.",
     icon: Utensils,
   },
   {
     title: "We review your results",
     description:
-      "The camera is removed and the clinician will explain what they found. They will give you specific recommendations right away about what foods and drinks are safest for you.",
+      "The camera is removed and the clinician explains what they found, with specific recommendations about what foods and drinks are safest for you.",
     icon: MessageSquare,
   },
   {
     title: "A written report is sent",
     description:
-      "A detailed report of the findings and recommendations is sent to your doctor within 24-48 hours.",
+      "A detailed report of findings and recommendations is sent to your doctor within 24-48 hours.",
     icon: FileText,
   },
 ];
@@ -90,22 +92,22 @@ const patientFaqs = [
   {
     question: "Does FEES hurt?",
     answer:
-      "Most patients say FEES is mildly uncomfortable but not painful. The camera is very thin and flexible. You may feel slight pressure in your nose for a few seconds as it is placed, but this goes away quickly. The entire camera portion of the exam takes about 15-20 minutes.",
+      "Most patients say it is mildly uncomfortable but not painful. The camera is very thin and flexible. You may feel slight pressure in your nose for a few seconds as it is placed, but this goes away quickly. The camera portion takes about 15-20 minutes.",
   },
   {
     question: "How long does the appointment take?",
     answer:
-      "The whole appointment, including talking about your history, the exam itself, and reviewing results, usually takes about 45 minutes to one hour. The actual camera portion is about 15-20 minutes.",
+      "About 45 minutes to one hour total, including history review, the exam, and going over your results. The camera portion itself is about 15-20 minutes.",
   },
   {
     question: "Will I get my results the same day?",
     answer:
-      "Yes. Your clinician will explain what they found and give you recommendations right after the exam. A detailed written report is also sent to your doctor.",
+      "Yes. Your clinician explains the findings and gives you recommendations right after the exam. A written report is also sent to your doctor.",
   },
   {
-    question: "Does my insurance cover this?",
+    question: "How much does it cost?",
     answer:
-      "Coverage depends on where the service is being provided, what kind of referral or order is in place, and whether the visit is part of a facility agreement or a concierge self-pay appointment. We do not promise Medicare, Medicaid, or commercial reimbursement until the pathway is verified. For concierge visits, we can provide a superbill for out-of-network submission when appropriate.",
+      "A FEES evaluation is $250 cash pay. We also offer a virtual swallowing wellness consult for $75. Coverage through a facility agreement may differ — we can provide a superbill for out-of-network insurance submission when appropriate.",
   },
   {
     question: "Can a family member be present during the exam?",
@@ -115,7 +117,7 @@ const patientFaqs = [
   {
     question: "What if I have a sensitive gag reflex?",
     answer:
-      "The ENTity XL scope is only 3.6mm wide — thinner than a piece of spaghetti. It is placed gently and most patients tolerate it well, even those with a sensitive gag reflex. Your clinician is experienced in making the process as comfortable as possible.",
+      "The scope is only 3.6mm wide — thinner than a piece of spaghetti. It is placed gently and most patients tolerate it well, even those with a sensitive gag reflex. Your clinician is experienced in making the process as comfortable as possible.",
   },
 ];
 
@@ -124,8 +126,8 @@ export default function ForPatientsPage() {
     <div className="container mx-auto max-w-4xl px-4 py-12 space-y-16">
       <div className="space-y-4">
         <PageHeader
-          title="For Las Vegas Patients & Families"
-          description="Understand the FEES visit, review the next steps, and move into a simple appointment request when you are ready."
+          title="For Patients & Families"
+          description="What happens during a FEES visit, how to prepare, and what your results mean."
         />
         <VoiceNarration
           src="/audio/what-to-expect.mp3"
@@ -139,8 +141,8 @@ export default function ForPatientsPage() {
           What to Expect
         </h2>
         <p className="text-muted-foreground leading-relaxed">
-          A FEES evaluation is a simple, safe procedure that helps your
-          clinician see how you swallow. Here is what will happen, step by step:
+          A FEES evaluation is a safe procedure that lets your clinician see how
+          you swallow. Here is what happens, step by step:
         </p>
         <div className="space-y-4">
           {expectSteps.map((step, index) => (
@@ -180,8 +182,7 @@ export default function ForPatientsPage() {
           className="w-full h-auto rounded-[var(--radius)] shadow-sm"
         />
         <p className="text-muted-foreground">
-          There is very little you need to do before your FEES evaluation. Here
-          is a simple checklist:
+          Very little preparation is needed. Here is a quick checklist:
         </p>
         <Card>
           <CardHeader>
@@ -214,17 +215,17 @@ export default function ForPatientsPage() {
           className="w-full h-auto rounded-[var(--radius)] shadow-sm"
         />
         <p className="text-muted-foreground leading-relaxed">
-          After your evaluation, your clinician will explain the findings and
-          what they mean for you. Here are some terms you might hear:
+          After your evaluation, your clinician explains the findings and what
+          they mean for you. Here are some terms you might hear:
         </p>
         <div className="grid gap-4 sm:grid-cols-2">
           <Card>
             <CardContent className="pt-6 space-y-2">
               <Badge variant="accent">Aspiration</Badge>
               <p className="text-sm text-muted-foreground">
-                When food or liquid enters the airway (windpipe) below the vocal
-                cords. This can increase the risk of pneumonia. Your clinician
-                will tell you if this is happening and what can be done about it.
+                When food or liquid enters the airway below the vocal cords.
+                This can increase the risk of pneumonia. Your clinician will
+                explain if this is happening and what can be done.
               </p>
             </CardContent>
           </Card>
@@ -233,8 +234,8 @@ export default function ForPatientsPage() {
               <Badge variant="accent">Penetration</Badge>
               <p className="text-sm text-muted-foreground">
                 When food or liquid enters the airway above the vocal cords but
-                does not pass below them. This is less severe than aspiration but
-                still needs attention.
+                does not pass below them. Less severe than aspiration but still
+                needs attention.
               </p>
             </CardContent>
           </Card>
@@ -243,8 +244,8 @@ export default function ForPatientsPage() {
               <Badge variant="accent">Residue</Badge>
               <p className="text-sm text-muted-foreground">
                 When food or liquid remains in the throat after you swallow.
-                Small amounts can be normal, but larger amounts may need to be
-                addressed with diet changes or swallowing exercises.
+                Small amounts can be normal, but larger amounts may need diet
+                changes or swallowing exercises.
               </p>
             </CardContent>
           </Card>
@@ -252,17 +253,15 @@ export default function ForPatientsPage() {
             <CardContent className="pt-6 space-y-2">
               <Badge variant="accent">Diet Recommendations</Badge>
               <p className="text-sm text-muted-foreground">
-                Based on the findings, your clinician may recommend changes to
-                the textures of your food or the thickness of your liquids to
-                help you swallow more safely.
+                Based on findings, your clinician may recommend changes to food
+                textures or liquid thickness to help you swallow more safely.
               </p>
             </CardContent>
           </Card>
         </div>
         <p className="text-sm text-muted-foreground italic">
           Your clinician will explain your specific results in detail and answer
-          all of your questions. You do not need to memorize these terms before
-          your evaluation.
+          all of your questions. You do not need to know these terms beforehand.
         </p>
       </section>
 
@@ -284,51 +283,13 @@ export default function ForPatientsPage() {
         </Accordion>
       </section>
 
-      <section className="grid gap-4 md:grid-cols-2">
-        <Card className="border-primary/15">
-          <CardContent className="space-y-3 pt-6">
-            <h2 className="text-xl font-semibold text-foreground">
-              Looking for a bedside swallow study?
-            </h2>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              Use the local bedside page if the patient is medically fragile,
-              bedbound, or the family needs a faster answer without transport.
-            </p>
-            <Link
-              href="/bedside-swallow-study-las-vegas"
-              className={buttonVariants({ variant: "outline" })}
-            >
-              Read the Bedside Page
-            </Link>
-          </CardContent>
-        </Card>
-        <Card className="border-primary/15">
-          <CardContent className="space-y-3 pt-6">
-            <h2 className="text-xl font-semibold text-foreground">
-              Need an at-home swallow evaluation?
-            </h2>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              Use the at-home page if the patient is in a private residence and
-              the family wants the shortest route to an appointment or estimate.
-            </p>
-            <Link
-              href="/at-home-swallow-evaluation-las-vegas"
-              className={buttonVariants({ variant: "outline" })}
-            >
-              Read the At-Home Page
-            </Link>
-          </CardContent>
-        </Card>
-      </section>
-
+      {/* Bottom CTA */}
       <section className="rounded-[var(--radius)] border border-primary-light bg-primary-light/30 p-8 text-center space-y-4">
         <h2 className="text-xl font-semibold text-foreground">
-          Ready for the next step?
+          Ready to schedule?
         </h2>
         <p className="text-muted-foreground max-w-xl mx-auto">
-          Use the Mobile FEES LV request funnel to ask for a Las Vegas
-          appointment, pricing review, or concierge fit check without filling
-          out the wrong form.
+          Request an appointment online, or reach out directly.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <Link
@@ -341,8 +302,24 @@ export default function ForPatientsPage() {
             href="/contact?path=patient&intent=estimate"
             className={buttonVariants({ variant: "outline", size: "lg" })}
           >
-            Request Pricing Review
+            Request Estimate
           </Link>
+        </div>
+        <div className="flex flex-wrap justify-center gap-4 pt-2 text-sm text-muted-foreground">
+          <a
+            href="tel:+19374899209"
+            className="flex items-center gap-1.5 hover:text-primary transition-colors"
+          >
+            <Phone className="h-4 w-4" />
+            (937) 489-9209
+          </a>
+          <a
+            href="mailto:kristine@thetechslp.com"
+            className="flex items-center gap-1.5 hover:text-primary transition-colors"
+          >
+            <Mail className="h-4 w-4" />
+            kristine@thetechslp.com
+          </a>
         </div>
       </section>
     </div>

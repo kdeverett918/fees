@@ -124,9 +124,9 @@ export default function RecurrentPneumoniaSwallowEvaluationLasVegasPage() {
           description="For patients, families, and referral teams trying to decide whether repeated pneumonia should trigger a more direct swallowing workup."
         >
           <div className="flex flex-wrap gap-2 pt-2">
-            <Badge>Concern-based search page</Badge>
+            <Badge>Respiratory concern</Badge>
             <Badge variant="secondary">Recurrent pneumonia concern</Badge>
-            <Badge variant="outline">Routes into patient funnel</Badge>
+            <Badge variant="outline">Request evaluation</Badge>
           </div>
         </PageHeader>
 
@@ -137,11 +137,9 @@ export default function RecurrentPneumoniaSwallowEvaluationLasVegasPage() {
               watching this?” to “what swallowing step makes sense now?”
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground">
-              Searchers here are usually not early-stage browsers. They are trying
-              to connect repeated respiratory problems with swallowing safety,
-              meal-time symptoms, or aspiration concern. Mobile FEES LV is built
-              to capture that Las Vegas search intent and route it into a clearer
-              next step.
+              Families and clinicians are often trying to connect repeated
+              respiratory problems with swallowing safety, meal-time symptoms, or
+              aspiration concern. This page is here to make the next step clearer.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -183,7 +181,7 @@ export default function RecurrentPneumoniaSwallowEvaluationLasVegasPage() {
 
         <section className="space-y-6">
           <h2 className="text-2xl font-semibold text-foreground">
-            Why this page fits a recurrent-pneumonia search
+            Why this page focuses on recurrent pneumonia
           </h2>
           <div className="grid gap-4 md:grid-cols-3">
             {pneumoniaPatterns.map((item) => (

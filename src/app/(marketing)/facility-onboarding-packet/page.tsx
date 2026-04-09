@@ -80,7 +80,7 @@ const launchSteps = [
   {
     title: "Submit the facility request",
     description:
-      "Use the facility portal funnel so the consult or packet follow-up lands in the right queue instead of a generic contact inbox.",
+      "Use the facility portal form so the consult or packet follow-up goes to the right place instead of a generic contact inbox.",
     icon: Building2,
   },
 ];
@@ -111,25 +111,23 @@ export default function FacilityOnboardingPacketPage() {
 
         <PageHeader
           title="Facility Onboarding Packet"
-          description="A self-serve packet for contracts, referral workflow, billing guardrails, and launch planning before the first facility consult."
+          description="A packet for contracts, referral workflow, billing guardrails, and launch planning before the first facility consult."
         >
           <div className="flex flex-wrap gap-2 pt-2">
             <Badge>Facility packet</Badge>
             <Badge variant="secondary">Contracts and workflow</Badge>
-            <Badge variant="outline">Built for Las Vegas rollout planning</Badge>
+            <Badge variant="outline">Las Vegas facility planning</Badge>
           </div>
         </PageHeader>
 
         <section className="grid gap-8 rounded-[calc(var(--radius)*2)] border border-primary/15 bg-card p-8 shadow-sm lg:grid-cols-[1.05fr_0.95fr]">
           <div className="space-y-4">
             <h2 className="text-3xl font-semibold text-foreground">
-              This page is designed to reduce the amount of one-off sales explanation.
+              Start here if you want the documents before the consult.
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground">
-              Instead of asking every SNF, ALF, rehab team, or referral office to
-              start from zero, this packet collects the main documents and the
-              launch sequence in one place. Teams can review the workflow first,
-              then submit a facility request when they are ready to move.
+              This packet collects the main documents and steps in one place so
+              your team can review them before the first call.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -244,11 +242,9 @@ export default function FacilityOnboardingPacketPage() {
                 </h2>
               </div>
               <p className="text-sm leading-relaxed text-muted-foreground">
-                A facility-facing funnel works better when teams can self-educate
-                before the consult. This page gives administrators, rehab leads,
-                and referral coordinators a practical packet so the first call
-                can focus on fit, timing, and launch decisions instead of
-                scattered document requests.
+                This page gives administrators, rehab leads, and referral
+                coordinators the documents they usually want before the first
+                call.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link

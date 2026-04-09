@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Download, ExternalLink, FileText, ShieldCheck } from "lucide-react";
+import { Download, ExternalLink, FileText, ShieldCheck, Phone, Mail } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -24,14 +24,12 @@ export default function ResourcesPage() {
   return (
     <div className="container mx-auto max-w-6xl px-4 py-12 space-y-16">
       <PageHeader
-        title="Resources & Downloadable Documents"
-        description="Facility-ready templates, patient-facing handouts, and research-backed guides built to support contracting, scheduling, and education."
+        title="Resources & Documents"
+        description="Templates, handouts, and forms for facilities and patients."
       >
         <div className="flex flex-wrap gap-2 pt-2">
           <Badge>Printable documents</Badge>
-          <Badge variant="secondary">Fillable browser forms</Badge>
-          <Badge variant="secondary">Research-backed copy</Badge>
-          <Badge variant="outline">Built for Las Vegas facilities and concierge visits</Badge>
+          <Badge variant="secondary">Fillable forms</Badge>
         </div>
       </PageHeader>
 
@@ -76,85 +74,6 @@ export default function ResourcesPage() {
       </section>
 
       <section className="grid gap-4 lg:grid-cols-2">
-        <Card className="h-full border-primary/15">
-          <CardHeader className="space-y-3">
-            <div className="flex items-center justify-between gap-3">
-              <Badge>Facility Portal Bundle</Badge>
-              <span className="text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                Fast Path
-              </span>
-            </div>
-            <CardTitle className="text-xl">
-              Start with the Facility Portal
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              If you are an SNF, rehab team, ALF, memory-care program, or
-              physician office, use the portal first. It routes you into
-              onboarding, pricing, packet review, and setting-specific pages.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/facility-portal"
-                className={buttonVariants({ className: "w-full sm:w-auto" })}
-              >
-                Open Facility Portal
-              </Link>
-              <Link
-                href="/facility-onboarding-packet"
-                className={buttonVariants({
-                  variant: "outline",
-                  className: "w-full sm:w-auto",
-                })}
-              >
-                View Onboarding Packet
-              </Link>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="h-full border-primary/15">
-          <CardHeader className="space-y-3">
-            <div className="flex items-center justify-between gap-3">
-              <Badge variant="secondary">Patient Portal Bundle</Badge>
-              <span className="text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                Fast Path
-              </span>
-            </div>
-            <CardTitle className="text-xl">
-              Start with the Concierge Patient Portal
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              If you are a family, caregiver, or self-pay patient, use the
-              patient portal first. It routes you into appointment requests,
-              estimates, patient education, and at-home pathways.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/concierge-patient-portal"
-                className={buttonVariants({ className: "w-full sm:w-auto" })}
-              >
-                Open Patient Portal
-              </Link>
-              <Link
-                href="/for-patients"
-                className={buttonVariants({
-                  variant: "outline",
-                  className: "w-full sm:w-auto",
-                })}
-              >
-                View Patient Guide
-              </Link>
-            </div>
-          </CardContent>
-        </Card>
-
-      </section>
-
-      <section className="grid gap-4 lg:grid-cols-2">
         {resourceDocuments.map((document) => (
           <Card key={document.href} className="h-full">
             <CardHeader className="space-y-3">
@@ -194,36 +113,47 @@ export default function ResourcesPage() {
         ))}
       </section>
 
-      <section className="grid gap-6 rounded-[var(--radius)] border border-primary-light bg-primary-light/30 p-8 lg:grid-cols-[1.2fr_0.8fr]">
-        <div className="space-y-4">
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="h-5 w-5 text-primary" />
-            <h2 className="text-2xl font-semibold text-foreground">
-              Compliance Notes
-            </h2>
-          </div>
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            These materials are practical business templates, not legal advice or payer
-            guarantees. Final contract language, Medicare billing workflow, and Medicaid or
-            managed-care coverage should be reviewed with the facility&apos;s billing lead,
-            compliance team, and legal counsel before go-live.
-          </p>
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            The reimbursement guide intentionally frames FEES as a clinical and workflow
-            advantage, not as an automatic revenue event. That keeps the sales language aligned
-            with current CMS and Nevada payer realities.
-          </p>
+      <section className="rounded-[var(--radius)] border border-primary-light bg-primary-light/30 p-8 space-y-4">
+        <div className="flex items-center gap-2">
+          <ShieldCheck className="h-5 w-5 text-primary" />
+          <h2 className="text-2xl font-semibold text-foreground">
+            Compliance Notes
+          </h2>
         </div>
-        <div className="space-y-3">
-          <h3 className="text-lg font-semibold text-foreground">
-            Need a customized packet?
-          </h3>
-          <p className="text-sm text-muted-foreground">
-            Ask for a facility-specific onboarding packet, a concierge patient bundle,
-            or a Las Vegas appointment workflow tailored to your service area and final prices.
-          </p>
-          <Link href="/contact" className={buttonVariants({ size: "lg", className: "w-full sm:w-auto" })}>
-            Request a Custom Packet
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          These materials are practical business templates, not legal advice or payer
+          guarantees. Final contract language, Medicare billing workflow, and Medicaid or
+          managed-care coverage should be reviewed with the facility&apos;s billing lead,
+          compliance team, and legal counsel before go-live.
+        </p>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          The reimbursement guide intentionally frames FEES as a clinical and workflow
+          advantage, not as an automatic revenue event. That keeps the language aligned
+          with current CMS and Nevada payer realities.
+        </p>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          Need a customized packet for your facility? Reach out and we will put one together.
+        </p>
+        <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+          <a
+            href="tel:+19374899209"
+            className="flex items-center gap-1.5 transition-colors hover:text-primary"
+          >
+            <Phone className="h-4 w-4 shrink-0" />
+            (937) 489-9209
+          </a>
+          <a
+            href="mailto:kristine@thetechslp.com"
+            className="flex items-center gap-1.5 transition-colors hover:text-primary"
+          >
+            <Mail className="h-4 w-4 shrink-0" />
+            kristine@thetechslp.com
+          </a>
+          <Link
+            href="/contact"
+            className="text-primary font-medium hover:underline"
+          >
+            Contact page
           </Link>
         </div>
       </section>

@@ -21,6 +21,8 @@ import {
   Brain,
   HeartPulse,
   Stethoscope,
+  Phone,
+  Mail,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -273,13 +275,11 @@ export default function WhatIsFeesPage() {
 
       <section className="space-y-6">
         <h2 className="text-2xl font-semibold text-foreground">
-          Common Las Vegas Search Paths
+          Common questions and concerns
         </h2>
         <p className="text-muted-foreground leading-relaxed">
-          Many patients and families do not search for the term FEES first.
-          They search for the problem or setting they are dealing with. These
-          pages are built to answer those questions and move people toward the
-          right next step.
+          These pages cover some of the most common reasons patients, families,
+          and facilities ask about a swallowing evaluation.
         </p>
         <div className="grid gap-4 sm:grid-cols-2">
           <Link
@@ -363,7 +363,7 @@ export default function WhatIsFeesPage() {
             </p>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               For patients who cannot realistically leave home and need a
-              practical next-step route.
+              practical next step.
             </p>
           </Link>
           <Link
@@ -422,7 +422,7 @@ export default function WhatIsFeesPage() {
               At-home swallow evaluation
             </p>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              For private-home and concierge cases that need a simpler route to
+              For private-home visits when you need a simpler path to
               an appointment or estimate.
             </p>
           </Link>
@@ -430,15 +430,14 @@ export default function WhatIsFeesPage() {
       </section>
 
       {/* CTA */}
-      <section className="rounded-[var(--radius)] border border-primary-light bg-primary-light/30 p-8 space-y-3 text-center">
+      <section className="rounded-[var(--radius)] border border-primary-light bg-primary-light/30 p-8 space-y-4 text-center">
         <Badge variant="default">Have Questions?</Badge>
         <h2 className="text-xl font-semibold text-foreground">
           Not sure if FEES is right for you?
         </h2>
         <p className="text-muted-foreground max-w-xl mx-auto">
-          We are happy to help patients and families understand whether a
-          bedside swallow evaluation makes sense and what the next Las Vegas
-          step should be.
+          Reach out and we can help you decide whether a swallow evaluation
+          is the right next step.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <Link
@@ -447,12 +446,22 @@ export default function WhatIsFeesPage() {
           >
             Request Appointment
           </Link>
-          <Link
-            href="/las-vegas-mobile-fees"
-            className={buttonVariants({ variant: "outline", size: "lg" })}
+        </div>
+        <div className="flex flex-wrap justify-center gap-4 pt-2 text-sm text-muted-foreground">
+          <a
+            href="tel:+19374899209"
+            className="flex items-center gap-1.5 transition-colors hover:text-primary"
           >
-            Read the Las Vegas FEES Page
-          </Link>
+            <Phone className="h-4 w-4 shrink-0" />
+            (937) 489-9209
+          </a>
+          <a
+            href="mailto:kristine@thetechslp.com"
+            className="flex items-center gap-1.5 transition-colors hover:text-primary"
+          >
+            <Mail className="h-4 w-4 shrink-0" />
+            kristine@thetechslp.com
+          </a>
         </div>
       </section>
     </div>

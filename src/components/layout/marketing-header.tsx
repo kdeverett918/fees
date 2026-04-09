@@ -3,19 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/concierge-patient-portal", label: "Concierge Portal" },
+  { href: "/concierge-patient-portal", label: "Patient Portal" },
   { href: "/facility-portal", label: "Facility Portal" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/faq", label: "FAQ" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/resources", label: "Resources" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function MarketingHeader() {
@@ -23,28 +20,28 @@ export function MarketingHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80 no-print">
+    <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/85 no-print">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary">
               <span className="text-sm font-bold text-primary-foreground">F</span>
             </div>
-            <span className="font-semibold text-foreground hidden sm:block">
+            <span className="hidden font-semibold text-foreground sm:block">
               Mobile FEES LV
             </span>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "px-3 py-2 text-sm font-medium rounded-[var(--radius)] transition-colors",
+                  "rounded-[var(--radius)] px-3 py-2 text-sm font-medium transition-colors",
                   pathname === link.href
-                    ? "text-primary bg-primary-light"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    ? "bg-primary-light text-primary"
+                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
                 )}
               >
                 {link.label}
@@ -53,20 +50,15 @@ export function MarketingHeader() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <Link href="/concierge-patient-portal">
+            <Link href="/contact">
               <Button size="sm" className="hidden xl:inline-flex">
                 <Phone className="h-4 w-4" />
-                Patient Portal
-              </Button>
-            </Link>
-            <Link href="/facility-portal">
-              <Button variant="outline" size="sm" className="hidden sm:inline-flex">
-                Facility Portal
+                Start Request
               </Button>
             </Link>
             <button
-              className="lg:hidden p-2 text-muted-foreground hover:text-foreground cursor-pointer"
-              onClick={() => setMobileOpen(!mobileOpen)}
+              className="cursor-pointer p-2 text-muted-foreground hover:text-foreground lg:hidden"
+              onClick={() => setMobileOpen((open) => !open)}
               aria-label="Toggle menu"
             >
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -75,8 +67,8 @@ export function MarketingHeader() {
         </div>
       </div>
 
-      {mobileOpen && (
-        <div className="lg:hidden border-t border-border bg-card">
+      {mobileOpen ? (
+        <div className="border-t border-border bg-card lg:hidden">
           <nav className="flex flex-col p-4 space-y-1">
             {navLinks.map((link) => (
               <Link
@@ -84,29 +76,27 @@ export function MarketingHeader() {
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
                 className={cn(
-                  "px-3 py-2 text-sm font-medium rounded-[var(--radius)] transition-colors",
+                  "rounded-[var(--radius)] px-3 py-2 text-sm font-medium transition-colors",
                   pathname === link.href
-                    ? "text-primary bg-primary-light"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    ? "bg-primary-light text-primary"
+                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
                 )}
               >
                 {link.label}
               </Link>
             ))}
-            <Link href="/concierge-patient-portal" onClick={() => setMobileOpen(false)}>
-              <Button size="sm" className="w-full mt-2">
+            <Link
+              href="/contact"
+              onClick={() => setMobileOpen(false)}
+            >
+              <Button size="sm" className="mt-2 w-full">
                 <Phone className="h-4 w-4" />
-                Open Patient Portal
-              </Button>
-            </Link>
-            <Link href="/facility-portal" onClick={() => setMobileOpen(false)}>
-              <Button variant="outline" size="sm" className="w-full">
-                Open Facility Portal
+                Start Request
               </Button>
             </Link>
           </nav>
         </div>
-      )}
+      ) : null}
     </header>
   );
 }

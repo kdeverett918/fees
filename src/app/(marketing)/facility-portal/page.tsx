@@ -4,17 +4,12 @@ import {
   ArrowRight,
   BadgeDollarSign,
   Building2,
-  ClipboardList,
   FileText,
-  Hospital,
+  Mail,
   MapPinned,
-  Stethoscope,
-  ShieldCheck,
-  Users,
-  Warehouse,
+  Phone,
 } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
-import { SeoBreadcrumbs } from "@/components/seo/seo-breadcrumbs";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -24,7 +19,7 @@ import { absoluteUrl, siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Facility Portal",
   description:
-    "The Mobile FEES LV facility portal for SNFs, rehab programs, ALFs, physician offices, and referral teams seeking onboarding, pricing review, and workflow support.",
+    "A simple facility portal for Las Vegas consults, onboarding, and referral setup.",
   keywords: [
     "facility FEES portal Las Vegas",
     "mobile FEES facility consult Las Vegas",
@@ -43,7 +38,7 @@ const pageSchema = [
     name: "Facility Portal",
     url: absoluteUrl("/facility-portal"),
     description:
-      "Facility-facing portal for onboarding calls, referral workflow, pricing review, and documents for Mobile FEES LV in Las Vegas.",
+      "Facility-facing portal for onboarding, packet review, and consult requests in Las Vegas.",
   },
   {
     "@context": "https://schema.org",
@@ -63,144 +58,58 @@ const pageSchema = [
   },
 ];
 
-const portalActions = [
-  {
-    title: "Request onboarding consult",
-    description:
-      "Start the facility intake path for rollout, workflow, and service-fit planning.",
-    href: "/contact?path=facility&intent=consult",
-    icon: Building2,
-  },
-  {
-    title: "Open onboarding packet",
-    description:
-      "Review contracts, referral forms, privacy readiness, and launch documents before the first consult.",
-    href: "/facility-onboarding-packet",
-    icon: FileText,
-  },
-  {
-    title: "Review pricing path",
-    description:
-      "Use the pricing page to review likely billing lanes, volume discussions, and patient-versus-facility payment paths.",
-    href: "/pricing",
-    icon: BadgeDollarSign,
-  },
-  {
-    title: "Review facility workflow",
-    description:
-      "See how bedside FEES fits intake, scheduling, reporting, and payer guardrails.",
-    href: "/for-facilities",
-    icon: ClipboardList,
-  },
-];
-
-const facilitySegments = [
-  {
-    title: "Skilled nursing and rehab",
-    description:
-      "For SNFs and post-acute teams balancing consolidated billing, bedside access, and dysphagia workflow.",
-    href: "/skilled-nursing-facility-fees-las-vegas",
-    icon: Hospital,
-  },
-  {
-    title: "Assisted living and memory care",
-    description:
-      "For ALFs and memory-care settings coordinating resident referrals and family communication.",
-    href: "/assisted-living-fees-las-vegas",
-    icon: Warehouse,
-  },
-  {
-    title: "Physician referral teams",
-    description:
-      "For physician offices and referral coordinators who need a cleaner bedside FEES referral path.",
-    href: "/physician-referral-fees-las-vegas",
-    icon: Stethoscope,
-  },
-];
-
-const facilityFit = [
-  "Skilled nursing facilities and post-acute rehab teams",
-  "Assisted living and memory-care programs coordinating referrals",
-  "Physician offices or referral teams building a cleaner next-step pathway",
-  "Organizations that need onboarding, contracts, or workflow guidance before go-live",
-];
-
-const portalSteps = [
-  {
-    title: "Choose the facility goal",
-    description:
-      "Consult request, packet review, pricing path, or workflow education.",
-    icon: Stethoscope,
-  },
-  {
-    title: "Share the operational details",
-    description:
-      "Building type, expected volume, timing, and current billing expectations.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Get the rollout next step",
-    description:
-      "We respond with the best consult, packet, or launch-planning next action.",
-    icon: Users,
-  },
-];
-
 export default function FacilityPortalPage() {
   return (
     <>
       <JsonLd data={pageSchema} />
-      <div className="container mx-auto max-w-6xl px-4 py-12 space-y-16">
-        <SeoBreadcrumbs
-          items={[
-            { label: "Home", href: "/" },
-            {
-              label: "Facility Portal",
-              href: "/facility-portal",
-              current: true,
-            },
-          ]}
-        />
+      <div className="container mx-auto max-w-6xl px-4 py-12 space-y-12">
         <PageHeader
           title="Facility Portal"
-          description="A facility-facing front door for onboarding calls, referral workflow, pricing review, and launch planning."
+          description="Request a consult, review pricing, or open the onboarding packet for your Las Vegas facility."
         >
           <div className="flex flex-wrap gap-2 pt-2">
-            <Badge>Facility-facing portal</Badge>
-            <Badge variant="secondary">SNF, rehab, ALF, and referral teams</Badge>
-            <Badge variant="outline">Onboarding and workflow path</Badge>
+            <Badge>Facility portal</Badge>
+            <Badge variant="secondary">Las Vegas</Badge>
           </div>
         </PageHeader>
 
-        <section className="grid gap-8 rounded-[calc(var(--radius)*2)] border border-primary/15 bg-card p-8 shadow-sm lg:grid-cols-[1.05fr_0.95fr]">
+        {/* Pricing + CTAs */}
+        <section className="grid gap-6 rounded-[calc(var(--radius)*2)] border border-primary/15 bg-card p-8 shadow-sm lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-4">
-            <h2 className="text-3xl font-semibold text-foreground">
-              This portal is built for facilities and referral teams, not concierge patient intake.
-            </h2>
-            <p className="text-base leading-relaxed text-muted-foreground">
-              If the goal is to launch mobile FEES, review pricing, sort billing
-              expectations, or build a cleaner referral process, this is the right
-              front door. It keeps facility questions separate from patient signup
-              so the onboarding path feels operational instead of generic.
+            <div className="flex items-center gap-3">
+              <BadgeDollarSign className="h-6 w-6 text-primary" />
+              <h2 className="text-3xl font-semibold text-foreground">
+                $350 per FEES study
+              </h2>
+            </div>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Flat rate per evaluation. Facilities can submit claims to
+              Medicare or Medicaid for reimbursement.{" "}
+              <Link
+                href="/pricing"
+                className="font-medium text-primary hover:underline"
+              >
+                Full pricing and reimbursement details
+              </Link>
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 pt-2">
               <Link
                 href="/contact?path=facility&intent=consult"
                 className={buttonVariants({ size: "lg" })}
               >
-                Start Facility Request
+                Request a Consult
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="/resources"
+                href="/facility-onboarding-packet"
                 className={buttonVariants({ variant: "outline", size: "lg" })}
               >
-                Open Resources
+                Open Onboarding Packet
               </Link>
             </div>
           </div>
 
-          <Card className="border-border bg-background/70">
+          <Card className="border-border bg-background/80">
             <CardContent className="space-y-4 pt-6">
               <div className="flex items-center gap-2">
                 <MapPinned className="h-5 w-5 text-primary" />
@@ -209,107 +118,106 @@ export default function FacilityPortalPage() {
                 </h3>
               </div>
               <p className="text-sm leading-relaxed text-muted-foreground">
-                Mobile FEES LV serves Las Vegas-area SNFs, rehab programs,
-                assisted living communities, physician offices, and selected
-                home-based referral situations when the fit is appropriate.
+                Las Vegas-area SNFs, rehab programs, assisted living, physician
+                offices, and referral teams.
               </p>
               <Link
                 href="/concierge-patient-portal"
                 className="text-sm font-medium text-primary hover:underline"
               >
-                Looking for the patient side? Open the Concierge Patient Portal.
+                Looking for the patient side?
               </Link>
             </CardContent>
           </Card>
         </section>
 
-        <section className="space-y-6">
+        {/* How it works */}
+        <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-foreground">
-            What you can do inside the facility portal
-          </h2>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {portalActions.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-[var(--radius)] border border-border bg-card p-5 transition-colors hover:border-primary/40"
-              >
-                <item.icon className="h-5 w-5 text-primary" />
-                <p className="mt-3 font-semibold text-foreground">{item.title}</p>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {item.description}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        <section className="space-y-6">
-          <h2 className="text-2xl font-semibold text-foreground">
-            Choose the facility path that fits your setting
+            How it works
           </h2>
           <div className="grid gap-4 md:grid-cols-3">
-            {facilitySegments.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-[var(--radius)] border border-border bg-card p-5 transition-colors hover:border-primary/40"
+            {[
+              { step: "1", label: "Request a consult or open the packet" },
+              { step: "2", label: "We confirm details and timing" },
+              { step: "3", label: "FEES is performed bedside at your facility" },
+            ].map((item) => (
+              <div
+                key={item.step}
+                className="flex items-center gap-3 rounded-[var(--radius)] border border-border bg-card p-4"
               >
-                <item.icon className="h-5 w-5 text-primary" />
-                <p className="mt-3 font-semibold text-foreground">{item.title}</p>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {item.description}
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
+                  {item.step}
+                </div>
+                <p className="text-sm font-medium text-foreground">
+                  {item.label}
                 </p>
-              </Link>
+              </div>
             ))}
           </div>
         </section>
 
-        <section className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-          <Card className="border-primary/15">
-            <CardContent className="space-y-4 pt-6">
-              <div className="flex items-center gap-2">
-                <Users className="h-5 w-5 text-primary" />
-                <h2 className="text-2xl font-semibold text-foreground">
-                  This portal is built for
-                </h2>
-              </div>
-              <ul className="space-y-3">
-                {facilityFit.map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    <Stethoscope className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                    <span className="text-sm leading-relaxed text-muted-foreground">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+        {/* Quick links */}
+        <section className="grid gap-4 md:grid-cols-3">
+          <Link
+            href="/contact?path=facility&intent=consult"
+            className="rounded-[var(--radius)] border border-border bg-card p-5 transition-colors hover:border-primary/40"
+          >
+            <Building2 className="h-5 w-5 text-primary" />
+            <p className="mt-3 text-lg font-semibold text-foreground">
+              Request a consult
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Start a conversation about adding mobile FEES.
+            </p>
+          </Link>
+          <Link
+            href="/facility-onboarding-packet"
+            className="rounded-[var(--radius)] border border-border bg-card p-5 transition-colors hover:border-primary/40"
+          >
+            <FileText className="h-5 w-5 text-primary" />
+            <p className="mt-3 text-lg font-semibold text-foreground">
+              Onboarding packet
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Contracts, setup documents, and workflow guides.
+            </p>
+          </Link>
+          <Link
+            href="/for-facilities"
+            className="rounded-[var(--radius)] border border-border bg-card p-5 transition-colors hover:border-primary/40"
+          >
+            <BadgeDollarSign className="h-5 w-5 text-primary" />
+            <p className="mt-3 text-lg font-semibold text-foreground">
+              Partnership Details
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Benefits, billing workflow, and contract overview.
+            </p>
+          </Link>
+        </section>
 
-          <Card className="border-primary/15 bg-primary-light/25">
-            <CardContent className="space-y-4 pt-6">
-              <h2 className="text-2xl font-semibold text-foreground">
-                How the facility signup works
-              </h2>
-              <div className="grid gap-3">
-                {portalSteps.map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-[var(--radius)] border border-border bg-card p-4"
-                  >
-                    <div className="flex items-center gap-2">
-                      <item.icon className="h-4 w-4 text-primary" />
-                      <p className="font-medium text-foreground">{item.title}</p>
-                    </div>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+        {/* Contact info */}
+        <section className="rounded-[var(--radius)] border border-primary-light bg-primary-light/30 p-8 space-y-4 text-center">
+          <h2 className="text-2xl font-semibold text-foreground">
+            Questions? Reach out directly.
+          </h2>
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
+            <a
+              href="tel:+19374899209"
+              className="flex items-center gap-2 font-medium text-foreground hover:text-primary transition-colors"
+            >
+              <Phone className="h-4 w-4 text-primary" />
+              (937) 489-9209
+            </a>
+            <a
+              href="mailto:kristine@thetechslp.com"
+              className="flex items-center gap-2 font-medium text-foreground hover:text-primary transition-colors"
+            >
+              <Mail className="h-4 w-4 text-primary" />
+              kristine@thetechslp.com
+            </a>
+          </div>
         </section>
       </div>
     </>

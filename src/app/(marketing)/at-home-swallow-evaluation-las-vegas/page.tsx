@@ -62,15 +62,15 @@ const pageSchema = [
 
 const homeReasons = [
   {
-    title: "Built for family decision-making",
+    title: "Family-friendly process",
     description:
       "The at-home pathway works well when a spouse, adult child, or caregiver is driving the next step and wants a clear plan without piecing together a referral maze.",
     icon: Users,
   },
   {
-    title: "The shortest route to action",
+    title: "Simple next steps",
     description:
-      "This funnel is designed to move a private-home lead toward an appointment or estimate request instead of dropping them into a vague contact form.",
+      "The request form helps families ask for an appointment or estimate without starting from a blank message.",
     icon: Clock3,
   },
   {
@@ -89,7 +89,7 @@ const homeFitSignals = [
 ];
 
 const homeVisitFlow = [
-  "Short request funnel with contact, location, and timing details",
+  "Short request form with contact, location, and timing details",
   "Review of referral or order status and likely payment path",
   "Home visit with portable FEES setup when clinically appropriate",
   "Clear explanation of findings and written report follow-up",
@@ -113,26 +113,25 @@ export default function AtHomeSwallowEvaluationLasVegasPage() {
         />
         <PageHeader
           title="At-Home Swallow Evaluation in Las Vegas"
-          description="For families searching Google because something feels wrong at meals and they want a direct, orderly next step."
+          description="For families who want a clear next step when swallowing feels harder or less safe at home."
         >
           <div className="flex flex-wrap gap-2 pt-2">
-            <Badge>Home-visit search page</Badge>
-            <Badge variant="secondary">Family and concierge intent</Badge>
-            <Badge variant="outline">Fast path to request</Badge>
+            <Badge>Home visit option</Badge>
+            <Badge variant="secondary">Family and concierge care</Badge>
+            <Badge variant="outline">Request appointment</Badge>
           </div>
         </PageHeader>
 
         <section className="grid gap-8 rounded-[calc(var(--radius)*2)] border border-primary/15 bg-card p-8 shadow-sm lg:grid-cols-[1.05fr_0.95fr]">
           <div className="space-y-4">
             <h2 className="text-3xl font-semibold text-foreground">
-              Searching for an at-home swallow evaluation usually means the family
-              is already past the awareness stage.
+              At-home swallowing care is often the right fit when travel is hard
+              and the family needs a clear plan.
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground">
-              They are not looking for broad dysphagia education. They want to
-              know whether someone can come to the home, what the process looks
-              like, and how to start without getting lost in a hospital-style
-              scheduling chain. This page speaks to that exact search behavior.
+              Families usually want to know whether someone can come to the home,
+              what the process looks like, and how to get started without a long
+              scheduling chain.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -170,7 +169,7 @@ export default function AtHomeSwallowEvaluationLasVegasPage() {
 
         <section className="space-y-6">
           <h2 className="text-2xl font-semibold text-foreground">
-            Why this page is different from a general service page
+            Why families choose the at-home option
           </h2>
           <div className="grid gap-4 md:grid-cols-3">
             {homeReasons.map((item) => (
