@@ -5,7 +5,6 @@ import {
   Building2,
   Check,
   HandCoins,
-  House,
   Scale,
 } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
@@ -14,16 +13,15 @@ import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import {
   comparisonRows,
-  patientPlans,
   facilityPlans,
   pricingNotes,
   reimbursementSteps,
 } from "@/data/pricing";
 
 export const metadata: Metadata = {
-  title: "Pricing",
+  title: "Facility Pricing & Reimbursement",
   description:
-    "Simple pricing for Mobile FEES LV — $250 cash-pay FEES for patients, $350 per study for facilities, and $75 virtual swallowing consults.",
+    "Mobile FEES LV facility pricing — $350 per FEES study with guidance on how to submit to Medicare and Medicaid for reimbursement.",
   alternates: {
     canonical: "/pricing",
   },
@@ -83,36 +81,14 @@ export default function PricingPage() {
   return (
     <div className="container mx-auto max-w-6xl px-4 py-12 space-y-16">
       <PageHeader
-        title="Pricing"
-        description="Clear pricing for patients and facilities. No hidden fees."
+        title="Facility Pricing & Reimbursement"
+        description="$350 per FEES study. Facilities submit to Medicare or Medicaid for reimbursement."
       >
         <div className="flex flex-wrap gap-2 pt-2">
-          <Badge>Cash pay available</Badge>
-          <Badge variant="secondary">Good Faith Estimates on request</Badge>
+          <Badge>Flat per-study rate</Badge>
+          <Badge variant="secondary">Reimbursement guidance included</Badge>
         </div>
       </PageHeader>
-
-      <section className="space-y-6">
-        <div className="flex items-center gap-2">
-          <House className="h-5 w-5 text-primary" />
-          <h2 className="text-2xl font-semibold text-foreground">
-            Patient Pricing
-          </h2>
-        </div>
-        <div className="grid gap-6 md:grid-cols-2">
-          {patientPlans.map((plan) => (
-            <PricingCard
-              key={plan.id}
-              name={plan.name}
-              description={plan.description}
-              price={plan.price}
-              priceNote={plan.priceNote}
-              highlights={plan.highlights}
-              icon={House}
-            />
-          ))}
-        </div>
-      </section>
 
       <section className="space-y-6">
         <div className="flex items-center gap-2">
@@ -219,17 +195,17 @@ export default function PricingPage() {
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <Link
-            href="/contact?path=patient&intent=appointment"
+            href="/contact?path=facility&intent=consult"
             className={buttonVariants({ size: "lg" })}
           >
-            Request Appointment
+            Request Facility Consult
             <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
-            href="/contact?path=facility&intent=consult"
+            href="/facility-onboarding-packet"
             className={buttonVariants({ variant: "outline", size: "lg" })}
           >
-            Request Facility Consult
+            Open Onboarding Packet
           </Link>
         </div>
       </section>
